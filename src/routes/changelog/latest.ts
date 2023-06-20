@@ -1,6 +1,6 @@
 import type { ChangelogEntry as ChangelogEntryType } from "$lib/types/changelog-entry";
 
-export const get: import("@sveltejs/kit").RequestHandler = async ({
+export const GET: import("@sveltejs/kit").RequestHandler = async ({
   locals,
 }) => {
   const { fileName } = (locals.changelogEntries as ChangelogEntryType[]).find(

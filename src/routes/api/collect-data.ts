@@ -2,10 +2,11 @@ import type { RequestHandler } from "@sveltejs/kit";
 import fetch from "node-fetch";
 import { generateHash } from "$lib/utils/analytics";
 import type { AnalyticsPayload, PageProps } from "$lib/types/analytics";
-
-const writeKey = process.env.SEGMENT_KEY || "";
+import { SEGMENT_KEY } from "$env/static/private";
+import { dev } from "$app/env";
 
 const allowedEvents = [
+  "component_loaded",
   "email_submitted",
   "extension_installed",
   "extension_uninstalled",
@@ -17,7 +18,7 @@ const allowedEvents = [
   "whitepaper_downloaded",
 ];
 
-export const post: RequestHandler = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
   const body = (await request.json()) as AnalyticsPayload;
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0];
   if (!ip) {
@@ -28,10 +29,7 @@ export const post: RequestHandler = async ({ request }) => {
   }
   const agent = request.headers.get("user-agent") || "";
 
-  const date = new Date();
-  const today = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
-
-  const toHashString = ip + agent + today;
+  const toHashString = ip + agent;
 
   const hash = await generateHash(toHashString);
 
@@ -57,11 +55,8 @@ export const post: RequestHandler = async ({ request }) => {
     };
   };
 
-  if (!writeKey) {
-    return { body: { message: "no token in environment" }, status: 200 };
-  }
   try {
-    const basicAuthHeader = `${writeKey}:`;
+    const basicAuthHeader = `${SEGMENT_KEY}:`;
     const authHeader = Buffer.from(basicAuthHeader).toString("base64");
     const [trackingMethod, anonymousId] = body.cookieId
       ? ["cookie", body.cookieId]
@@ -128,7 +123,7 @@ export const post: RequestHandler = async ({ request }) => {
           };
         // If application is not running in Dev Mode and URL is not from gitpod.io then return error and also return error if url doesnt contains gitpod-kumquat.netlify.app
         if (
-          !import.meta.env.DEV /* For Dev mode */ &&
+          !dev /* For Dev mode */ &&
           !body.props.url.startsWith(
             "https://www.gitpod.io"
           ) /* For Production */ &&

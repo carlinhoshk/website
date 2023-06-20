@@ -2,7 +2,7 @@ import type { RequestHandler } from "@sveltejs/kit";
 import type { SignupData } from "$lib/api/api";
 import { signup } from "$lib/api/signup";
 
-export const post: RequestHandler = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
   const body: SignupData = await request.json();
 
   try {

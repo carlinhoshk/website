@@ -31,18 +31,6 @@
     }
   }
 
-  .h1 {
-    @apply mb-micro;
-
-    @media (max-width: 830px) {
-      @apply mb-macro;
-
-      :global(span) {
-        @apply hidden;
-      }
-    }
-  }
-
   .explore__text {
     @apply px-large;
     flex: 0 0 45%;
@@ -122,7 +110,7 @@
     class="shadow-normal flex xl:items-center max-w-none text-left explore"
   >
     <div class="explore__text md:py-medium xl:py-0">
-      <h2 class="h1">{@html title}</h2>
+      <h2 class="max-w-2xl font-bold text-xxx-large">{@html title}</h2>
       <p class="explore__paragraph text-p-large">
         {@html description}
       </p>

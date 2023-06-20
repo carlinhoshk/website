@@ -1,21 +1,23 @@
 <script lang="ts">
+  import { getFeatureFlag } from "$lib/utils/feature-flag-provider";
   import Section from "../../section.svelte";
   import LaunchExampleWorkspace from "./launch-example-workspace.svelte";
   import LinkGitRepository from "./link-git-repository.svelte";
   import Card from "$lib/components/ui-library/card";
-  import { getFeatureFlag } from "$lib/utils/feature-flag-provider";
+  import { trackEvent } from "$lib/components/segment.svelte";
+  import { onMount } from "svelte";
 
-  /* The exampleFlagValue variable stores the value of the home_example_launch_workspaces_card feature flag.
-   * The getFeatureFlag() function retrieves the value of the specified feature flag.
-   * The feature flag is set to false by default, but is overridden by the value of the feature flag stored in local storage.
-   * The value of the feature flag is also set to the value of the exampleFlagValue variable.
-   */
-
-  let exampleFlagValue = getFeatureFlag(
-    "home_example_launch_workspaces_card",
-    false,
-    (val) => (exampleFlagValue = val)
-  );
+  let exampleFlagValue = null;
+  onMount(async () => {
+    getFeatureFlag("home_example_launch_workspaces_card", false, (val) => {
+      exampleFlagValue = val;
+      trackEvent("component_loaded", {
+        experiments_variant: exampleFlagValue
+          ? "git_signup_cta_with_examples_loaded"
+          : "git_signup_cta_without_examples_loaded",
+      });
+    });
+  });
 </script>
 
 <Section id="get-started" class="pt-20">

@@ -98,6 +98,38 @@ export const overviewCards = [
 ];
 
 export const contributionHighlights: Record<string, ContentCard[]> = {
+  "May 2023": [
+    {
+      badge: "Open Source",
+      contributor: "Derroylo",
+      title: "A DDEV alternative",
+      text: "A lightweight DDEV Alternative for PHP that makes web development easier in Gitpod",
+      link: {
+        text: "View the GitHub Repository",
+        href: "https://github.com/Derroylo/gitpod-tool",
+      },
+    },
+    {
+      badge: "Community office hours",
+      contributor: "Lou",
+      title: "Secretless Workspace",
+      text: "Lou takes us through integrating with providers through OIDC",
+      link: {
+        text: "Watch the VOD",
+        href: "https://www.youtube.com/watch?v=iHtAd2Vfz-Q",
+      },
+    },
+    {
+      badge: "Content",
+      contributor: "Dr. Ernesto Lee",
+      title: "AgentGPT and AutoGPT",
+      text: "How to Run AgentGPT and AutoGPT in Gitpod in 5 Minutes",
+      link: {
+        text: "Read the Article",
+        href: "https://drlee.io/how-to-run-agentgpt-and-autogpt-in-gitpod-in-5-minutes-265684caefff",
+      },
+    },
+  ],
   "April 2023": [
     {
       badge: "Gitpod Community",
@@ -106,7 +138,7 @@ export const contributionHighlights: Record<string, ContentCard[]> = {
       text: "Gitpod organises DevX meetups in Berlin and Munich",
       link: {
         href: "https://guild.host/gitpod",
-        text: "View out Guild page",
+        text: "View our Guild page",
       },
     },
     {

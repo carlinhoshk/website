@@ -14,7 +14,7 @@ const loadBlogPosts = async () => {
   return posts;
 };
 
-export const get = async () => {
+export const GET = async () => {
   const posts = await loadBlogPosts();
 
   /*

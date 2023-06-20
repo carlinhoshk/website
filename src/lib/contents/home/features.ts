@@ -31,7 +31,7 @@ export const worksOnAnyMachineFeature: Feature = {
   previewComponent: Workspaces,
   moreButton: {
     text: "Improve collaboration",
-    href: "/solutions/collaboration",
+    href: "/solutions/developers",
   },
 };
 
@@ -194,48 +194,6 @@ export const devsDontCareAboutMachines: Feature = {
 export const dedicatedFeatures: Feature[] = [
   maximizeControl,
   devsDontCareAboutMachines,
-];
-
-/**Collaboration Features,
- * Using on /solutions/collaboration page
- *
- */
-
-export const parallelDevelopment: Feature = {
-  title: "A new workspace with a single click",
-  paragraph:
-    "Multiple ephemeral workspaces. Enable anyone on your team to work on fixing bugs, implementing features, reviewing pull request, all at the same time.",
-  lottie: {
-    src: "/lottie/edit_workspace.json",
-    id: "edit_workspace",
-  },
-};
-
-export const teamsCodeTogether: Feature = {
-  title: "Share workspaces in realtime",
-  paragraph:
-    "Collaborate on tasks without making changes to your dev environment. Share running workspaces for pair programming, use port forwarding or share a snapshot as a copy of your workspace with teammates.",
-  lottie: {
-    src: "/lottie/share_workspace.json",
-    id: "share-workspace",
-  },
-};
-
-export const worksOnAnyMachineFeatureForCollaboration: Feature = {
-  title: `Works on <t style="text-decoration-line: line-through; color: #999795;">my</t> any machine`,
-  paragraph: `No more "works on my machine" issues.</br></br> Gitpod creates an identical developer experience for everyone, on every machine.`,
-  image: {
-    src: "/images/features/works-on-any-machine.webp",
-    alt: "Works on any machine",
-    width: "100%",
-    height: "100%",
-  },
-};
-
-export const collaborationFeatures: Feature[] = [
-  parallelDevelopment,
-  teamsCodeTogether,
-  worksOnAnyMachineFeatureForCollaboration,
 ];
 
 /**Onboarding Features,
@@ -452,4 +410,182 @@ export const increasedProductivityFeatures: Feature[] = [
   oneCofigToRuleThemAll,
   collaborationMadeEasierForProductivity,
   previewWorkspacesAcrossTeams,
+];
+
+/**Platform Teams Features,
+ * Using on /solutions/platform-teams
+ *
+ */
+
+export const centralConfigSecretsManagement: Feature = {
+  title: "Central config and secrets management",
+  paragraph:
+    "Platform teams can enforce organizational security policies within CDEs. Manage and share dev environment configurations and secrets data from one place.",
+  image: {
+    src: "/images/features/cloud-automation.webp",
+    darkSrc: "/images/features/cloud-automation-dark.webp",
+    alt: "All your data secured",
+    width: "60%",
+  },
+};
+
+export const noBrokenDevEnvironments: Feature = {
+  title: "No more broken environments",
+  paragraph:
+    "From homegrown remote development environments to VDIs, they all have custom configs and are difficult to manage. Gitpod CDEs can spin up in seconds, with the same config as a developer across the world.",
+  previewComponent: Workspaces,
+};
+
+export const efficientForLargeApplications: Feature = {
+  title: "Efficient for even the largest applications",
+  paragraph:
+    "Gitpod CDEs are available on-demand, when you need them and spun-down when you don’t. They’re powerful enough to handle any size application without draining your resources.",
+  terminal: {
+    source: terminalSource,
+  },
+};
+
+export const mitigateExfiltrationRisk: Feature = {
+  title: "Mitigate exfiltration risk",
+  paragraph:
+    "Source code is stored in the cloud, reducing the risk of external actors compromising your codebase and kept away from difficult to control laptops.",
+  image: {
+    src: "/images/features/encoded-data.webp",
+    darkSrc: "/images/features/encoded-data-dark.webp",
+    alt: "Secure data movement",
+    width: "90%",
+    height: "90%",
+  },
+};
+
+export const platformTeamsFeatures: Feature[] = [
+  centralConfigSecretsManagement,
+  noBrokenDevEnvironments,
+  efficientForLargeApplications,
+  mitigateExfiltrationRisk,
+];
+
+/**Developers Solutions Page Features,
+ * Using on /solutions/developers
+ *
+ */
+
+export const onboardInMinutes: Feature = {
+  title: "Onboard in minutes, anywhere",
+  paragraph:
+    "With a single click, developers can spin up perfectly configured environments and start coding immediately, no matter where they're located.",
+  lottie: {
+    src: "/lottie/edit_workspace.json",
+    id: "edit_workspace",
+  },
+};
+
+export const onDemandGlobally: Feature = {
+  title: "On-demand, globally",
+  paragraph:
+    "Accessible from anywhere, Gitpod CDE's spin-up in seconds with the same configuration as your teammate across the world, no matter the device your on.",
+  image: {
+    src: "/images/features/multiple-workspaces.webp",
+    darkSrc: "/images/features/multiple-workspaces-dark.webp",
+    alt: "Multiple workspaces",
+    width: "85%",
+    height: "75%",
+  },
+};
+
+export const whereTeamsCodeTogether: Feature = {
+  title: "Where teams code together",
+  paragraph:
+    "Collaborate on tasks without making changes to your dev environment. Share running workspaces for pair programming, use port forwarding or share a snapshot as a copy of your workspace with teammates.",
+  lottie: {
+    src: "/lottie/share_workspace.json",
+    id: "share-workspace",
+  },
+};
+
+export const worksOnAnyMachineDeveloperFeature: Feature = {
+  title: `Works on <t style="text-decoration-line: line-through; color: #999795;">my</t> any machine`,
+  paragraph:
+    "CDEs enable developers to work with the same tools, libraries, and dependencies, regardless of operating system, device or IDE they use.",
+  previewComponent: Workspaces,
+};
+
+export const developersFeatures: Feature[] = [
+  onboardInMinutes,
+  onDemandGlobally,
+  whereTeamsCodeTogether,
+  worksOnAnyMachineDeveloperFeature,
+];
+
+/**Dedicated Page Features,
+ * Using on /dedicated
+ *
+ */
+
+export const enterpriseReady: Feature = {
+  title: "Enterprise-ready",
+  paragraph:
+    "SSO, custom SLAs and dedicated support experts with help you scale Cloud Development Environments for your organization.",
+  lottie: {
+    src: "/lottie/edit_workspace.json",
+    id: "edit_workspace",
+  },
+};
+
+export const limitedOverHead: Feature = {
+  title: "Limited overhead",
+  paragraph:
+    "Faster startup times and lower latency with dedicated resources exclusively available for your organization.",
+  terminal: {
+    source: terminalSource,
+  },
+};
+
+export const enhancedSecurity: Feature = {
+  title: "Enhanced security",
+  paragraph:
+    "Isolated, single-tenant installations ensure source code, dependencies and dev environments are private and protected.",
+  image: {
+    src: "/images/features/encoded-data.webp",
+    darkSrc: "/images/features/encoded-data-dark.webp",
+    alt: "Secure data movement",
+    width: "90%",
+    height: "90%",
+  },
+};
+
+export const privateResourceAccess: Feature = {
+  title: "Private resource access",
+  paragraph:
+    "Running within your VPC enables access to resources that aren’t exposed to the internet.",
+  terminal: {
+    source: linuxSource,
+    dark: true,
+    shadow: false,
+    narrow: true,
+    skipToEnd: true,
+  },
+};
+export const compliantDataMovement: Feature = {
+  title: "Compliant data movement",
+  paragraph:
+    "Gitpod is GDPR compliant, SOC 2 Type II compliant and provides clients with Data Processing Agreements (DPA) incorporating the Standard Contractual Clauses (SCC) for International Data Transfers.",
+  image: {
+    src: "/images/features/secure-data.webp",
+    darkSrc: "/images/features/secure-data-dark.webp",
+    alt: "Secure data movement",
+    width: "50%",
+  },
+  moreButton: {
+    href: "https://app.safebase.io/portal/71ccd717-aa2d-4a1e-942e-c768d37e9e0c/preview?product=default",
+    text: "View trust center",
+  },
+};
+
+export const dedicatedPageFeatures: Feature[] = [
+  enhancedSecurity,
+  limitedOverHead,
+  privateResourceAccess,
+  enterpriseReady,
+  compliantDataMovement,
 ];

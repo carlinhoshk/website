@@ -88,7 +88,7 @@
     <SubmissionSuccess class="-mb-x-small" title="Thanks for downloading" />
   {:else}
     <form
-      class="space-y-micro md:space-y-xx-small"
+      class="space-y-micro md:space-y-xx-small {clazz}"
       on:submit|preventDefault={handleSubmit}
       novalidate
     >

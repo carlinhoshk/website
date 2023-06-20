@@ -2,15 +2,19 @@ import type { RequestHandler } from "@sveltejs/kit";
 import * as client from "@sendgrid/mail";
 import saveToSpreadsheet from "$lib/api/save-to-spreadsheet";
 import type { Email, EmailToType } from "$lib/api/api";
+import {
+  SENDGRID_API_KEY,
+  SENDGRID_TO_EMAIL_CONTACT,
+  SENDGRID_TO_EMAIL_SALES,
+} from "$env/static/private";
 
 const determineToEmail = (toType: EmailToType = "contact") => {
   switch (toType) {
     case "contact":
-      return process.env.SENDGRID_TO_EMAIL_CONTACT;
+      return SENDGRID_TO_EMAIL_CONTACT;
     case "sales":
-      return process.env.SENDGRID_TO_EMAIL_SALES;
     case "community-license":
-      return process.env.SENDGRID_TO_EMAIL_SALES;
+      return SENDGRID_TO_EMAIL_SALES;
     default:
       return "contact-test@gitpod.io";
   }
@@ -59,10 +63,9 @@ async function sendEmail(
   }
 }
 
-export const post: RequestHandler = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
   const body = await request.json();
   const email: Email = body! as Email;
-  const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || "no-key";
   const SENDGRID_TO_EMAIL = determineToEmail(email.toType);
   const SENDGRID_FROM_EMAIL = SENDGRID_TO_EMAIL;
 

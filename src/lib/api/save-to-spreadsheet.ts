@@ -1,4 +1,9 @@
 import gs from "google-spreadsheet";
+import {
+  FEEDBACK_SHEET_ID,
+  FEEDBACK_GOOGLE_SERVICE_ACCOUNT_EMAIL,
+  FEEDBACK_GOOGLE_PRIVATE_KEY_BASE64,
+} from "$env/static/private";
 
 type SheetInfo = {
   sheetTitle: string;
@@ -12,11 +17,11 @@ export default async ({
   uniqueColumn = 0,
 }: SheetInfo): Promise<boolean | "duplicate"> => {
   try {
-    const doc = new gs.GoogleSpreadsheet(process.env.FEEDBACK_SHEET_ID);
+    const doc = new gs.GoogleSpreadsheet(FEEDBACK_SHEET_ID);
     await doc.useServiceAccountAuth({
-      client_email: process.env.FEEDBACK_GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      client_email: FEEDBACK_GOOGLE_SERVICE_ACCOUNT_EMAIL,
       private_key: Buffer.from(
-        process.env.FEEDBACK_GOOGLE_PRIVATE_KEY_BASE64,
+        FEEDBACK_GOOGLE_PRIVATE_KEY_BASE64,
         "base64"
       ).toString("utf8"),
     });

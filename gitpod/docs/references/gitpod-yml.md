@@ -43,6 +43,7 @@ The `.gitpod.yml` file instructs Gitpod on how to prepare and build a project, s
     - [`ports[n].onOpen`](#portsnonopen)
     - [`ports[n].port`](#portsnport)
     - [`ports[n].visibility`](#portsnvisibility)
+    - [`ports[n].protocol`](#portsprotocol)
   - [`tasks`](#tasks)
     - [`tasks[n].before`](#tasksnbefore)
     - [`tasks[n].command`](#tasksncommand)
@@ -608,6 +609,18 @@ A public port allows you to share a URL for a given port with team members, for 
 | Type     | Default   | Values                     |
 | -------- | --------- | -------------------------- |
 | `string` | `private` | `private`,<br><br>`public` |
+
+</div>
+
+### `ports[n].protocol`
+
+Define whether a running port in the workspace is HTTP or HTTPS.
+
+<div class="overflow-x-auto">
+
+| Type     | Default | Values                   |
+| -------- | ------- | ------------------------ |
+| `string` | `http`  | `http`, <br><br> `https` |
 
 </div>
 

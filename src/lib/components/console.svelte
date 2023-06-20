@@ -376,7 +376,7 @@
   .aspect {
     position: relative;
     height: 100%;
-    max-height: 500px;
+    max-height: 350px;
     min-height: 240px;
   }
   .aspect::before {

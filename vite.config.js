@@ -1,47 +1,9 @@
 import { sveltekit } from "@sveltejs/kit/vite";
-import { execSync } from "node:child_process";
+import { defineConfig } from "vite";
 
-/**
- * @type {Partial<import("vite").ServerOptions>}
- */
-let extendedViteServerOptions;
-try {
-  const port = 3000;
-
-  const gitpodPortUrl = execSync(`gp url ${port}`).toString().trim();
-
-  extendedViteServerOptions = {
-    port,
-    hmr: {
-      protocol: "wss",
-      host: new URL(gitpodPortUrl).hostname,
-      clientPort: 443,
-    },
-  };
-} catch {
-  extendedViteServerOptions = {};
-}
-
-/**
- * @type {import("vite").UserConfig}
- */
-const config = {
+export default defineConfig({
   plugins: [sveltekit()],
   resolve: {
     preserveSymlinks: true,
   },
-  server: {
-    fs: {
-      allow: [".."],
-    },
-    ...extendedViteServerOptions,
-  },
-  preview: {
-    port: 3000,
-  },
-  define: {
-    "process.env.SEGMENT_KEY": JSON.stringify(process.env.SEGMENT_KEY),
-  },
-};
-
-export default config;
+});

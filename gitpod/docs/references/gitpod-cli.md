@@ -62,7 +62,7 @@ gp init -i
 
 > The `gp validate` command is currently in [Beta](/docs/help/public-roadmap/release-cycle) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/7671).
 
-Validates the workspace configuration in `.gitpod.yml` and workspace images.
+Starts a workspace within in your currently opened workspace to quickly apply and review your configuration changes. Allows you to troubleshoot your `.gitpod.yml`, workspace image, ports, tasks and more. See [configure workspaces](/docs/configure/workspaces) for more on validating a workspace configuration.
 
 ```sh
 gp validate
@@ -316,6 +316,22 @@ Here's an example which will make port `3000` private:
 
 ```sh
 gp ports visibility 3000:private
+```
+
+### protocol
+
+By default ports running in the workspace are assumed to be HTTP. You can dynamically configure (without a workspace restart) a port to use HTTPS with the `gp ports protocol` command.
+
+For example, to convert port `3000` to `https`:
+
+```sh
+gp ports protocol 3000:https
+```
+
+For example, to convert port `3000` to `http`:
+
+```sh
+gp ports protocol 3000:http
 ```
 
 ## top

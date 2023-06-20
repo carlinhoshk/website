@@ -729,7 +729,7 @@ export const pricingFAQ: FAQ = {
     {
       title: "How can I pay?",
       content:
-        '<p>You can pay with MasterCard, Visa card or Google Pay.</p><div class="flex my-xx-small space-x-xx-small"> <img class="mr-4" src="/svg/brands/mastercard.svg" alt="Mastercard" width="52" height="40" /> <img class="mr-4" src="/svg/brands/visa.svg" alt="Visa" width="72" height="40" /> <img src="/svg/brands/google-pay.svg" alt="Google Pay Logo" width="72" height="40" /></div> <p>For enterprise customers, additional payment options are available. Please <a href="/contact/sales">contact sales</a> for annual billing.</p> ',
+        '<p>You can pay with MasterCard, Visa card, American Express Card or UnionPay.</p><div class="flex my-xx-small space-x-xx-small"> <img class="mr-4" src="/svg/brands/mastercard.svg" alt="Mastercard" width="52" height="40" /> <img class="mr-4" src="/svg/brands/visa.svg" alt="Visa" width="72" height="40" /> <img class="mr-4" src="/svg/brands/amex.svg" alt="AmEx Logo" width="50" height="36" /><img src="/svg/brands/union-pay.svg" alt="Union Pay Logo" width="50" height="36" /></div> <p>For enterprise customers, additional payment options are available. Please <a href="/contact/sales">contact sales</a> for annual billing.</p> ',
     },
     {
       title: "Can I create an organization plan?",

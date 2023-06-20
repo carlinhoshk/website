@@ -1,7 +1,7 @@
 import type { RequestHandler } from "@sveltejs/kit";
 import { routeToHandler } from "$lib/api/feedback";
 
-export const post: RequestHandler = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
   const data = await request.json();
   console.log(JSON.stringify(data));
   const submitFeedback = routeToHandler(data.type);

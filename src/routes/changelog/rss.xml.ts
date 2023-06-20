@@ -2,7 +2,7 @@ import type { ChangelogEntry } from "$lib/types/changelog-entry";
 import { stringToBeautifiedFragment } from "$lib/utils/helpers";
 import RSS from "rss";
 
-export const get: import("@sveltejs/kit").RequestHandler = async ({
+export const GET: import("@sveltejs/kit").RequestHandler = async ({
   locals,
 }) => {
   const ttlInMin = 60;

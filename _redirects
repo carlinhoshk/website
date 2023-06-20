@@ -292,7 +292,9 @@ docs/configure/billing/team-plans /docs/configure/billing/org-plans
 /changelog/rss /changelog/rss.xml
 /changelog/introducing:-flexible-timeouts-🥳-! /changelog/flexible-workspace-timeouts
 /changelog/introducing:-flexible-timeouts-%F0%9F%A5%B3-! /changelog/flexible-workspace-timeouts
-/docs/dedicated/sso-setup-8f7696e0 https://gitpod.notion.site/Getting-Started-8d53c2ff4c394652b99111fb87e67be2
-/docs/dedicated/getting-started-8f7696e0  https://gitpod.notion.site/Getting-Started-8d53c2ff4c394652b99111fb87e67be2
-/docs/dedicated/overview-8f7696e0 https://gitpod.notion.site/Preliminary-Gitpod-Dedicated-SaaS-Documentation-V0-7-External-6a543e6a1d6541138efa849caa2fd10c
+/docs/dedicated/sso-setup-8f7696e0 https://gitpod.notion.site/Getting-Started-610356b49e2447bf98540af1901b351a
+/docs/dedicated/getting-started-8f7696e0  https://gitpod.notion.site/Getting-Started-610356b49e2447bf98540af1901b351a
+/docs/dedicated/overview-8f7696e0 https://gitpod.notion.site/Gitpod-Dedicated-SaaS-Documentation-V0-8-External-c5dc39b87276447e941b730a9c4200fc
 /blogs /blog
+/solutions/collaboration /solutions/developers
+/docs/editors/vscode /docs/references/ides-and-editors/vscode

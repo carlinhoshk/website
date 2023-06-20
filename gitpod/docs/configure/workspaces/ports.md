@@ -242,3 +242,35 @@ To make this work, your web application's `fetch` request needs to have the `cre
 **Configure your server**
 
 In your server (the one on port 5001 in the above example), you have to configure the response to include the `Access-Control-Allow-Credentials` header. Without it, your browser rejects the response and you see CORS errors in the browser console.
+
+## Port protocols
+
+By default ports running in the workspace are assumed to be HTTP. You can configure your port to use HTTPS by updating the `.gitpod.yml` or using the `gp ports protocol` command.
+
+> **Note:** Updating your `.gitpod.yml` is the preferred approach to using the `gp` CLI, as the `.gitpod.yml` is declarative and ensures workspaces are created repeatably.
+
+### Configuring the port protocol in `.gitpod.yml`
+
+Update the `ports` definition block in `.gitpod.yml` to add the `protocol`.
+
+```yml
+ports:
+  - name: Frontend Application
+    port: 3000
+    protocol: https
+```
+
+See [gitpod.yml](/docs/references/gitpod-yml) for more.
+
+### Configuring the protocol with `gp`
+
+Dynamically change the protocol of a port using the `gp ports protocol` command.
+
+By default, ports are set as HTTP.
+
+For example:
+
+- `gp ports protocol 3000:https` will change port `3000` to use `https`.
+- `gp ports protocol 3000:http` will change port `3000` to use `http`.
+
+See [Gitpod CLI](/docs/references/gitpod-cli) for more.

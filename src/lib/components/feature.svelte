@@ -133,6 +133,7 @@
           style={image.styles}
           width={image.width || "100%"}
           height={image.height || "100%"}
+          loading="lazy"
         />
         {#if image.darkSrc}
           <img
@@ -142,6 +143,7 @@
             style={image.styles}
             width={image.width || "100%"}
             height={image.height || "100%"}
+            loading="lazy"
           />
         {/if}
       {/if}

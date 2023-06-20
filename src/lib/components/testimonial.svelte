@@ -58,6 +58,7 @@
           width="50"
           height="50"
           class="rounded-full {grayscale ? 'filter grayscale' : ''}"
+          loading="lazy"
         />
       </div>
       <div class="ml-3">

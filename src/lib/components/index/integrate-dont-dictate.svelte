@@ -3,6 +3,7 @@
   import Section from "../section.svelte";
   let clazz = "";
   export { clazz as class };
+  export let title = "Integrate with your existing development infrastructure";
 </script>
 
 <style lang="postcss">
@@ -29,7 +30,7 @@
 <Card size="medium" class="m-auto shadow-highlight w-11/12 md:w-10/12">
   <Section class="text-center {clazz}" {...$$restProps}>
     <h2 class="text-2xl sm:text-[32px] text-center sm:text-left sm:ml-16 mb-4">
-      Integrate with your existing development infrastructure
+      {title}
     </h2>
     <div
       class="flex flex-wrap items-center mx-auto justify-evenly mb-6 ml-6 mr-6"
@@ -44,7 +45,12 @@
           </p>
 
           <div class="flex justify-left items-center mt-4 gap-x-4 sm:gap-x-6">
-            <img src="/svg/gitlab.svg" alt="GitLab" class="icon" />
+            <img
+              src="/svg/gitlab.svg"
+              alt="GitLab"
+              class="icon"
+              loading="lazy"
+            />
             <svg
               class="icon"
               viewBox="0 0 29 30"
@@ -58,7 +64,12 @@
                 class="fill-black dark:fill-white"
               />
             </svg>
-            <img src="/svg/bitbucket.svg" alt="Bitbucket" class="icon" />
+            <img
+              src="/svg/bitbucket.svg"
+              alt="Bitbucket"
+              class="icon"
+              loading="lazy"
+            />
           </div>
         </div>
 
@@ -101,7 +112,12 @@
               />
             </svg>
 
-            <img src="/svg/brands/gcp.svg" alt="GCP" class="icon" />
+            <img
+              src="/svg/brands/gcp.svg"
+              alt="GCP"
+              class="icon"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -117,32 +133,66 @@
           <div
             class="items-center grid grid-cols-5 md:grid-cols-4 gap-x-3 gap-y-2 sm:gap-x-4 sm:gap-y-6 w-56 sm:w-72"
           >
-            <img src="/svg/index/vscode.svg" alt="VS Code" class="ide-icon" />
-            <img src="/svg/index/goland.svg" alt="GoLand" class="ide-icon" />
+            <img
+              src="/svg/index/vscode.svg"
+              alt="VS Code"
+              class="ide-icon"
+              loading="lazy"
+            />
+            <img
+              src="/svg/index/goland.svg"
+              alt="GoLand"
+              class="ide-icon"
+              loading="lazy"
+            />
             <img
               src="/svg/index/intellij.svg"
               alt="IntelliJ"
               class="ide-icon"
+              loading="lazy"
             />
-            <img src="/svg/index/pycharm.svg" alt="PyCharm" class="ide-icon" />
+            <img
+              src="/svg/index/pycharm.svg"
+              alt="PyCharm"
+              class="ide-icon"
+              loading="lazy"
+            />
             <img
               src="/svg/index/phpstorm.svg"
               alt="PhpStorm"
               class="ide-icon"
+              loading="lazy"
             />
             <img
               src="/svg/index/webstorm.svg"
               alt="WebStorm"
               class="ide-icon"
+              loading="lazy"
             />
-            <img src="/svg/index/clion.svg" alt="CLion" class="ide-icon" />
+            <img
+              src="/svg/index/clion.svg"
+              alt="CLion"
+              class="ide-icon"
+              loading="lazy"
+            />
             <img
               src="/svg/index/rubymine.svg"
               alt="RubyMine"
               class="ide-icon"
+              loading="lazy"
             />
-            <img src="/svg/index/rider.svg" alt="Rider" class="ide-icon" />
-            <img src="/svg/index/vim.svg" alt="Vim" class="ide-icon" />
+            <img
+              src="/svg/index/rider.svg"
+              alt="Rider"
+              class="ide-icon"
+              loading="lazy"
+            />
+            <img
+              src="/svg/index/vim.svg"
+              alt="Vim"
+              class="ide-icon"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -156,22 +206,35 @@
           </p>
 
           <div class="flex items-center mt-4 gap-x-4 sm:gap-x-6 mx-auto">
-            <img src="/svg/brands/prettier.png" alt="Prettier" class="icon" />
+            <img
+              src="/svg/brands/prettier.png"
+              alt="Prettier"
+              class="icon"
+              loading="lazy"
+            />
             <img
               src="/svg/brands/copilot.png"
               alt="GitHub Copilot"
               class="icon"
+              loading="lazy"
             />
-            <img src="/svg/brands/gitlens.png" alt="GitLens" class="icon" />
+            <img
+              src="/svg/brands/gitlens.png"
+              alt="GitLens"
+              class="icon"
+              loading="lazy"
+            />
             <img
               src="/svg/icons/more-options.svg"
               alt="More options"
               class="icon block dark:hidden"
+              loading="lazy"
             />
             <img
               src="/svg/icons/more-options-dark.svg"
               alt="More options"
               class="icon hidden dark:block"
+              loading="lazy"
             />
           </div>
         </div>
@@ -185,8 +248,18 @@
           </p>
 
           <div class="flex items-center mt-4 gap-x-4 sm:gap-x-6 mx-auto">
-            <img src="/svg/brands/redis.svg" alt="Redis" class="icon" />
-            <img src="/svg/brands/aws-s3.png" alt="AWS S3" class="icon" />
+            <img
+              src="/svg/brands/redis.svg"
+              alt="Redis"
+              class="icon"
+              loading="lazy"
+            />
+            <img
+              src="/svg/brands/aws-s3.png"
+              alt="AWS S3"
+              class="icon"
+              loading="lazy"
+            />
             <svg
               width="24"
               height="51"
@@ -218,11 +291,13 @@
               src="/svg/icons/more-options.svg"
               alt="More options"
               class="icon block dark:hidden"
+              loading="lazy"
             />
             <img
               src="/svg/icons/more-options-dark.svg"
               alt="More options"
               class="icon hidden dark:block"
+              loading="lazy"
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 import type { RequestHandler } from "@sveltejs/kit";
 
-export const get: RequestHandler = async () => {
+export const GET: RequestHandler = async () => {
   const securityLogs = await Promise.all(
     Object.entries(import.meta.glob("/src/lib/contents/security/*.md")).map(
       async ([, mod]) => {

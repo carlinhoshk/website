@@ -9,19 +9,24 @@ export const resourcesLinks: {
     description: "Quickly become ready-to-code.",
   },
   {
+    text: "Developers",
+    href: "/solutions/developers",
+    description: "Spend more time building product.",
+  },
+  {
     text: "Productivity",
     href: "/solutions/increased-productivity",
     description: "Create more productive teams.",
   },
   {
+    text: "Platform teams",
+    href: "/solutions/platform-teams",
+    description: "Automate and secure your platforms.",
+  },
+  {
     text: "Supply chain security",
     href: "/solutions/supply-chain-security",
     description: "Secure your software supply chains.",
-  },
-  {
-    text: "Collaboration",
-    href: "/solutions/collaboration",
-    description: "How Gitpod improves collaboration.",
   },
 ];
 

@@ -82,6 +82,10 @@ By default, workspaces stop following 30 minutes without user input (e.g. keystr
 
 **Default** - You can set a default workspace inactivity timeout for all new workspaces opened via the [preferences page](https://gitpod.io/preferences). The timeout default cannot currently be set by an organization owner.
 
+### Workspace lifetime
+
+Workspace have a maximum lifetime. This means that workspaces will be shut down after this period even if the inactivity timeout has not been reached yet. Currently the lifetime of a workspace if you are a free plan user is 8 hours and 36 hours if you are on a paid plan.
+
 ### Editor or IDE Disconnect
 
 All inactivity timeouts are dependent on an active editor or IDE connection. Closing your Gitpod connected editor or IDE will reduce the workspace timeout to 5 minutes unless an explicit workspace inactivity timeout is set via user preference, or via the Gitpod CLI.

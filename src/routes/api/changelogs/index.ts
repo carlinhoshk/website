@@ -2,7 +2,7 @@ import type { RequestHandler } from "@sveltejs/kit";
 import { compile } from "mdsvex";
 import { basename } from "path";
 
-export const get: RequestHandler = async () => {
+export const GET: RequestHandler = async () => {
   const changelogEntries = await Promise.all(
     Object.entries(import.meta.glob("/src/lib/contents/changelog/*.md"))
       .filter(([path]) => !path.endsWith("_template.md"))

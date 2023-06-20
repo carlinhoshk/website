@@ -11,7 +11,7 @@ import remarkEmbedVideo from "$lib/utils/remark-embed-video.js";
 import remarkLinkWithImageAsOnlyChild from "$lib/utils/remark-link-with-image-as-only-child.js";
 import remarkHeadingsPermaLinks from "$lib/utils/remark-headings-permalinks.js";
 
-export const get: RequestHandler = async ({ params }) => {
+export const GET: RequestHandler = async ({ params }) => {
   try {
     if (params.slug.endsWith("__")) {
       params.slug = params.slug.substring(0, params.slug.lastIndexOf("__"));
