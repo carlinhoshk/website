@@ -3,8 +3,8 @@ title: "Workspace images: Go 1.20.5 & Rust 1.70"
 alt: screenshot of the new workspace creation page
 date: 2023-06-11
 excerpt: You can now choose the workspace's organization, editor, and workspace class on creation
-image: new-workspace-creation-page.webp
-ogImage: new-workspace-creation-page.webp
+image: workspace-images-updated-2023-07.webp
+ogImage: workspace-images-updated-2023-07.webp
 tags: workspace-images
 ---
 
