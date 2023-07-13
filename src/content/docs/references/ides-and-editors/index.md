@@ -50,3 +50,5 @@ You can start a workspace with your favourite IDE/editor directly from [Gitpod D
 <video onloadstart="this.playbackRate = 1.5;" controls playsinline autoplay loop muted class="shadow-medium w-full rounded-xl max-w-2xl mt-x-small" alt="Start Gitpod new workspace with options" src="/images/docs/new-workspace-start-with-options.webm" type="video/webm"></video>
     <figcaption>Open New Gitpod Workspace with your favourite IDE • <a href="https://gitpod.io/workspaces">Gitpod Dashboard</a></figcaption>
 </figure>
+
+> 💡**Tip**: You can open a workspace with any IDE/editor with your required workspace class & your preferred [context URL](/docs/introduction/learn-gitpod/context-url#context-url) by adding the `ide` query parameter to the URL. Learn more about this in the [Gitpod In-product integrations](/docs/integrations/gitpod#open-workspace-with-ideeditor).

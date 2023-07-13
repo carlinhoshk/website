@@ -253,6 +253,7 @@ export const MENU: MenuEntry[] = [
 	]),
 	M('Integrations', 'integrations', false, [
 		M('Amazon Web Services (AWS)', 'integrations/aws', false, []),
+		M('Gitpod', 'integrations/gitpod'),
 		M(
 			'JetBrains Gateway',
 			'integrations/jetbrains-gateway',

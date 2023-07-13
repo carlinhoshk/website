@@ -7,5 +7,6 @@ description: Gitpod integrates with many tools and services to make your develop
 # Integrations
 
 -   [Amazon Web Services](/docs/integrations/aws)
+-   [Gitpod](/docs/gitpod)
 -   [JetBrains Gateway](/docs/integrations/jetbrains-gateway)
 -   [Tailscale](/docs/integrations/tailscale)
