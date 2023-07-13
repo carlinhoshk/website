@@ -1,16 +1,19 @@
 <script>
-  import { projects } from "$lib/contents/home";
-  import Project from "./project.svelte";
+	import { projects } from '$lib/contents/home';
+	import Project from './project.svelte';
 </script>
 
-<h3>Launch an example workspace</h3>
+<!-- <h3>Launch an example workspace</h3> -->
 <p>Dive into one of our example workspaces</p>
-<div class="my-x-small space-y-4">
-  {#each projects as project}
-    <Project {project} />
-  {/each}
+<div
+	class="my-x-small space-y-2"
+	data-analytics={`{"experiments_variant":"launch_example_workspace_clicked"}`}
+>
+	{#each projects as project}
+		<Project {project} />
+	{/each}
 </div>
 
 <div class="text-base">
-  <a href="/docs/introduction/getting-started">More example workspaces</a>
+	<a href="/docs/introduction/getting-started">View all example workspaces</a>
 </div>
