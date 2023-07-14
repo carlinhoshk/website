@@ -8,7 +8,7 @@ ogImage: 2023-07-12-secretless-authorization.webp
 alt: A light orange image with a padlock. The header image for the changelog announcement for secretless Gitpod workspaces announcement post.
 ---
 
-You can now restart Gitpod workspaces directly in VS Code Desktop. The automatically installed Gitpod extension in VS Code Desktop now shows all active and inactive workspaces on your left menu bar so you can easily get back to your work in Gitpod without opening a new browser tab.
+The automatically installed Gitpod extension in VS Code Desktop now shows all active and inactive workspaces on your left menu bar so you can easily get back to your work in Gitpod without opening a new browser tab.
 
 To try it out, simply open a new workspace in VS Code (or simply open [gitpod.new](https://gitpod.new/)), ensuring that your Gitpod extension is updated to the latest version. You should now see the Gitpod logo in the left panel, and a list of your workspaces. From this view you can:
 
