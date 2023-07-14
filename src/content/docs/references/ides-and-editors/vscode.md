@@ -94,6 +94,37 @@ For documentation on previous / deprecated methods of connecting to VS Code see 
 2. [SSH Gateway access using the owner token](/docs/references/ides-and-editors/legacy-vscode-connections#connect-to-vs-code-desktop-using-the-workspace-owner-token)
 3. [Using Local Companion](/docs/references/ides-and-editors/legacy-vscode-connections#connect-to-vs-code-desktop-using-local-companion)
 
+## Restarting in VS Code Desktop
+
+When the VS Code Desktop workspace stops or times out the VS Code window will refresh. See [Workspace Lifecycle](https://www.gitpod.io/docs/configure/workspaces/workspace-lifecycle) for information when or why workspaces timeout.
+
+To restart a workspace from within VS Code, click on the Gitpod extension icon in the sidebar, where you will see a list of your active and inactive workspaces. You can either reconnect to a running workspace, or restart a previously stopped workspace.
+
+> **Note:** Currently, it is not possible to create workspaces from this view only reconnect to them, or restart them.
+
+### View workspace information
+
+By default the list shows the organisation, branch and last used time of the workspace. You can hover over a workspace in the list to show more information such as the workspace ID, context URL and the last used time of the workspace.
+
+![](/images/editors/vscodedesktop-extension-default-behaviour.png)
+_Starting and connecting to a stopped workspace in VS Code Desktop_
+
+### Additional restart options
+
+The default behaviour of the Gitpod extension is to open the selected workspace in the current window. If you'd prefer to open a new window, or open the session in the browser you
+
+![](/images/editors/vscodedesktop-extension-right-click.png)
+_Right click to view additional options for workspaces in VS Code Desktop_
+
+### Disconnect a workspace
+
+If needed, you can also disconnect from a current session from within VS Code.
+
+Disconnecting does not stop the workspace. Run `gp stop` in any workspace to stop the workspace and disconnect the editor. See [GP CLI - Stop Command](https://www.gitpod.io/docs/references/gitpod-cli#stop) for more.
+
+![](/images/editors/vscodedesktop-extension-close-connection.png)
+_Disconnect from the current VS Code session_
+
 ## Reconnect to VS Code Desktop
 
 When VS Code Desktop disconnects from the workspace, either you are experiencing genuine connectivity issues, or it's possible that the workspace has timed out and stopped.
