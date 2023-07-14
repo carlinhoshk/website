@@ -224,3 +224,8 @@ If you are still having issues connecting to VS Code Desktop from Gitpod, try:
 1. Check if your VS Code Desktop application and Gitpod VS Code Desktop extension version are all using the latest version.
 2. Identify [which method you're using to connect to Gitpod](/docs/references/ides-and-editors/vscode#how-do-i-know-how-im-connecting-to-vs-code-desktop), if it's `SSH Gateway` or `Local Companion` see their troubleshooting [here](/docs/references/ides-and-editors/legacy-vscode-connections#troubleshooting)
 3. If it's Local SSH, please [export log](/docs/help/troubleshooting#gitpod-logs-in-vs-code-browser-and-desktop) on the failed to connect window and [email us](mailto:contact@gitpod.io)
+
+If this connection problem keep boring you, add `"gitpod.remote.disableLocalSSH": true` to your VS Code configuration then VS Code will switch way to connect to use [Legacy - VS Code Desktop Connection Methods](/docs/references/ides-and-editors/legacy-vscode-connections). Your troubleshooting log export can really help us to find out the problem.
+
+![Disable Local SSH](/images/editors/vscode-disable-local-ssh.png)
+_Disable Local SSH_
