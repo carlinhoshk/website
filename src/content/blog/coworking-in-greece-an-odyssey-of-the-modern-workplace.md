@@ -32,4 +32,4 @@ Remote work is not a one-size-fits-all solution. It usually requires organizatio
 
 Upon reflection, coworking in Greece has been one of the highlights of this year for our team and hopefully can inspire others to adopt remote-first principles and asynchronous communication.
 
-Thanks [Pauline](https://twitter.com/pawlean), [Thomas](https://twitter.com/furisto_tw), and [Alejandro](https://twitter.com/aledbf) for joining the coworking, and thanks Gitpod for embracing asynchronous remote work and making all this possible through how we work and carrying a culture that empowers individuals.
+Thanks [Pauline][(https://twitter.com/pawlean)](https://twitter.com/paulienuh), [Thomas](https://twitter.com/furisto_tw), and [Alejandro](https://twitter.com/aledbf) for joining the coworking, and thanks Gitpod for embracing asynchronous remote work and making all this possible through how we work and carrying a culture that empowers individuals.
