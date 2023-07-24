@@ -223,7 +223,7 @@ export const onboardFeatures: Feature[] = [
 export const isolatedEnvironments: Feature = {
 	title: 'Fix vulnerabilities, centrally',
 	paragraph:
-		'CDEs run on a fully isolated and secured single-use containers, limiting the impact of changes to dependencies. Admins decide which configs and images to apply globally and can fix vulnerabilities instantly across an entire team.',
+		'CDEs run on fully isolated and secured single-use containers, limiting the impact of changes to dependencies. Admins decide which configs and images to apply globally and can fix vulnerabilities instantly across an entire team.',
 	terminal: {
 		source: linuxSource,
 		dark: true,

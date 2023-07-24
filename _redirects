@@ -330,3 +330,4 @@ docs/configure/billing/team-plans /docs/configure/billing/org-plans
 /docs/configure/self-hosted/latest/installation/on-amazon-eks /docs/configure/self-hosted/latest/reference-architecture
 /docs/configure/self-hosted/latest/installation/on-gke /docs/configure/self-hosted/latest/reference-architecture
 /docs/configure/self-hosted/latest/installation/on-microsoft-aks /docs/configure/self-hosted/latest/cluster-set-up/on-microsoft-aks
+/events/shares-cde-adoption /webinars/shares-cde-adoption

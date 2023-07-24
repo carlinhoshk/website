@@ -24,7 +24,7 @@
 			size="large"
 			href="/contact/sales?subject=enterprise"
 			slot="content"
-			class="mt-x-small">Sign up</LinkButton
+			class="mt-x-small">Talk to sales</LinkButton
 		>
 	</div>
 </Header>

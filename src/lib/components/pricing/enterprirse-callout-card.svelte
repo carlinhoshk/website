@@ -18,7 +18,7 @@
 				href="/contact/sales?subject=enterprise"
 				variant="customTertiary"
 				size="medium"
-				class="mt-4">Contact Sales</LinkButton
+				class="mt-4">Talk to sales</LinkButton
 			>
 		</div>
 	</div>

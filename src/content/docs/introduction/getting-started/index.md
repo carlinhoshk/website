@@ -30,7 +30,7 @@ For example, click this link to open the NodeJS project in a Gitpod workspace:
 
 ## Step 2: Customize Gitpod
 
-<!-- `youtube: VYHsd1zI_tE` -->
+`youtube: c6zc3LL1S98`
 
 Gitpod can be customized depending on the needs of the project, and your own personal taste. With Gitpod, you can set an IDE preference between VS Code and JetBrains, either working in the browser, or on your desktop application. You can add custom scripts via Dotfiles.
 

@@ -55,7 +55,7 @@
 
 <Section>
 	<Testimonials
-		title="Trusted by the most secure software teams"
+		title="Trusted by developers globally"
 		class="-mb-20"
 		{testimonials}
 	/>

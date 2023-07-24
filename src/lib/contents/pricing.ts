@@ -53,7 +53,7 @@ export const dedicatedPricingPlans: Pricing[] = [
 			'access to private networking',
 			'SSO, custom SLAs and dedicated support',
 		],
-		btnText: 'Contact sales',
+		btnText: 'Talk to sales',
 		btnHref: '/contact/sales',
 		trackingName: 'dedicated',
 		spiced: true,
@@ -70,7 +70,7 @@ export const cloudFeatures: FeatureList[] = [
 			`<div class='block'><b>Minimize costs:</b> multi-tenant set-up allows for organizations to minimize cloud costs</div>`,
 			`<div class='block'><b>Free trial available:</b> 50 hours free per month with access to basic Gitpod Cloud functionality</div>`,
 		],
-		btnText: 'Get started',
+		btnText: 'Start for free',
 		btnHref: 'https://gitpod.io/login',
 	},
 ];
@@ -82,7 +82,7 @@ export const dedicatedFeatures: FeatureList[] = [
 		features: [
 			`<div class='block'><b>Enhanced security:</b> single-tenant installations ensure source code, dependencies and dev environments remain private and protected</div>`,
 			`<div class='block'><b>Access private resources:</b> run within your VPC to access resources that aren’t exposed to the internet</div>`,
-			`<div class='block'><b>Air gapped support:</b> protected from unauthorized data transfers, malware infiltration and external network connections</div>`,
+			`<div class='block'><b>Support for air gapped networks:</b> protected from unauthorized data transfers, malware infiltration and external network connections</div>`,
 			`<div class='block'><b>Built for enterprise:</b> SSO, custom SLAs and dedicated support experts to help scale your team</div>`,
 		],
 		btnText: 'Talk to sales',
@@ -112,7 +112,7 @@ export const empowermentFeatures: Card[] = [
 export const starterPlanTableData: FeatureTableColumn = {
 	link: {
 		href: 'https://gitpod.io/login',
-		label: 'Sign up',
+		label: 'Start for free',
 	},
 	header: {
 		headline: 'Starter',
@@ -246,7 +246,7 @@ export const starterPlanTableData: FeatureTableColumn = {
 export const organizationPlanTableData: FeatureTableColumn = {
 	link: {
 		href: 'https://gitpod.io/login',
-		label: 'Sign up',
+		label: 'Start for free',
 	},
 	header: {
 		headline: 'Organization',
@@ -764,7 +764,7 @@ export const pricingFAQ: FAQ = {
 		{
 			title: 'How can I pay?',
 			content:
-				'<p>You can pay with MasterCard, Visa card, American Express Card or UnionPay.</p><div class="flex my-xx-small space-x-xx-small"> <img class="mr-4" src="/svg/brands/mastercard.svg" alt="Mastercard" width="52" height="40" /> <img class="mr-4" src="/svg/brands/visa.svg" alt="Visa" width="72" height="40" /> <img class="mr-4" src="/svg/brands/amex.svg" alt="AmEx Logo" width="50" height="36" /><img src="/svg/brands/union-pay.svg" alt="Union Pay Logo" width="50" height="36" /></div> <p>For enterprise customers, additional payment options are available. Please <a href="/contact/sales">contact sales</a> for annual billing.</p> ',
+				'<p>You can pay with MasterCard, Visa card, American Express Card or UnionPay.</p><div class="flex my-xx-small space-x-xx-small"> <img class="mr-4" src="/svg/brands/mastercard.svg" alt="Mastercard" width="52" height="40" /> <img class="mr-4" src="/svg/brands/visa.svg" alt="Visa" width="72" height="40" /> <img class="mr-4" src="/svg/brands/amex.svg" alt="AmEx Logo" width="50" height="36" /><img src="/svg/brands/union-pay.svg" alt="Union Pay Logo" width="50" height="36" /></div> <p>For enterprise customers, additional payment options are available. Please <a href="/contact/sales">Talk to sales</a> for annual billing.</p> ',
 		},
 		{
 			title: 'Can I create an organization plan?',
@@ -794,7 +794,7 @@ export const pricingFAQ: FAQ = {
 		{
 			title: 'Still have more questions?',
 			content:
-				'<p> We are happy to answer them, please <a href="/contact/support">Get in touch</a></p>',
+				'<p> We are happy to answer them, please <a href="/contact/support">Contact support</a></p>',
 		},
 	],
 };

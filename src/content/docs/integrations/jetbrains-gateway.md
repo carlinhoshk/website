@@ -32,7 +32,7 @@ JetBrains Gateway is the underlying technology which enables the Gitpod integrat
 
 ## Getting started
 
-`youtube: 8djaRYT2FAY`
+`youtube: OagRlSptc2g`
 
 1. **Install [JetBrains Gateway](https://www.jetbrains.com/help/idea/remote-development-a.html#gateway)** - With the [JetBrains Gateway and Gitpod](/docs/integrations/jetbrains-gateway) plugin you can create and manage your latest 20 Gitpod workspaces.
 2. **Install the Gitpod plugin** - Open JetBrains Gateway and you'll see the Gitpod logo on the main page. Click "install" to install the [Gitpod plugin](https://plugins.jetbrains.com/plugin/18438-gitpod-gateway) for JetBrains Gateway.

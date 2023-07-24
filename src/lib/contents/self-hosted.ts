@@ -548,7 +548,7 @@ export const selfhostedFAQ: FAQ = {
 		{
 			title: 'Still have more questions?',
 			content:
-				'<p> We are happy to answer them, please <a href="/contact/support" >Get in Touch</a >. </p>',
+				'<p> We are happy to answer them, please <a href="/contact/support" >Contact support</a >. </p>',
 		},
 	],
 };

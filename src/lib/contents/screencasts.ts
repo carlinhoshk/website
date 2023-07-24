@@ -14,8 +14,8 @@ export const demoScreencast: Screencast = {
 	title: 'Gitpod Demo 🍊',
 	previewText: 'Demo',
 	description:
-		'See how Gitpod launches a ready-to-code project built on five containers using a Node app, .NET app, a Python app as well as Redis and Postgres databases with a simple click.',
-	youtubeId: '9EBKVimskr8',
+		'See how Gitpod launches a ready-to-code project on JetBrains with a simple click.',
+	youtubeId: 'OagRlSptc2g',
 	tile: 'screencast-16.jpg',
 	duration: 303,
 	tags: ['Demo'],
@@ -85,7 +85,7 @@ export const screencasts: Screencast[] = [
 			'How to customize and configure Gitpod for your personal needs and those of your organization.',
 		duration: 125,
 		tile: 'screencast-4.jpg',
-		youtubeId: 'VYHsd1zI_tE',
+		youtubeId: 'c6zc3LL1S98',
 		relatedDocs: [
 			{
 				path: '/docs/references/ides-and-editors/vscode-extensions',
@@ -168,7 +168,7 @@ export const screencasts: Screencast[] = [
 		description: 'Learn about Git Integrations that you can use on Gitpod.',
 		duration: 221,
 		tile: 'screencast-8.jpg',
-		youtubeId: 'nXMlnMEP784',
+		youtubeId: 'qfIQJflDnco',
 		relatedDocs: [{ path: '/docs/integrations', title: 'Integrations' }],
 		tags: ['Getting started'],
 	},
@@ -194,7 +194,7 @@ export const screencasts: Screencast[] = [
 			'Discover how to use VS Code extensions in Gitpod and how they work on Gitpod using OpenVSX.',
 		duration: 185,
 		tile: 'screencast-10.jpg',
-		youtubeId: 'TwXYbZKEuoA',
+		youtubeId: '4A1ZYUacyXI',
 		relatedDocs: [
 			{
 				path: '/docs/references/ides-and-editors/vscode-extensions',
@@ -241,7 +241,7 @@ export const screencasts: Screencast[] = [
 			'Learn how you can use your IPad to develop software using Gitpod.',
 		duration: 222,
 		tile: 'screencast-13.jpg',
-		youtubeId: 'bFj3fUSHf3A',
+		youtubeId: 'pS22i4vFxyk',
 		tags: ['Getting started'],
 	},
 	{

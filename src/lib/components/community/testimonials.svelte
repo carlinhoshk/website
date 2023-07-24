@@ -14,10 +14,10 @@
 		<LinkButton
 			variant="primary"
 			size="large"
-			href="https://www.gitpod.io/chat">Join discord community</LinkButton
+			href="https://www.gitpod.io/chat">Join Discord</LinkButton
 		>
 		<LinkButton variant="gray" size="large" href="https://gitpod.io/login"
-			>Try now</LinkButton
+			>Start for free</LinkButton
 		>
 	</ButtonsWrapper>
 

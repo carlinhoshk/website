@@ -13,9 +13,9 @@ One of these challenges is managing the analytics engineers' development environ
 
 With this guide you will learn how to:
 
-Create a Gitpod cloud development environment
-Configure, establish, and test connections between Gitpod, dbt, and your data warehouse
-Customize your workspace IDE
+-   Create a Gitpod cloud development environment
+-   Configure, establish, and test connections between Gitpod, dbt, and your data warehouse
+-   Customize your workspace IDE
 
 ### Requirements
 

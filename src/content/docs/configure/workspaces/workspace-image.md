@@ -40,7 +40,13 @@ You may also use private Docker images.
 
 To do so you must provide the registry authentication details to Gitpod by setting `GITPOD_IMAGE_AUTH` with the following value `<registry-domain>:<base64-encoded 'username:password'>` as a [Project-level environment variable](/docs/configure/projects/environment-variables#project-specific-environment-variables).
 
-For example, if the registry is `docker.io`, the username is `foo` and the password is `bar`, the `GITPOD_IMAGE_AUTH` environment variable value may be calculated using the command `echo -n "docker.io:"; echo -n "foo:bar" | base64 -w0` which outputs `docker.io:Zm9vOmJhcg==`.
+For example, if the registry is `registry.hub.docker.com`, the username is `foo` and the password is `bar`, the `GITPOD_IMAGE_AUTH` environment variable value may be calculated using the command `echo -n "registry.hub.docker.com:"; echo -n "foo:bar" | base64 -w0` which outputs `registry.hub.docker.com:Zm9vOmJhcg==`.
+
+Later you should be able to use the following in your `.gitpod.yml`:
+
+```yaml
+image: registry.hub.docker.com/your_username/image
+```
 
 ### Using a custom Dockerfile
 

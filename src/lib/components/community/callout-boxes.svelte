@@ -36,7 +36,7 @@
 				paragraph:
 					'Our bi-weekly Office Hours are an opportunity to give the community the stage to share what they’ve built with Gitpod, for Gitpodders to share product insights and gain feedback.',
 				moreButton: {
-					text: 'Join discord',
+					text: 'Join Discord',
 					href: 'https://www.gitpod.io/chat',
 				},
 				ctaButton: {

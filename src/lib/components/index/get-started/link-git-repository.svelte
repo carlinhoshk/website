@@ -1,18 +1,9 @@
 <script lang="ts">
 	import LinkButton from '$lib/components/ui-library/link-button';
-	export let exampleFlagValue = false;
 </script>
 
-<!-- <h3>Get started with any project</h3> -->
 <p class="max-w-3xl mx-auto">Choose an existing project from any Git context</p>
-<div
-	class="inline-flex flex-col my-large space-y-2"
-	data-analytics={`{"experiments_variant":"${
-		exampleFlagValue
-			? 'git_signup_cta_with_examples_clicked'
-			: 'git_signup_cta_without_examples_clicked'
-	}"}`}
->
+<div class="inline-flex flex-col my-large space-y-2">
 	<LinkButton
 		href="https://gitpod.io/login/"
 		variant="unstyled"

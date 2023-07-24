@@ -15,11 +15,14 @@
 		<div>
 			<h3 class="text-base mb-0">{name}</h3>
 			<p class="text-base mb-macro">{jobTitle}</p>
+
 			{#if companyLogo}
-				<svelte:component
-					this={companyLogo.component}
-					{...companyLogo.props}
-				/>
+				<div class="h-6 w-fit">
+					<svelte:component
+						this={companyLogo.component}
+						{...companyLogo.props}
+					/>
+				</div>
 			{/if}
 		</div>
 	</div>

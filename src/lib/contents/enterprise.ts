@@ -20,7 +20,7 @@ export const exploreContents: ExploreSection = {
 	description:
 		'Spin up fresh cloud development environments for each task, in the cloud, in seconds',
 	link: {
-		text: 'Talk to an expert',
+		text: 'Talk to sales',
 		href: '/contact/sales?subject=enterprise',
 	},
 	useKumquatIllustration: false,
