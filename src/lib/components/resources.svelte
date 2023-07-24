@@ -6,11 +6,13 @@
 	export let headingLevel: 'h3' | 'h2' = 'h2';
 </script>
 
-<div class="flex flex-wrap justify-center mt-small max-w-8xl mx-auto">
+<div
+	class="flex flex-wrap justify-center mt-x-small md:mt-small max-w-8xl mx-auto gap-4"
+>
 	{#each cards as card}
 		<Card
 			{card}
-			class="sm:mx-macro mb-micro 2xl:mb-x-small text-left w-full sm:w-[358px] md:w-[368px]"
+			class="text-left w-[343px] sm:w-[368px]"
 			{headingLevel}
 			textAlign="left"
 		/>

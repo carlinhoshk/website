@@ -6,6 +6,7 @@ const signupTypeToSheetTitle = {
 	'java-panel-discussion': 'Java Panel Discussion Registrations',
 	'getting-started-with-nuaware':
 		'Getting started with Gitpod Nuaware registrations',
+	'shares-cde-adoption': 'Webinar registrations - Shares customer stories',
 };
 
 export const POST: RequestHandler = async ({ request }) => {

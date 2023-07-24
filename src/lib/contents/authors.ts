@@ -463,6 +463,14 @@ export const authors: { [idx: string]: Author } = {
 		description:
 			'Jakob is Head of Data at Gitpod. Chat with him about how to lever tools of the modern data stack in small teams.',
 	},
+	ejoreo: {
+		name: "Eric O'Rear",
+		socialProfiles: {
+			github: 'ejoreo',
+			twitter: 'ejoreo24',
+		},
+		description: '',
+	},
 };
 
 export const authorSocialMediaLinks: SocialMediaLinks = Object.entries(

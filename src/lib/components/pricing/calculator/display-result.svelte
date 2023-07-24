@@ -89,7 +89,7 @@
 				size="large"
 				href="/contact/sales?subject=enterprise"
 			>
-				Get a quote
+				Talk to sales
 			</LinkButton>
 		{:else if members === 1}
 			<div class="mb-xx-small">

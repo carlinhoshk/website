@@ -3,8 +3,6 @@
 	import Header from '$lib/components/header.svelte';
 	import OpenGraph from '$lib/components/open-graph.svelte';
 	import LinkButton from '$lib/components/ui-library/link-button/link-button.svelte';
-	import Signup from '$lib/components/dedicated/signup.svelte';
-	import Hero from '$lib/components/dedicated/hero-text.svelte';
 </script>
 
 <OpenGraph
@@ -18,18 +16,18 @@
 <Header>
 	<div slot="content">
 		<h1 class="h2">Signup for Gitpod Dedicated</h1>
+		<p class="text-large max-w-xl !mb-0 text-center mx-auto">
+			Built for developers, trusted by enterprise.
+		</p>
+		<LinkButton
+			variant="primary"
+			size="large"
+			href="/contact/sales?subject=enterprise"
+			slot="content"
+			class="mt-x-small">Talk to sales</LinkButton
+		>
 	</div>
 </Header>
-
-<div class="flex lgx:justify-start items-start mb-xxx-large">
-	<div class="max-w-2xl justify-left">
-		<Hero />
-	</div>
-	<div class="max-w-2xl justify-center">
-		<Signup class="lgx:hidden mx-auto" toType="dedicated-signup" />
-	</div>
-	<Signup toType="dedicated-signup" class="hidden lgx:block" />
-</div>
 
 <Header tight={true}>
 	<div slot="content">

@@ -2,6 +2,13 @@ import type { Card } from '../types/card';
 
 export const webinars = [
 	{
+		image: '/images/webinars/shares-cde-adoption.webp',
+		alt: 'banner for gitpod and shares cde adoption webinar',
+		text: "CDEs are on-demand development environments that are pre-configured with all tools, libraries and dependencies needed to write and review code.\n\nIn this webinar series, join some of Gitpod’s customers who will share their stories on CDE adoption in their companies. First up we'll be talking to Shares.io where all their engineers are using Gitpod as a default way of development, benefitting from massive productivity gains with every future hire embarking on the same journey.",
+		href: '/webinars/shares-cde-adoption',
+		isInPast: false,
+	},
+	{
 		image: '/images/events/remote-dev-webinar.jpg',
 		alt: 'banner for remote development workshop that takes 60 min',
 		text: 'A hands on conversation about remote development using Gitpod. We will talk about how to get started and cover some best practices. You will be able to follow along with a example repository and your own Gitpod account.',

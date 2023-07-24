@@ -29,6 +29,8 @@
 		normal: 'py-2.5 px-x-small text-lg rounded-2xl',
 		small: 'py-1 px-4 text-p-xsmall rounded-xl',
 		unstyled: '',
+		customTertiary:
+			'bg-important dark:bg-light-black dark:text-sand-dark text-white hover:text-white focus:text-white hover:bg-less-important focus:bg-less-important hover:dark:bg-light-black-hover focus:dark:bg-light-black-hover',
 	};
 
 	const forwardEvents = forwardEventsBuilder(current_component);

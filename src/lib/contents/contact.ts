@@ -21,7 +21,7 @@ export const contactActions: Card[] = [
 		title: 'Sales',
 		text: 'We’d love to talk about how we can work together.',
 		link: {
-			text: 'Talk to an expert',
+			text: 'Talk to sales',
 			href: '/contact/sales?subject=enterprise',
 		},
 	},

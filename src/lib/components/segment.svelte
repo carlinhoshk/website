@@ -238,10 +238,17 @@
 		await trackEvent('website_clicked', trackingMsg);
 	};
 
+	const updatePrevPages = () => {
+		window.prevPages.push(window.location.href);
+		if (window.prevPages.length > 2) {
+			window.prevPages.shift();
+		}
+	};
+
 	onMount(async () => {
 		// Track first page
-		await trackPage();
-		window.prevPages = [window.location.href];
+		window.prevPages = [document.referrer];
+		await trackPage().then(updatePrevPages);
 		window.addEventListener('click', handleButtonOrAnchorTracking, true);
 
 		// Track Extension install or uninstall if necessary
@@ -271,12 +278,7 @@
 		// a recompute on each new page.
 		if (typeof window !== 'undefined' && window.prevPages) {
 			// Track subsequent pages
-			trackPage().then(() => {
-				window.prevPages.push(window.location.href);
-				if (window.prevPages.length > 2) {
-					window.prevPages.shift();
-				}
-			});
+			trackPage().then(updatePrevPages);
 		}
 	}
 </script>

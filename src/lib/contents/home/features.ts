@@ -165,33 +165,6 @@ export const secondaryFeatures: Card[] = [
 	},
 ];
 
-/**Dedicated Features
- * Using on /self-hosted page
- *
- */
-
-export const maximizeControl: Feature = {
-	title: 'Full speed and flexibility',
-	paragraph:
-		'The maintenance and operation of your single-tenant instance are fully managed by us.</br></br>Your team always works with the latest version of Gitpod.',
-	lottie: {
-		src: '/lottie/edit_workspace.json',
-		id: 'edit_workspace',
-	},
-};
-
-export const devsDontCareAboutMachines: Feature = {
-	title: 'Maximize compliance and control',
-	paragraph:
-		'Meet complex compliance and deployment needs with an installation of Gitpod in your region of choice.</br></br>Increase data protection and isolation with private connections.',
-	previewComponent: Workspaces,
-};
-
-export const dedicatedFeatures: Feature[] = [
-	maximizeControl,
-	devsDontCareAboutMachines,
-];
-
 /**Onboarding Features,
  * Using on /solutions/onboarding page
  *
@@ -250,7 +223,7 @@ export const onboardFeatures: Feature[] = [
 export const isolatedEnvironments: Feature = {
 	title: 'Fix vulnerabilities, centrally',
 	paragraph:
-		'CDEs run on a fully isolated and secured single-use containers, limiting the impact of changes to dependencies. Admins decide which configs and images to apply globally and can fix vulnerabilities instantly across an entire team.',
+		'CDEs run on fully isolated and secured single-use containers, limiting the impact of changes to dependencies. Admins decide which configs and images to apply globally and can fix vulnerabilities instantly across an entire team.',
 	terminal: {
 		source: linuxSource,
 		dark: true,
@@ -639,3 +612,27 @@ export const cloudPageFeatures: Feature[] = [
 	noCommitments,
 	minimizeCosts,
 ];
+
+/**Dedicated Features
+ * Using on /self-hosted page
+ *
+ */
+
+export const maximizeControl: Feature = {
+	title: 'Full speed and flexibility',
+	paragraph:
+		'The maintenance and operation of your single-tenant instance are fully managed by us.</br></br>Your team always works with the latest version of Gitpod.',
+	lottie: {
+		src: '/lottie/edit_workspace.json',
+		id: 'edit_workspace',
+	},
+};
+
+export const devsDontCareAboutMachines: Feature = {
+	title: 'Maximize compliance and control',
+	paragraph:
+		'Meet complex compliance and deployment needs with an installation of Gitpod in your region of choice.</br></br>Increase data protection and isolation with private connections.',
+	previewComponent: Workspaces,
+};
+
+export const dedicatedFeatures: Feature[] = [enhancedSecurity, enterpriseReady];

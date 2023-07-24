@@ -2,11 +2,13 @@
 	import type { Pricing } from '$lib/types/pricing';
 	import PricingBox from './pricing-box.svelte';
 
-	export let pricingPlans: Pricing[];
+	let pricingPlans: Pricing[];
+	let dedicatedPricingPlans: Pricing[];
+	export let plan = pricingPlans || dedicatedPricingPlans;
 </script>
 
 <div class="flex justify-center">
-	{#each pricingPlans as pricing}
+	{#each plan as pricing}
 		<PricingBox {pricing} />
 	{/each}
 </div>

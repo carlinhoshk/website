@@ -11,7 +11,13 @@
 		webinarDescription: string;
 </script>
 
-<Header {title} centered={false} textAlign="left" fullWidth={true}>
+<Header
+	{title}
+	centered={false}
+	textAlign="left"
+	fullWidth={true}
+	class="md:mt-9"
+>
 	<Pill text={label} class="mb-3" slot="top" />
 	<div slot="content" class="text-large my-x-small">
 		<div class="flex items-center mb-micro">
@@ -22,7 +28,7 @@
 			<Clock class="h-7 w-7 mr-micro" />
 			{duration}
 		</div>
-		<p class="text-large my-x-small max-w-[595px]">
+		<p class="text-large my-x-small max-w-[595px] whitespace-pre-wrap">
 			{webinarDescription}
 		</p>
 		<div class="flex items-center gap-micro">

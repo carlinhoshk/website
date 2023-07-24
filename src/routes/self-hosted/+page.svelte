@@ -6,10 +6,11 @@
 	import LinkButton from '$lib/components/ui-library/link-button';
 	import Section from '$lib/components/section.svelte';
 	import Features from '$lib/components/features.svelte';
-	import Signup from '$lib/components/dedicated/signup.svelte';
+	import DedicatedCalloutCards from '$lib/components/dedicated/dedicated-callout-cards.svelte';
 	import SectionCommon from '$lib/components/section-common.svelte';
 	import { dedicatedCards } from '$lib/contents/enterprise';
 	import CardSmall from '$lib/components/card/card-small.svelte';
+	import Hero from '$lib/components/dedicated/hero-text.svelte';
 </script>
 
 <OpenGraph
@@ -30,11 +31,10 @@
 	</p>
 	<LinkButton
 		href="#dedicated-request-access"
-		text="Request early access"
 		variant="primary"
 		size="large"
-		data-analytics={`{"context":"self-hosted"}`}
-	/>
+		data-analytics={`{"context":"self-hosted"}`}>Get started</LinkButton
+	>
 </Section>
 
 <Section>
@@ -68,31 +68,9 @@
 	/>
 </Section>
 
-<Section class="flex flex-col lg:flex-row" id="dedicated-request-access">
-	<div
-		class="max-w-4xl flex lgx:items-start flex-col items-center text-center lgx:text-left mb-8 m-auto lg:mr-auto lg:my-auto lg:m-0"
-	>
-		<h2 class="h3 !mb-micro md:!mb-x-small">Get started</h2>
-		<div class="max-w-[460px] text-p-large">
-			<p class="">
-				Complete this form to join our limited availability waitlist.
-			</p>
-			<br />
-			<ul class="pl-xx-small list-disc">
-				<li>
-					Dedicated is a fully isolated, private installation of
-					Gitpod that meets complex compliance standards.
-				</li>
-				<br />
-				<li>
-					Gitpod teams fully manage your instance to ensure you're
-					always working on the latest version.
-				</li>
-			</ul>
-		</div>
+<div class="mb-x-large md:mb-xxx-large" id="dedicated-request-access">
+	<div class="max-w-2xl mx-auto justify-center">
+		<Hero />
 	</div>
-	<div class="max-w-2xl justify-center">
-		<Signup class="lgx:hidden mx-auto" toType="dedicated-signup" />
-	</div>
-	<Signup toType="dedicated-signup" class="hidden lgx:block" />
-</Section>
+	<DedicatedCalloutCards />
+</div>

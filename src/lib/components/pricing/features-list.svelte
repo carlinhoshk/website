@@ -10,14 +10,14 @@
 </script>
 
 <ul
-	class="inline-flex flex-col ml-x-small mt-xx-small space-y-micro text-left {className}"
+	class="inline-flex flex-col ml-x-small mt-xx-small space-y-8 text-left {className}"
 >
 	{#each features as feature}
 		<li class="relative inline-flex text-important">
 			{#if typeof feature !== 'string'}
 				<QaTooltip text={feature.text} tooltip={feature.tooltip} />
 			{:else}
-				{feature}
+				{@html feature}
 			{/if}
 		</li>
 	{/each}

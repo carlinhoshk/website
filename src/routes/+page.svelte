@@ -75,7 +75,7 @@
 			>Learn more about CDEs</LinkButton
 		>
 		<LinkButton variant="gray" size="large" href="https://gitpod.io/login"
-			>Try now</LinkButton
+			>Start for free</LinkButton
 		>
 	</div>
 </Section>
@@ -83,7 +83,7 @@
 <IntegrateDontDictate class="py-small" />
 <Features features={otherFeatures} />
 <Testimonials
-	title="Trusted by the most secure software teams"
+	title="Trusted by developers globally"
 	class="-mb-20"
 	{testimonials}
 />

@@ -26,7 +26,7 @@
 	class="!mb-0 !mt-small lg:!mt-x-large !pb-micro !text-h2"
 	title="Welcome to our community!"
 	text="Our community is a space to learn about Gitpod CDEs, connect with other developers and build cool projects. We're happy to have you!"
-	btnPrimary={{ href: 'https://www.gitpod.io/chat', text: 'Join now' }}
+	btnPrimary={{ href: 'https://www.gitpod.io/chat', text: 'Join Discord' }}
 />
 
 <OverviewCards />
@@ -46,7 +46,7 @@
 		title: 'Join the community',
 		link: {
 			href: 'https://www.gitpod.io/chat',
-			text: 'Join the community',
+			text: 'Join Discord',
 		},
 		secondaryLink: null,
 		description:

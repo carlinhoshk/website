@@ -1,4 +1,4 @@
-import type { Pricing } from '$lib/types/pricing';
+import type { Pricing, FeatureList } from '$lib/types/pricing';
 import { isEurope } from '$lib/utils/helpers';
 import type { Card } from '$lib/types/card';
 // @ts-ignore
@@ -13,45 +13,80 @@ import githubMarkSvelte from '$lib/components/svgs/github-mark.svelte';
 
 export const pricingPlans: Pricing[] = [
 	{
-		title: 'Starter',
-		description: 'Discover Gitpod',
+		title: `${isEurope() ? '€' : '$'}0`,
+		description: 'For individuals trialing Gitpod Cloud.',
 		price: 'Free',
+		priceDuration: 'hour',
 		features: [
 			'50 hours per month for free',
-			'Access to all workspace classes, prebuilds, and IDEs',
+			'access to basic Gitpod Cloud features',
 		],
 		btnText: 'Start for free',
 		btnHref: 'https://gitpod.io/login',
-		trackingName: 'organization',
+		trackingName: 'cloud-starter',
 	},
 	{
-		title: 'Organization',
-		description: 'For orgs of any size',
+		title: `${isEurope() ? '€' : '$'}0.36`,
+		description: 'Hosted and managed by Gitpod.',
 		price: 'Pay-as-you-go',
+		priceDuration: 'hour',
 		features: [
-			`1,000 credits for ${
-				isEurope() ? '€' : '$'
-			}9/mo. Pay-as-you-go after that`,
-			'Custom workspace timeouts',
+			`no installation`,
+			'zero platform maintenance or overhead',
+			`multi-tenant set-up to minimize cloud costs`,
 		],
-		btnText: 'Create organization',
-		btnHref: 'https://gitpod.io/orgs/new',
-		trackingName: 'organization',
+		btnText: 'Get started',
+		btnHref: 'https://gitpod.io/login',
+		spiced: true,
+		trackingName: 'cloud-pay-as-you-go',
 	},
+];
+export const dedicatedPricingPlans: Pricing[] = [
 	{
-		title: 'Enterprise',
-		description: 'For orgs with custom needs',
-		price: 'Contact Us',
+		title: 'Custom',
+		description: 'Hosted by you, managed by Gitpod.',
+		price: 'Gitpod Dedicated',
+		priceDuration: 'user/month',
 		features: [
-			'Deployment options: run Gitpod in your cloud or ours',
-			'VPC peering and private links to your dev resources',
-			'Single sign-on (SSO)',
-			'SLA and premium support',
+			'single-tenant installation for maximum security and control',
+			'data and source code isolation',
+			'access to private networking',
+			'SSO, custom SLAs and dedicated support',
 		],
 		btnText: 'Talk to sales',
-		btnHref: '/contact/sales?subject=enterprise',
+		btnHref: '/contact/sales',
+		trackingName: 'dedicated',
 		spiced: true,
-		trackingName: 'enterprise',
+	},
+];
+
+export const cloudFeatures: FeatureList[] = [
+	{
+		title: 'Gitpod Cloud',
+		description: 'Hosted and managed by Gitpod.',
+		features: [
+			`<div class='block'><b>No installation required:</b> get started right away on Gitpod.io</div>`,
+			`<div class='block'><b>No commitments:</b> consumption-based usage that you pay-as-you-go</div>`,
+			`<div class='block'><b>Minimize costs:</b> multi-tenant set-up allows for organizations to minimize cloud costs</div>`,
+			`<div class='block'><b>Free trial available:</b> 50 hours free per month with access to basic Gitpod Cloud functionality</div>`,
+		],
+		btnText: 'Start for free',
+		btnHref: 'https://gitpod.io/login',
+	},
+];
+
+export const dedicatedFeatures: FeatureList[] = [
+	{
+		title: 'Gitpod Dedicated',
+		description: 'Hosted by you, managed by Gitpod.',
+		features: [
+			`<div class='block'><b>Enhanced security:</b> single-tenant installations ensure source code, dependencies and dev environments remain private and protected</div>`,
+			`<div class='block'><b>Access private resources:</b> run within your VPC to access resources that aren’t exposed to the internet</div>`,
+			`<div class='block'><b>Support for air gapped networks:</b> protected from unauthorized data transfers, malware infiltration and external network connections</div>`,
+			`<div class='block'><b>Built for enterprise:</b> SSO, custom SLAs and dedicated support experts to help scale your team</div>`,
+		],
+		btnText: 'Talk to sales',
+		btnHref: '/contact/sales',
 	},
 ];
 
@@ -77,7 +112,7 @@ export const empowermentFeatures: Card[] = [
 export const starterPlanTableData: FeatureTableColumn = {
 	link: {
 		href: 'https://gitpod.io/login',
-		label: 'Sign up',
+		label: 'Start for free',
 	},
 	header: {
 		headline: 'Starter',
@@ -211,7 +246,7 @@ export const starterPlanTableData: FeatureTableColumn = {
 export const organizationPlanTableData: FeatureTableColumn = {
 	link: {
 		href: 'https://gitpod.io/login',
-		label: 'Sign up',
+		label: 'Start for free',
 	},
 	header: {
 		headline: 'Organization',
@@ -729,7 +764,7 @@ export const pricingFAQ: FAQ = {
 		{
 			title: 'How can I pay?',
 			content:
-				'<p>You can pay with MasterCard, Visa card, American Express Card or UnionPay.</p><div class="flex my-xx-small space-x-xx-small"> <img class="mr-4" src="/svg/brands/mastercard.svg" alt="Mastercard" width="52" height="40" /> <img class="mr-4" src="/svg/brands/visa.svg" alt="Visa" width="72" height="40" /> <img class="mr-4" src="/svg/brands/amex.svg" alt="AmEx Logo" width="50" height="36" /><img src="/svg/brands/union-pay.svg" alt="Union Pay Logo" width="50" height="36" /></div> <p>For enterprise customers, additional payment options are available. Please <a href="/contact/sales">contact sales</a> for annual billing.</p> ',
+				'<p>You can pay with MasterCard, Visa card, American Express Card or UnionPay.</p><div class="flex my-xx-small space-x-xx-small"> <img class="mr-4" src="/svg/brands/mastercard.svg" alt="Mastercard" width="52" height="40" /> <img class="mr-4" src="/svg/brands/visa.svg" alt="Visa" width="72" height="40" /> <img class="mr-4" src="/svg/brands/amex.svg" alt="AmEx Logo" width="50" height="36" /><img src="/svg/brands/union-pay.svg" alt="Union Pay Logo" width="50" height="36" /></div> <p>For enterprise customers, additional payment options are available. Please <a href="/contact/sales">Talk to sales</a> for annual billing.</p> ',
 		},
 		{
 			title: 'Can I create an organization plan?',
@@ -739,7 +774,7 @@ export const pricingFAQ: FAQ = {
 		{
 			title: 'Can I change my subscription at any time?',
 			content:
-				'<p> Yes, you can upgrade or downgrade whenever you want on <a href="https://gitpod.io/subscription/">gitpod.io/subscription</a >. Your billing cycle starts with the creation date of your subscription. After 30 days it will automatically renew itself. </p> <p> If you choose to upgrade, the pricing difference will be added to your next month’s invoice. If you choose to downgrade, you’ll be credited on your next month’s invoice </p>',
+				'<p> Yes, you can upgrade or downgrade whenever you want on <a href="https://gitpod.io/billing/">gitpod.io/billing</a >. Your billing cycle starts with the creation date of your subscription. After 30 days it will automatically renew itself. </p> <p> If you choose to upgrade, the pricing difference will be added to your next month’s invoice. If you choose to downgrade, you’ll be credited on your next month’s invoice </p>',
 		},
 		{
 			title: 'What if I decide to cancel?',
@@ -759,7 +794,42 @@ export const pricingFAQ: FAQ = {
 		{
 			title: 'Still have more questions?',
 			content:
-				'<p> We are happy to answer them, please <a href="/contact/support">Get in touch</a></p>',
+				'<p> We are happy to answer them, please <a href="/contact/support">Contact support</a></p>',
 		},
 	],
 };
+
+export const cards: Card[] = [
+	{
+		title: 'One-click onboarding',
+		text: 'With a single click, developers can launch perfectly configured environments and start coding instantly.',
+	},
+	{
+		title: 'Configured to your spec',
+		text: 'Pre-configured environments, out-of-the-box, eliminate the need to setup any dev environments: local, VDI or homegrown.',
+	},
+	{
+		title: 'Bring-your-own tool',
+		text: 'Integrate into your orgs existing development infrastructure, from git provider to IDE to cloud.',
+	},
+	{
+		title: 'Secure code',
+		text: 'Source code is centrally and safely stored in the cloud, never locally.',
+	},
+	{
+		title: 'Works on any machine',
+		text: 'Work with the same tools, libraries, and dependencies, regardless of operating system, device or IDE.',
+	},
+	{
+		title: 'Share snapshots',
+		text: 'Seamlessly share dev environment configurations, changes to configurations, or real-time projects for easier collaboration.',
+	},
+	{
+		title: 'One config to rule all',
+		text: 'Shared development setup and isolated environments means less time worry about configuration drift and broken dev environments.',
+	},
+	{
+		title: 'Fix vulnerabilities, centrally',
+		text: 'Admins control configs and image globally, and can fix vulnerabilities instantly across an entire team.',
+	},
+];

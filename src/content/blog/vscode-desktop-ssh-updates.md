@@ -9,6 +9,8 @@ teaserImage: header.jpg
 title: 'VS Code Desktop and SSH explained'
 ---
 
+> **Note:** There have been some updates to VS Code Desktop connections since this post was published. See the [VS Code Desktop](/docs/references/ides-and-editors/vscode#connecting-to-vs-code-desktop) documentation for more.
+
 You might have seen we recently announced [SSH public key upload for Gitpod](https://www.gitpod.io/blog/ssh-key-upload), and in the announcement, we mentioned: "SSH key upload also gives our users more stable, performant and secure connections" which might have left you wondering what this statement means in practice.
 
 A lot of the changes we made to our SSH approach applies to our [VS Code Desktop](/docs/references/ides-and-editors/vscode) users. In this article we will take a deeper look at: how SSH connections work with VS Code Desktop, the pros/cons of the different approaches, and cover some common gotchas and questions.

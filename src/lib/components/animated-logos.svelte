@@ -33,9 +33,11 @@
 	});
 
 	export let title = 'Trusted by 1M+ developers';
+	let clazz = '';
+	export { clazz as class };
 </script>
 
-<section class="mt-small md:mt-x-large">
+<section class="mt-small md:mt-x-large {clazz}">
 	<h2 class="h5 text-center">{title}</h2>
 	<div class="flex justify-center gap-xx-small sm:gap-20 mt-large sm:mt-20">
 		{#each sequence as i}

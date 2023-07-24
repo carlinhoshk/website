@@ -85,7 +85,7 @@
 		{#if isEmailSent}
 			<SubmissionSuccess
 				title="Thanks for your registration"
-				text="You will receive a confirmation email shortly."
+				text="You'll receive all further information via email."
 			/>
 		{:else if isDuplicate}
 			<SubmissionSuccess title="You have already registered" />

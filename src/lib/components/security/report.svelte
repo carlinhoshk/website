@@ -12,8 +12,10 @@
 			We welcome close collaboration with the worldwide security research
 			community.
 		</p>
-		<LinkButton variant="secondary" size="medium" href="/contact/support"
-			>Report security concern</LinkButton
+		<LinkButton
+			variant="secondary"
+			size="medium"
+			href="/contact/support?subject=security">Contact support</LinkButton
 		>
 	</div>
 </Section>

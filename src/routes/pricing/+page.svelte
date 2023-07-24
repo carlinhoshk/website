@@ -3,11 +3,16 @@
 	import Faqs from '$lib/components/pricing/faqs.svelte';
 	import OpenGraph from '$lib/components/open-graph.svelte';
 	import PlansAndPricing from '$lib/components/pricing/plans-and-pricing.svelte';
-	import { pricingPlans, pricingTable } from '$lib/contents/pricing';
-	import Empower from '$lib/components/pricing/empower.svelte';
-	import FeatureTable from '$lib/components/ui-library/feature-table/feature-table.svelte';
-	import SectionCommon from '$lib/components/section-common.svelte';
-	import Calculator from '$lib/components/pricing/calculator/index.svelte';
+	import PricingFeatures from '$lib/components/pricing/pricing-features.svelte';
+	import {
+		pricingPlans,
+		dedicatedPricingPlans,
+		cloudFeatures,
+		dedicatedFeatures,
+		cards,
+	} from '$lib/contents/pricing';
+	import AnimatedLogos from '$lib/components/animated-logos.svelte';
+	import Resources from '$lib/components/resources.svelte';
 	import Section from '$lib/components/section.svelte';
 	import LinkButton from '$lib/components/ui-library/link-button/link-button.svelte';
 </script>
@@ -15,45 +20,33 @@
 <OpenGraph
 	data={{
 		description:
-			'Gitpod is always free for 50h/month. Upgrade to unlock more hours and features. SaaS and Self-Hosted. Talk to an expert.',
-		title: 'Plans and Pricing - Gitpod',
-		keywords: 'Pricing Gitpod, costs, free, saas, fees, self-hosted',
+			'Gitpod is free for 50h/month. Upgrade to unlock more features with Cloud - hosted and managed by us or Dedicated - hosted by you and managed by us.',
+		title: 'Plans and pricing - Gitpod',
+		keywords:
+			'Pricing, Gitpod, costs, free, Cloud, SaaS, Dedicated, self-hosted, secure developer environment, cloud development environment, cde',
 	}}
 />
-<PlansAndPricing {pricingPlans} />
-
+<PlansAndPricing {pricingPlans} {dedicatedPricingPlans} />
+<AnimatedLogos
+	title="Speeding up 1M+ developers in teams like"
+	class="md:!mt-xx-large"
+/>
+<PricingFeatures {cloudFeatures} {dedicatedFeatures} />
 <Section>
 	<div class="mb-small md:mb-x-medium">
 		<h2 id="cost-estimator" class="text-center h2 mb-macro md:!mb-micro">
-			Pricing calculator
+			Gitpod CDEs
 		</h2>
 		<p class="text-large text-center mx-auto">
-			Estimate costs for your Organization.
+			Get started for free, upgrade any time.
 		</p>
 		<div class="text-center mt-micro md:mt-x-small">
-			<LinkButton
-				variant="cta"
-				size="large"
-				href="/docs/configure/billing"
-				>More about billing and credits</LinkButton
+			<LinkButton variant="primary" size="large" href="/contact/get-demo"
+				>Get a demo</LinkButton
 			>
 		</div>
 	</div>
-	<Calculator />
+	<Resources {cards} />
 </Section>
-
-<SectionCommon
-	titleClassNames="!mb-micro"
-	title="Compare features"
-	text="Start using Gitpod CDEs for free, upgrade anytime."
-	textClassNames="mb-micro md:mb-small"
-	isTitleADeepLink={true}
->
-	<div slot="content">
-		<FeatureTable tableData={pricingTable} />
-	</div>
-</SectionCommon>
-<Empower />
 <Faqs />
-
 <Explore />

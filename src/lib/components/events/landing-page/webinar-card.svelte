@@ -16,7 +16,7 @@
 	>
 		<div class="-mt-xx-small -mx-xx-small">
 			<img
-				class="w-full h-full object-cover"
+				class="w-full h-64 object-cover"
 				src={webinar.image}
 				alt={webinar.alt}
 			/>

@@ -10,6 +10,7 @@ title: 'Introducing Gitpod Dedicated: our enterprise cloud offering'
 
 <script>
   import Signup from "$lib/components/dedicated/signup.svelte"
+  import LinkButton from "$lib/components/ui-library/link-button/link-button.svelte"
 </script>
 
 **TL;DR**
@@ -30,13 +31,9 @@ Gitpod Dedicated is the same Gitpod that you know and love, but as a customer yo
 
 Gitpod Dedicated will be initially available in AWS because that’s where the majority of our customers are. We can run in your cloud account or ours, in the region of your choice, and customers will have the ability to manage encryption keys for data at rest. Every detail of Gitpod Dedicated has been designed to meet the security requirements of our enterprise customers.
 
-#### Join the waitlist
+# Gitpod Dedicated is now available
 
-We are excited to announce limited availability of Gitpod Dedicated for enterprise customers and an expanded beta in 2023. Sign-up for the waitlist and receive bi-weekly architecture and product updates.
-
-<div class="my-micro">
-<Signup class="!mx-auto !left-0" toType="dedicated-signup" />
-</div>
+<LinkButton href="/dedicated" variant="primary" size="large">Get started</LinkButton>
 
 ## Ending support for Self Hosted and moving our source code to the open-source AGPL licence
 
