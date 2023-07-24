@@ -2,11 +2,6 @@
   command = "npm run deploy"
   publish = "build/"
 
-[functions]
-  directory = "src/functions"
-  node_bundler = "esbuild"
-  external_node_modules = ["mdsvex"]
-
 [dev]
   command = "npm run dev"
   targetPort = 3000

@@ -18,16 +18,16 @@ We have decided to implement the feature flag functionality using a TypeScript s
 
 ### Benefits
 
-- Dynamic feature toggling: By implementing feature flags, we can enable/disable specific features at runtime without redeploying the entire application. This allows for greater flexibility and the ability to experiment with different feature combinations.
-- TypeScript-based service: Utilizing TypeScript for the feature flag service ensures type safety and improves code maintainability.
-- Svelte component integration: Integrating the service with our Svelte components allows us to easily control the visibility and behavior of features based on their respective flags.
-- Consistent user experience: Passing the `ajs_anonymous_id` as the ConfigCat user ID ensures that the user's experience remains consistent across all pages of the website, regardless of the feature flag states.
+-   Dynamic feature toggling: By implementing feature flags, we can enable/disable specific features at runtime without redeploying the entire application. This allows for greater flexibility and the ability to experiment with different feature combinations.
+-   TypeScript-based service: Utilizing TypeScript for the feature flag service ensures type safety and improves code maintainability.
+-   Svelte component integration: Integrating the service with our Svelte components allows us to easily control the visibility and behavior of features based on their respective flags.
+-   Consistent user experience: Passing the `ajs_anonymous_id` as the ConfigCat user ID ensures that the user's experience remains consistent across all pages of the website, regardless of the feature flag states.
 
 ### Drawbacks
 
-- Complexity: Implementing feature flags introduces additional complexity to the codebase, as we need to handle the logic of enabling/disabling features based on the flag states.
-- Maintenance: Regular maintenance is required to update feature flags and handle any potential conflicts or issues that may arise.
-- Increased dependencies: Integrating ConfigCat and relying on the `ajs_anonymous_id` introduces a dependency on external services. Any downtime or issues with these services may impact the feature flag functionality and user experience.
+-   Complexity: Implementing feature flags introduces additional complexity to the codebase, as we need to handle the logic of enabling/disabling features based on the flag states.
+-   Maintenance: Regular maintenance is required to update feature flags and handle any potential conflicts or issues that may arise.
+-   Increased dependencies: Integrating ConfigCat and relying on the `ajs_anonymous_id` introduces a dependency on external services. Any downtime or issues with these services may impact the feature flag functionality and user experience.
 
 ## Considered Alternatives
 
