@@ -169,4 +169,4 @@ And you cannot do that without a Cloud Dev Environment. So it's not only about, 
 
 Just for information, we have two offerings that you can get started with today. We have Gitpod Cloud, and that is hosted and managed by us. We also have Gitpod Dedicated, and that is hosted by you and managed by us. You can find out more on our website at [www.gitpod.io](https://www.gitpod.io).
 
-If you want to continue the conversation on Cloud Development Environment adoption, or if you have any questions about using Gitpod, feel free to come join our Gitpod community over at [www.gitpod.io/chat](https://www.gitpod.io/chat) or [try Gitpod for free](gitpod.io/login).
+If you want to continue the conversation on Cloud Development Environment adoption, or if you have any questions about using Gitpod, feel free to come join our Gitpod community over at [www.gitpod.io/chat](https://www.gitpod.io/chat) or [try Gitpod for free](https://gitpod.io/login).
