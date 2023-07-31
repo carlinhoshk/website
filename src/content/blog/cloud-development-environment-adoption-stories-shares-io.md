@@ -36,6 +36,7 @@ Another problem we noticed with Docker is the inconsistency of performance. We a
 So you have a very quick feedback loop to notice the result of your work. And we noticed that some people on our team had a delay of more than one minute on hot reloading. Now for people who are familiar with this kind of workflow, one minute is very high. Like when you change your source code, you want to see the effect immediately, after 10 seconds maximum. If it gets bigger than that, then productivity collapses and it's really bad for the team.
 
 We noticed that due to Docker file system implementation issues on macOS 10, we had performance issues on hot reloading and it was damaging our productivity. So as a result, we started to evaluate CDEs.
+<br/>
 
 **Pauline**: How did you choose Gitpod among the other Cloud Development Environment options?
 <br/>
@@ -169,7 +170,5 @@ And you cannot do that without a Cloud Dev Environment. So it's not only about, 
 **Pauline**: Awesome. Well, thank you so much for joining us today. It was an absolute pleasure. I hope that everyone who's tuning in was inspired to give Gitpod and CDEs a go.
 <br/>
 <br/>
-
-Just for information, we have two offerings that you can get started with today. We have Gitpod Cloud, and that is hosted and managed by us. We also have Gitpod Dedicated, and that is hosted by you and managed by us. You can find out more on our website at [www.gitpod.io](https://www.gitpod.io).
 
 If you want to continue the conversation on Cloud Development Environment adoption, or if you have any questions about using Gitpod, feel free to come join our Gitpod community over at [www.gitpod.io/chat](https://www.gitpod.io/chat) or [try Gitpod for free](https://gitpod.io/login).
