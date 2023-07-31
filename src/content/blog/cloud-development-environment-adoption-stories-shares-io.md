@@ -8,7 +8,7 @@ teaserImage: teaser.webp
 title: 'Cloud development environment adoption stories: Shares.io'
 ---
 
-In this interview, CTO and co-founder of Shares.io, François Ruty, sits down with our Head of Community, Pauline Narvas, to talk about how Shares made the transition to Cloud Development Environments (CDEs), how Shares is using Gitpod to prioritize the developer experience, his vision of effective software development, and more.
+In this interview, CTO and co-founder of Shares.io, François Ruty, sits down with our Head of Community, Pauline Narvas, to talk about how Shares made the transition to Cloud Development Environments (CDEs) to prioritize developer experience and their vision of effective software development.
 
 This interview is from [this webinar](https://www.youtube.com/watch?v=-n3_O82R51U) and has been edited for print.
 
@@ -20,11 +20,13 @@ Today we are with François Ruty from Shares. Thanks for joining us. To get us s
 **Pauline**: Can you tell us what led you to evaluate Cloud Development Environments?
 
 **François**: So as I guess many of you here know already, one of the key points when you want to set up an engineering team is how to deal with the dev environment. How can you make sure that everybody is able to onboard to your stack and get to work very fast? Like any other tech company, we shared that problem when we kickstarted the engineering team. The actual trigger for us to start to evaluate CDEs was inconsistencies of behavior we noticed with Docker. So initially, what we had for our dev environments were Docker containers configured with Docker Compose.
+
 And basically everybody on the engineering team would have Docker Compose and Docker containers preconfigured locally on their laptops through a configuration version in Git. So the setup was quite practical already at the time. But it turned out, once we were growing to more than five or six persons, it did not scale well.
 Because we noticed that Docker is not fully standardized across platforms, so we had the difference of behavior on Windows, on OS 10, on Linux. And that was an issue because we had sometimes some bugs happening on the dev environment on one platform and not being reproducible on another platform. That's obviously a huge issue when you're working as a team to debug issues.
 
 Another problem we noticed with Docker is the inconsistency of performance. We are a Typescript company. All our stack is Javascript and Typescript and when we develop in Typescript, we use what is called hot reloading. Hot reloading means that when you change your source code the changes are live immediately.
 So you have a very quick feedback loop to notice the result of your work. And we noticed that some people on our team had a delay of more than one minute on hot reloading. Now for people who are familiar with this kind of workflow, one minute is very high. Like when you change your source code, you want to see the effect immediately, after 10 seconds maximum. If it gets bigger than that, then productivity collapses and it's really bad for the team.
+
 We noticed that due to Docker file system implementation issues on macOS 10, we had performance issues on hot reloading and it was damaging our productivity. So as a result, we started to evaluate CDEs.
 
 **Pauline**: How did you choose Gitpod among the other Cloud Development Environment options?
@@ -46,6 +48,7 @@ The reason why we really strongly recommend people to use Gitpod is that you can
 So basically what we did is that whenever someone joined the company on a Monday, we would open the GitHub access, send a Gitpod link to enroll, and then, in the afternoon, there was the first ticket to tackle and the first PR to open before the end of the first day.
 
 So let’s do an analogy with swimming. You want to learn how to swim, we push you in the swimming pool and we hope that you swim. And what is great is that you cannot do this without a Gitpod. When you have a local dev environment you have to find an old documentation regarding how to install your system on your laptop. You have to talk to someone who has the knowledge.
+
 So it's like doing archeology. You know, when someone joins the company, they end up doing archeology to know, “How can I get up and running?”. With Gitpod, you click a button. The system is started. The environment is all set for you. So game on. It's up to you to code and start implementing stuff.
 
 **Pauline**: Amazing. Yeah, that sounds like pretty much the experience a lot of our customers have been saying. I also really like your analogies. That's fantastic.
@@ -74,7 +77,7 @@ And it was such a headache. And so when I got into Gitpod and started implementi
 
 **François**: You told me you were at some point on an SRE team, correct?
 
-**Pauline**: I was yes.
+**Pauline**: I was, yes.
 
 **François**: So, we do not have SRE teams in Shares and that's in part thanks to Gitpod. What we do when we have issues in production is that we dispatch the issues to the persons who wrote the code. So we don't have people who are expert in solving bugs. Like everybody participates with production issues, and we do this thanks to Gitpod.
 
@@ -134,4 +137,4 @@ And you cannot do that without a Cloud Dev Environment. So it's not only about, 
 
 Just for information, we have two offerings that you can get started with today. We have Gitpod Cloud, and that is hosted and managed by us. We also have Gitpod Dedicated, and that is hosted by you and managed by us. You can find out more on our website at [www.gitpod.io](https://www.gitpod.io).
 
-If you want to continue the conversation on Cloud Development Environment adoption, or if you have any questions about using Gitpod, feel free to come join our Gitpod community over at [www.gitpod.io/chat](https://www.gitpod.io/chat).
+If you want to continue the conversation on Cloud Development Environment adoption, or if you have any questions about using Gitpod, feel free to come join our Gitpod community over at [www.gitpod.io/chat](https://www.gitpod.io/chat) or [try Gitpod for free] (gitpod.io/login).
