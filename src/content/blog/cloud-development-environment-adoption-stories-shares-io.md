@@ -1,11 +1,11 @@
---- 
-author: Talia Moyal
-date: Friday, July 28 2023
+---
+author: tmoyal
+date: Friday, 28 July 2023 14:00:00 UTC
 excerpt: No two cloud development environment (CDE) stories are the same.
 tags: ['Developer experience']
-image: teaser.webp 
+image: teaser.webp
 teaserImage: teaser.webp
-title: Cloud development environment adoption stories: Shares.io
+title: 'Cloud development environment adoption stories: Shares.io'
 ---
 
 In this interview, CTO and co-founder of Shares.io, François Ruty, sits down with our Head of Community, Pauline Narvas, to talk about how Shares made the transition to Cloud Development Environments (CDEs), how Shares is using Gitpod to prioritize the developer experience, his vision of effective software development, and more.
