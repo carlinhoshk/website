@@ -36,14 +36,14 @@
 
 	// Code blocks
 	:not(pre) > code {
-		padding: 0.15rem 0.5rem;
+		padding: 0.15rem 0.35rem;
 		border-radius: 0.4rem;
-		font-size: 0.875em;
+		font-size: 0.9em;
 		line-height: 1rem;
 		background: var(--brand-light);
 		white-space: normal;
 		display: inline-block;
-		color: initial; // reset color to inherit from parent (used in h2 code)
+		color: #565451;
 	}
 
 	:where(p):not(:where([class~='not-prose'] *)) {
