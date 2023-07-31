@@ -471,7 +471,7 @@ export const authors: { [idx: string]: Author } = {
 		},
 		description: '',
 	},
-	tmoyal: {
+	taliamoyal: {
 		name: 'Talia Moyal',
 		socialProfiles: {
 			github: 'taliamoyal',

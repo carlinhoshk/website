@@ -1,5 +1,5 @@
 ---
-author: tmoyal
+author: taliamoyal
 date: Friday, 28 July 2023 14:00:00 UTC
 excerpt: No two cloud development environment (CDE) stories are the same.
 tags: ['Developer experience']
