@@ -471,6 +471,15 @@ export const authors: { [idx: string]: Author } = {
 		},
 		description: '',
 	},
+	tmoyal: {
+		name: 'Talia Moyal',
+		socialProfiles: {
+			github: 'tmoyal',
+			twitter: 'tmoyal',
+			linkedin: 'taliamoyal',
+		},
+		description: '',
+	},
 };
 
 export const authorSocialMediaLinks: SocialMediaLinks = Object.entries(
