@@ -475,7 +475,7 @@ export const authors: { [idx: string]: Author } = {
 		name: 'Talia Moyal',
 		socialProfiles: {
 			github: 'taliamoyal',
-			twitter: 'tmoyal',
+			twitter: 'taliamoyal',
 			linkedin: 'taliamoyal',
 		},
 		description: '',
