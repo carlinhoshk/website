@@ -11,6 +11,9 @@ title: 'Cloud development environment adoption stories: Shares.io'
 In this interview, CTO and co-founder of Shares.io, François Ruty, sits down with our Head of Community, Pauline Narvas, to talk about how Shares made the transition to Cloud Development Environments (CDEs) to prioritize developer experience and their vision of effective software development.
 
 This interview is from [this webinar](https://www.youtube.com/watch?v=-n3_O82R51U) and has been edited for print.
+
+`youtube: -n3_O82R51U`
+
 <br/>
 <br/>
 
