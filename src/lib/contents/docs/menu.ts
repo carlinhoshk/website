@@ -292,10 +292,10 @@ export const MENU: MenuEntry[] = [
 			'Using Private VPC Resolvers',
 			'gitpod-dedicated/guides/using-private-vpc-resolvers',
 		),
-		// M(
-		// 	'Private ECR for Workspace Images',
-		// 	'gitpod-dedicated/guides/use-private-ecr-repos-for-workspace-images',
-		// ),
+		M(
+			'Private ECR for Workspace Images',
+			'gitpod-dedicated/guides/use-private-ecr-repos-for-workspace-images',
+		),
 		M(
 			'Accessing exported instance data',
 			'gitpod-dedicated/guides/accessing-data-exported-from-your-instance',
