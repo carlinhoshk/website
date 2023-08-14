@@ -35,3 +35,5 @@ Take the following steps to use a private ECR repository as the source for works
     ```
 
 You can now reference images from this ECR repository in [`.gitpod.yml` files](/docs/references/gitpod-yml) by specifying it in the `image` field: `image: <aws-ecr-url-prefix>.amazonaws.com/<your-image-name:tag>`. Ensure the images adhere to the requirements described [here](/docs/configure/workspaces/workspace-image#custom-base-image).
+
+> ℹ️ **Note:** [gp-validate](/docs/configure/workspaces#validate-your-gitpod-configuration) uses a docker daemon when pulling images. As such, credentials for the respective ECR repository need to be present when using it.
