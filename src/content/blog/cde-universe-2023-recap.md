@@ -17,6 +17,8 @@ Engineers from Uber, Slack, Shopify, and more each shared the challenges and ben
 
 For some companies, the internal CDE platform was primarily about unlocking developer productivity. For others, CDEs offered a chance to unblock teams as codebases scaled beyond what was manageable on a single developer laptop. Each shared the challenges and successes in deploying CDEs to their development teams.
 
+`youtube: Lxp393R2w-w`
+
 ## Uber: Devpod
 
 [Matas Strukčinskas](https://www.linkedin.com/in/matas-strukcinskas/) from Uber shared how they built a platform deployed to multiple regions, to minimize development latency for Uber’s global development teams.

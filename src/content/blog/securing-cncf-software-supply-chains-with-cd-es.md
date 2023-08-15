@@ -34,7 +34,7 @@ Chainguard has created a [set of locked down containers](https://www.chainguard.
 
 Wolfi works by creating a limited, minimal container for running your application’s executables. This “distroless” application minimizes the chances of third party libraries bringing vulnerabilities into your application, and helps ship a lighter container image size to production systems. Additionally, it brings a SBOM (software bill of materials) to your containerized applications.
 
-Chainguard has a great [example Dockerfile](https://edu.chainguard.dev/open-source/wolfi/wolfi-with-dockerfiles/) showcasing how to build your application container for a Python application:
+Chainguard has a great [example Dockerfile](https://edu.chainguard.dev/open-source/wolfi/wolfi-with-dockerfiles/#step-4-optional-composing-distroless-images-in-a-docker-multi-stage-build) showcasing how to build your application container for a Python application:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/wolfi-base as builder
@@ -50,7 +50,7 @@ USER nonroot
 COPY requirements.txt /app/
 RUN  pip3 install -r requirements.txt --user
 
-FROM cgr.dev/chainguard/python:3.11
+FROM cgr.dev/chainguard/python:latest
 
 ARG version=3.11
 WORKDIR /app

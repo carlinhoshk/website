@@ -56,4 +56,6 @@ Later, I had applied for an internship at Gitpod. It was kind of an unexpected e
 
 Can you believe it? All the contributions and projects have been made from my phone, using the power of Gitpod! Gitpod is powerful, and I believe with Gitpod, anyone can learn to code and develop software without any hurdles.
 
+`youtube: pS22i4vFxyk`
+
 Drop by our community Discord server if you find this interesting and want to develop software on your phone. We have the [#mobile-and-tablets](https://discord.com/channels/816244985187008514/890901203624534026) channel where fellow mobile-dev enthusiasts hang out! Feel free to share your tips and tricks on software engineering in a more unconventional but accessible way.

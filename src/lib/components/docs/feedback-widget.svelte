@@ -52,11 +52,7 @@
 </script>
 
 <div class={clazz}>
-	<Card
-		size="small"
-		class="max-w-md py-small px-xx-small m-auto"
-		data-analytics={`{"dnt":true}`}
-	>
+	<Card size="small" class="max-w-md py-small px-xx-small m-auto">
 		<h2 class="text-xl leading-6 mb-6 text-center justify-center w-full">
 			Was this helpful?
 		</h2>

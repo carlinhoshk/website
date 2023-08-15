@@ -1,0 +1,856 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Initial Cloudformation template to produce the required role and policies to install Gitpod Dedicated",
+    "Resources": {
+        "ec2policy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {
+                "ManagedPolicyName": "EC2GitpodSetupPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "ec2:CreateTags",
+                                "ec2:DeleteTags",
+                                "ec2:DescribeAccountAttributes",
+                                "ec2:DescribeAvailabilityZones",
+                                "ec2:DescribeImages",
+                                "ec2:DescribeInstances",
+                                "ec2:DescribeInternetGateways",
+                                "ec2:DescribeLaunchTemplateVersions",
+                                "ec2:DescribeLaunchTemplates",
+                                "ec2:DescribeNatGateways",
+                                "ec2:DescribeNetworkAcls",
+                                "ec2:DescribeNetworkInterfaces",
+                                "ec2:DescribeRouteTables",
+                                "ec2:AssociateRouteTable",
+                                "ec2:ReplaceRouteTableAssociation",
+                                "ec2:DescribeSecurityGroups",
+                                "ec2:DescribeSubnets",
+                                "ec2:DescribeTransitGatewayVpcAttachments",
+                                "ec2:DescribeVpcEndpoints",
+                                "ec2:DescribeVpcs",
+                                "ec2:DisassociateRouteTable",
+                                "ec2:DisassociateVpcCidrBlock",
+                                "ec2:AssociateVpcCidrBlock",
+                                "ec2:CreateSubnet",
+                                "ec2:CreateVpc",
+                                "ec2:CreateVpcEndpoint",
+                                "ec2:ModifyVpcEndpoint",
+                                "ec2:CreateVpcEndpointServiceConfiguration",
+                                "ec2:DeleteVpcEndpointServiceConfigurations",
+                                "ec2:DescribeVpcEndpointServiceConfigurations",
+                                "ec2:ModifyVpcEndpointServicePermissions",
+                                "ec2:DeleteVpc",
+                                "ec2:DescribeVpcAttribute",
+                                "ec2:ModifyVpcAttribute",
+                                "ec2:CreateVpcEndpoint",
+                                "ec2:DeleteVpcEndpoints",
+                                "ec2:RunInstances",
+                                "ec2:TerminateInstances",
+                                "ec2:CreateNatGateway",
+                                "ec2:DeleteNatGateway",
+                                "ec2:CreateRoute",
+                                "ec2:CreateRouteTable",
+                                "ec2:DeleteRoute",
+                                "ec2:DeleteRouteTable",
+                                "ec2:AuthorizeSecurityGroupEgress",
+                                "ec2:AuthorizeSecurityGroupIngress",
+                                "ec2:DeleteSecurityGroup",
+                                "ec2:RevokeSecurityGroupEgress",
+                                "ec2:RevokeSecurityGroupIngress",
+                                "ec2:CreateSecurityGroup",
+                                "ec2:CreateTransitGatewayVpcAttachment",
+                                "ec2:DeleteSubnet",
+                                "ec2:RunInstances",
+                                "ec2:DeleteTransitGatewayVpcAttachment",
+                                "ec2:ModifySubnetAttribute",
+                                "ec2:CreateInternetGateway",
+                                "ec2:DeleteInternetGateway",
+                                "ec2:AttachInternetGateway",
+                                "ec2:DetachInternetGateway",
+                                "ec2:StopInstances",
+                                "ec2:StartInstances",
+                                "ec2:AllocateAddress",
+                                "ec2:AssociateAddress",
+                                "ec2:ReleaseAddress",
+                                "ec2:DisassociateAddress",
+                                "ecr:CreateRepository",
+                                "ecr:PutLifecyclePolicy",
+                                "ecr:SetRepositoryPolicy",
+                                "ecr:DescribeRepositories",
+                                "ecr:BatchGetImage",
+                                "eks:CreateCluster",
+                                "elasticloadbalancing:CreateListener",
+                                "elasticloadbalancing:CreateLoadBalancer",
+                                "elasticloadbalancing:DescribeListeners",
+                                "elasticloadbalancing:DescribeLoadBalancers",
+                                "elasticloadbalancing:DescribeTargetGroups",
+                                "rds:AddTagsToResource",
+                                "rds:DescribeEngineDefaultParameters",
+                                "rds:ListTagsForResource",
+                                "route53:AssociateVPCWithHostedZone",
+                                "secretsmanager:GetRandomPassword",
+                                "ssm:ListInstanceAssociations",
+                                "ssm:UpdateInstanceInformation",
+                                "sts:GetCallerIdentity"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": "ec2:RunInstances",
+                            "Resource": {
+                                "Fn::Sub": "arn:aws:ec2:::image/*"
+                            }
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "autoscaling:SetDesiredCapacity",
+                                "autoscaling:TerminateInstanceInAutoScalingGroup",
+                                "autoscaling:Create*",
+                                "autoscaling:Delete*",
+                                "autoscaling:Describe*",
+                                "autoscaling:Update*",
+                                "autoscaling:SuspendProcesses",
+                                "autoscaling:ResumeProcesses",
+                                "ec2:DescribeInstanceTypes",
+                                "ec2:DescribeLaunchTemplateVersions",
+                                "ec2:GetLaunchTemplateData",
+                                "ec2:DescribeLaunchTemplates",
+                                "ec2:DescribeLaunchTemplateVersions",
+                                "ec2:RunInstances"
+                            ],
+                            "Resource": [
+                                "*"
+                            ]
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "ec2:CreateLaunchTemplate",
+                                "ec2:DeleteLaunchTemplate",
+                                "ec2:ModifyLaunchTemplate",
+                                "ec2:DeleteLaunchTemplateVersions",
+                                "ec2:CreateLaunchTemplateVersion",
+                                "ec2:DescribeImages",
+                                "ec2:GetInstanceTypesFromInstanceRequirements",
+                                "eks:DescribeNodegroup",
+                                "ec2:DeleteLaunchTemplate"
+                            ],
+                            "Resource": [
+                                "*"
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "ecrpolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {
+                "ManagedPolicyName": "ECRGitpodSetupPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "ecr:DeleteRepository",
+                                "ecr:GetLifecyclePolicy",
+                                "ecr:GetRepositoryPolicy",
+                                "ecr:ListTagsForResource",
+                                "ecr:UnTagResource",
+                                "ecr:TagResource",
+                                "ecr:BatchCheckLayerAvailability",
+                                "ecr:PutImageTagMutability",
+                                "ecr:GetDownloadUrlForLayer"
+                            ],
+                            "Resource": "*"
+                        }
+                    ]
+                }
+            }
+        },
+        "ekspolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {
+                "ManagedPolicyName": "EKSGitpodSetupPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "eks:TagResource",
+                                "eks:UntagResource",
+                                "eks:ListTagsForResource",
+                                "eks:CreateAddon",
+                                "eks:DeleteAddon",
+                                "eks:DescribeAddon",
+                                "eks:DeleteCluster",
+                                "eks:DescribeCluster"
+                            ],
+                            "Resource": "*"
+                        }
+                    ]
+                }
+            }
+        },
+        "lbpolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {
+                "ManagedPolicyName": "LoadBalancingGitpodSetupPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "elasticloadbalancing:AddTags",
+                                "elasticloadbalancing:DescribeTags",
+                                "elasticloadbalancing:RemoveTags",
+                                "elasticloadbalancing:DeleteLoadBalancer",
+                                "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                                "elasticloadbalancing:CreateTargetGroup",
+                                "elasticloadbalancing:DeleteTargetGroup",
+                                "elasticloadbalancing:DescribeTargetGroups",
+                                "elasticloadbalancing:RegisterTargets",
+                                "elasticloadbalancing:DeleteListener"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "apigateway:UpdateRestApiPolicy"
+                            ],
+                            "Resource": [
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/restapis"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/restapis/*"
+                                }
+                            ]
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "apigateway:GET",
+                                "apigateway:POST",
+                                "apigateway:PATCH",
+                                "apigateway:PUT",
+                                "apigateway:DELETE"
+                            ],
+                            "Resource": [
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/tags/*"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/account"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/restapis"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/restapis/*"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/clientcertificates"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/clientcertificates/*"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/vpclinks"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/vpclinks/*"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/domainnames"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/domainnames/*"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/usageplans"
+                                },
+                                {
+                                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}::/usageplans/*"
+                                }
+                            ]
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "acm:DeleteCertificate",
+                                "acm:GetCertificate",
+                                "acm:AddTagsToCertificate",
+                                "acm:RemoveTagsFromCertificate",
+                                "acm:ListTagsForCertificate",
+                                "acm:DescribeCertificate",
+                                "acm:ListCertificates",
+                                "acm:RequestCertificate"
+                            ],
+                            "Resource": {
+                                "Fn::Sub": "*"
+                            }
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "ec2:AttachVolume",
+                                "ec2:AuthorizeSecurityGroupIngress",
+                                "ec2:CreateRoute",
+                                "ec2:CreateSecurityGroup",
+                                "ec2:CreateTags",
+                                "ec2:CreateVolume",
+                                "ec2:DeleteRoute",
+                                "ec2:DeleteSecurityGroup",
+                                "ec2:DeleteVolume",
+                                "ec2:DescribeInstances",
+                                "ec2:DescribeRouteTables",
+                                "ec2:DescribeSecurityGroups",
+                                "ec2:DescribeSubnets",
+                                "ec2:DescribeVolumes",
+                                "ec2:DescribeVolumesModifications",
+                                "ec2:DescribeVpcs",
+                                "ec2:DescribeDhcpOptions",
+                                "ec2:DescribeNetworkInterfaces",
+                                "ec2:DetachVolume",
+                                "ec2:ModifyInstanceAttribute",
+                                "ec2:ModifyVolume",
+                                "ec2:RevokeSecurityGroupIngress",
+                                "ec2:DescribeAccountAttributes",
+                                "ec2:DescribeAddresses",
+                                "ec2:DescribeInternetGateways",
+                                "elasticloadbalancing:AddTags",
+                                "elasticloadbalancing:ApplySecurityGroupsToLoadBalancer",
+                                "elasticloadbalancing:AttachLoadBalancerToSubnets",
+                                "elasticloadbalancing:ConfigureHealthCheck",
+                                "elasticloadbalancing:CreateListener",
+                                "elasticloadbalancing:CreateLoadBalancer",
+                                "elasticloadbalancing:CreateLoadBalancerListeners",
+                                "elasticloadbalancing:CreateLoadBalancerPolicy",
+                                "elasticloadbalancing:CreateTargetGroup",
+                                "elasticloadbalancing:DeleteListener",
+                                "elasticloadbalancing:DeleteLoadBalancer",
+                                "elasticloadbalancing:DeleteLoadBalancerListeners",
+                                "elasticloadbalancing:DeleteTargetGroup",
+                                "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
+                                "elasticloadbalancing:DeregisterTargets",
+                                "elasticloadbalancing:DescribeListeners",
+                                "elasticloadbalancing:DescribeLoadBalancerAttributes",
+                                "elasticloadbalancing:DescribeLoadBalancerPolicies",
+                                "elasticloadbalancing:DescribeLoadBalancers",
+                                "elasticloadbalancing:DescribeTargetGroupAttributes",
+                                "elasticloadbalancing:DescribeTargetGroups",
+                                "elasticloadbalancing:DescribeTargetHealth",
+                                "elasticloadbalancing:DetachLoadBalancerFromSubnets",
+                                "elasticloadbalancing:ModifyListener",
+                                "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                                "elasticloadbalancing:ModifyTargetGroup",
+                                "elasticloadbalancing:ModifyTargetGroupAttributes",
+                                "elasticloadbalancing:RegisterInstancesWithLoadBalancer",
+                                "elasticloadbalancing:RegisterTargets",
+                                "elasticloadbalancing:SetLoadBalancerPoliciesForBackendServer",
+                                "elasticloadbalancing:SetLoadBalancerPoliciesOfListener",
+                                "kms:DescribeKey"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": "iam:CreateServiceLinkedRole",
+                            "Resource": "*",
+                            "Condition": {
+                                "StringEquals": {
+                                    "iam:AWSServiceName": "elasticloadbalancing.amazonaws.com"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "lambdapolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {
+                "ManagedPolicyName": "LambdaGitpodSetupPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "lambda:DeleteEventSourceMapping",
+                                "lambda:GetEventSourceMapping",
+                                "lambda:UpdateEventSourceMapping",
+                                "lambda:CreateEventSourceMapping",
+                                "lambda:AddPermission",
+                                "lambda:CreateFunction",
+                                "lambda:DeleteFunction",
+                                "lambda:GetFunction",
+                                "lambda:InvokeFunction",
+                                "lambda:PutFunctionConcurrency",
+                                "lambda:RemovePermission",
+                                "lambda:ListTags",
+                                "lambda:TagResource",
+                                "lambda:UntagResource",
+                                "lambda:UpdateFunctionConfiguration",
+                                "lambda:UpdateFunctionCode"
+                            ],
+                            "Resource": "*"
+                        }
+                    ]
+                }
+            }
+        },
+        "logspolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {
+                "ManagedPolicyName": "LogsGitpodSetupPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "logs:CreateLogGroup",
+                                "logs:DeleteLogGroup",
+                                "logs:PutRetentionPolicy",
+                                "logs:CreateLogDelivery",
+                                "logs:CreateLogStream",
+                                "logs:DeleteDataProtectionPolicy",
+                                "logs:DescribeLogGroups",
+                                "logs:DescribeLogStreams",
+                                "logs:DescribeResourcePolicies",
+                                "logs:GetDataProtectionPolicy",
+                                "logs:PutDataProtectionPolicy",
+                                "logs:PutLogEvents",
+                                "logs:PutResourcePolicy",
+                                "logs:TagLogGroup"
+                            ],
+                            "Resource": "*"
+                        }
+                    ]
+                }
+            }
+        },
+        "storagepolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {
+                "ManagedPolicyName": "StorageGitpodSetupPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "rds:DeleteDBInstance",
+                                "rds:DescribeDBInstances",
+                                "rds:CreateDBInstance",
+                                "rds:ModifyDBInstance",
+                                "rds:CreateDBParameterGroup",
+                                "rds:DeleteDBParameterGroup",
+                                "rds:DescribeDBParameters",
+                                "rds:DescribeDBParameterGroups",
+                                "rds:ModifyDBParameterGroup",
+                                "rds:CreateDBSubnetGroup",
+                                "rds:DeleteDBSubnetGroup",
+                                "rds:DescribeDBSubnetGroups"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "s3:CreateBucket",
+                                "s3:DeleteBucket",
+                                "s3:DeleteBucketPolicy",
+                                "s3:GetBucketPolicy",
+                                "s3:PutBucketPolicy",
+                                "s3:PutBucketAcl",
+                                "s3:PutBucketPublicAccessBlock",
+                                "s3:PutEncryptionConfiguration",
+                                "s3:PutLifecycleConfiguration"
+                            ],
+                            "Resource": "arn:aws:s3:::*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "elasticache:CreateCacheCluster",
+                                "elasticache:CreateUser",
+                                "elasticache:DeleteCacheCluster",
+                                "elasticache:DescribeCacheClusters",
+                                "elasticache:CreateCacheSubnetGroup",
+                                "elasticache:DeleteCacheSubnetGroup",
+                                "elasticache:DeleteUser",
+                                "elasticache:DescribeCacheSubnetGroups",
+                                "elasticache:DescribeUsers",
+                                "elasticache:AddTagsToResource",
+                                "elasticache:ListTagsForResource"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "firehose:DescribeDeliveryStream",
+                                "firehose:CreateDeliveryStream"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "events:PutRule",
+                                "events:PutEvents",
+                                "events:DescribeRule",
+                                "events:RemoveTargets",
+                                "events:PutTargets",
+                                "events:DeleteRule",
+                                "events:TagResource",
+                                "events:UntagResource",
+                                "events:ListTagsForResource"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "dynamodb:CreateTable",
+                                "dynamodb:DescribeContinuousBackups",
+                                "dynamodb:DescribeContributorInsights",
+                                "dynamodb:DescribeImport",
+                                "dynamodb:DescribeKinesisStreamingDestination",
+                                "dynamodb:DescribeTimeToLive",
+                                "dynamodb:DisableKinesisStreamingDestination",
+                                "dynamodb:EnableKinesisStreamingDestination",
+                                "dynamodb:ImportTable",
+                                "dynamodb:ListTagsOfResource",
+                                "dynamodb:TagResource",
+                                "dynamodb:UntagResource",
+                                "dynamodb:UpdateContinuousBackups",
+                                "dynamodb:UpdateContributorInsights",
+                                "dynamodb:UpdateTable",
+                                "dynamodb:UpdateTimeToLive",
+                                "dynamodb:DeleteTable",
+                                "dynamodb:DescribeTable",
+                                "kinesis:DescribeStream",
+                                "kinesis:PutRecords",
+                                "kms:CreateGrant",
+                                "kms:Decrypt",
+                                "kms:Describe*",
+                                "kms:Encrypt",
+                                "kms:Get*",
+                                "kms:List*",
+                                "kms:RevokeGrant",
+                                "kms:TagResource",
+                                "kms:UntagResource",
+                                "kms:ListTagsOfResource",
+                                "logs:CreateLogGroup",
+                                "logs:CreateLogStream",
+                                "logs:DescribeLogGroups",
+                                "logs:DescribeLogStreams",
+                                "logs:PutLogEvents",
+                                "logs:PutRetentionPolicy",
+                                "logs:ListTagsForLogGroup",
+                                "logs:TagLogGroup",
+                                "logs:UntagLogGroup",
+                                "logs:ListTagsForResource",
+                                "logs:TagResource",
+                                "logs:UntagResource",
+                                "s3:GetObject",
+                                "s3:GetObjectMetadata",
+                                "s3:ListBucket",
+                                "s3:GetBucketTagging",
+                                "s3:GetJobTagging",
+                                "s3:GetObjectTagging",
+                                "s3:GetObjectVersionTagging",
+                                "s3:GetStorageLensConfigurationTagging",
+                                "s3:DeleteJobTagging",
+                                "s3:DeleteObjectTagging",
+                                "s3:DeleteObjectVersionTagging",
+                                "s3:DeleteStorageLensConfigurationTagging",
+                                "s3:PutObjectVersionTagging",
+                                "s3:PutJobTagging",
+                                "s3:PutBucketTagging",
+                                "s3:PutObjectTagging"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "firehose:CreateDeliveryStream",
+                                "firehose:DescribeDeliveryStream",
+                                "firehose:TagDeliveryStream",
+                                "firehose:UntagDeliveryStream",
+                                "firehose:ListTagsForDeliveryStream",
+                                "iam:GetRole",
+                                "iam:PassRole",
+                                "kms:CreateGrant",
+                                "kms:DescribeKey",
+                                "firehose:DeleteDeliveryStream",
+                                "kms:RevokeGrant"
+                            ],
+                            "Resource": "*"
+                        }
+                    ]
+                }
+            }
+        },
+        "secretspolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {
+                "ManagedPolicyName": "SecretsGitpodSetupPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "secretsmanager:CreateSecret",
+                                "secretsmanager:DeleteSecret",
+                                "secretsmanager:DescribeSecret",
+                                "secretsmanager:GetSecretValue",
+                                "secretsmanager:PutSecretValue",
+                                "secretsmanager:UpdateSecret",
+                                "secretsmanager:UpdateSecretVersionStage",
+                                "secretsmanager:UnTagResource",
+                                "secretsmanager:TagResource"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "secretsmanager:RemoveRegionsFromReplication"
+                            ],
+                            "Resource": {
+                                "Fn::Sub": "*"
+                            }
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "ssm:DeleteParameter",
+                                "ssm:GetParameters",
+                                "ssm:PutParameter"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "ecr:CreateRepository",
+                                "ecr:PutLifecyclePolicy",
+                                "ecr:SetRepositoryPolicy",
+                                "ecr:TagResource",
+                                "ecr:UntagResource",
+                                "ecr:ListTagsForResource",
+                                "kms:CreateGrant",
+                                "kms:DescribeKey",
+                                "kms:RetireGrant"
+                            ],
+                            "Resource": "*"
+                        }
+                    ]
+                }
+            }
+        },
+        "iampolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {
+                "ManagedPolicyName": "IAMGitpodSetupPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "iam:GetPolicy",
+                                "iam:CreatePolicy",
+                                "iam:DetachRolePolicy",
+                                "iam:DeletePolicy",
+                                "iam:ListPolicyVersions",
+                                "iam:CreatePolicyVersion",
+                                "iam:DeletePolicyVersion",
+                                "iam:AttachRolePolicy",
+                                "iam:CreateServiceLinkedRole",
+                                "iam:CreateRole",
+                                "iam:GetRolePolicy",
+                                "iam:DeleteRolePolicy",
+                                "iam:PutRolePolicy",
+                                "iam:GetRole",
+                                "iam:DeleteRole",
+                                "iam:PassRole",
+                                "iam:TagOpenIDConnectProvider",
+                                "iam:UntagOpenIDConnectProvider",
+                                "iam:TagRole",
+                                "iam:UntagRole",
+                                "iam:ListRoleTags",
+                                "iam:ListUserTags",
+                                "iam:ListPolicyTags",
+                                "iam:TagPolicy",
+                                "iam:UntagPolicy",
+                                "iam:ListInstanceProfileTags",
+                                "iam:TagInstanceProfile",
+                                "iam:UntagInstanceProfile",
+                                "iam:GetOpenIDConnectProvider",
+                                "iam:CreateOpenIDConnectProvider",
+                                "iam:DeleteOpenIDConnectProvider",
+                                "iam:CreateInstanceProfile",
+                                "iam:GetInstanceProfile",
+                                "iam:DeleteInstanceProfile",
+                                "iam:AddRoleToInstanceProfile",
+                                "iam:RemoveRoleFromInstanceProfile"
+                            ],
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "route53:CreateHostedZone",
+                                "route53:DeleteHostedZone",
+                                "route53:GetChange",
+                                "route53:ListResourceRecordSets",
+                                "route53:ChangeTagsForResource",
+                                "route53:DeleteQueryLoggingConfig",
+                                "route53:ListQueryLoggingConfigs",
+                                "route53:GetHostedZone",
+                                "route53:ChangeResourceRecordSets",
+                                "route53:CreateQueryLoggingConfig",
+                                "route53:ListTagsForResource",
+                                "route53:ListTagsForResources"
+                            ],
+                            "Resource": {
+                                "Fn::Sub": "*"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "tagpolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {
+                "ManagedPolicyName": "TagsGitpodSetupPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "ssm:GetParameter",
+                                "ssm:GetParameters",
+                                "ssm:AddTagsToResource",
+                                "ssm:ListTagsForResource",
+                                "ssm:RemoveTagsFromResource"
+                            ],
+                            "Resource": [
+                                {
+                                    "Fn::Sub": "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/*"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "gitpodsetuprole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com",
+                                    "ec2.amazonaws.com",
+                                    "iam.amazonaws.com",
+                                    "eks.amazonaws.com",
+                                    "cloudformation.amazonaws.com"
+                                ],
+                                "AWS": [
+                                    {
+                                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:root"
+                                    }
+                                ]
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    {
+                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/SecretsGitpodSetupPolicy"
+                    },
+                    {
+                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/StorageGitpodSetupPolicy"
+                    },
+                    {
+                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/LogsGitpodSetupPolicy"
+                    },
+                    {
+                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/LambdaGitpodSetupPolicy"
+                    },
+                    {
+                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/LoadBalancingGitpodSetupPolicy"
+                    },
+                    {
+                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/EKSGitpodSetupPolicy"
+                    },
+                    {
+                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/ECRGitpodSetupPolicy"
+                    },
+                    {
+                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/EC2GitpodSetupPolicy"
+                    },
+                    {
+                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/IAMGitpodSetupPolicy"
+                    },
+                    {
+                        "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/TagsGitpodSetupPolicy"
+                    }
+                ],
+                "RoleName": "GitpodSetupAndInitialEKSUserAdmin"
+            },
+            "DependsOn": [
+                "secretspolicy",
+                "storagepolicy",
+                "logspolicy",
+                "lambdapolicy",
+                "lbpolicy",
+                "ekspolicy",
+                "ecrpolicy",
+                "ec2policy",
+                "tagpolicy",
+                "iampolicy"
+            ]
+        }
+    },
+    "Parameters": {},
+    "Metadata": {},
+    "Conditions": {},
+    "Outputs": {
+        "GitpodSetupAndInitialEKSUserAdminArn": {
+            "Description": "Gitpod Dedicated Role Arn",
+            "Value": {
+                "Fn::GetAtt": [
+                    "gitpodsetuprole",
+                    "Arn"
+                ]
+            }
+        }
+    }
+}

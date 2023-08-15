@@ -63,6 +63,11 @@
 				? 'dark'
 				: 'light',
 			theme: localStorage.getItem('theme'),
+			viewport: {
+				height: window.innerHeight,
+				width: window.innerWidth,
+			},
+			timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
 		};
 	};
 

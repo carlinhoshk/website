@@ -62,11 +62,7 @@
 </script>
 
 <div class={clazz}>
-	<Card
-		size="small"
-		class="max-w-md p-x-small m-auto"
-		data-analytics={`{"dnt":true}`}
-	>
+	<Card size="small" class="max-w-md p-x-small m-auto">
 		{#if resultMessage}
 			<p class="text-center">{resultMessage}</p>
 		{:else}

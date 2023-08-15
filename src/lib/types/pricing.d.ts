@@ -20,6 +20,7 @@ export type Pricing = {
 	footnote?: string;
 	trackingName?: string;
 	plans?: Plan[];
+	experimentName?: string | '';
 };
 
 export type FeatureList = {

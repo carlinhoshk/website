@@ -8,6 +8,8 @@
 	import OpenGraph from '$lib/components/open-graph.svelte';
 	import Hosts from '$lib/components/webinars/hosts.svelte';
 	import SharesLogo from './SharesLogo.svelte';
+	import Card from '$lib/components/ui-library/card';
+	import YoutubeEmbed from '$lib/components/youtube-embed.svelte';
 
 	const description =
 		"CDEs are on-demand development environments that are pre-configured with all tools, libraries and dependencies needed to write and review code.\n\nIn this webinar series, join some of Gitpod’s customers who will share their stories on CDE adoption in their companies. First up we'll be talking to Shares.io where all their engineers are using Gitpod as a default way of development, benefitting from massive productivity gains with every future hire embarking on the same journey.";
@@ -34,11 +36,22 @@
 			webinarDescription={description}
 		/>
 
-		<Register
-			toType="shares-cde-adoption"
-			class="lgx:hidden"
-			eventType="webinar"
-		/>
+		<div class="lgx:hidden">
+			<Card
+				size="small"
+				class="px-3 sm:px-xx-small py-micro md:py-xx-small max-w-full shadow-normal"
+			>
+				<h2 class="text-xl font-bold mb-6">Watch the recording</h2>
+
+				<div class="flex">
+					<YoutubeEmbed
+						coverImage="/images/webinars/shares-cde-adoption.webp"
+						title="How developers save half a day per week w/ cloud development environments - adoption w/ Shares.io"
+						embedId="-n3_O82R51U"
+					/>
+				</div>
+			</Card>
+		</div>
 
 		<div class="max-w-[560px]">
 			<InThisWebinar>
@@ -89,10 +102,21 @@
 			</OrganizedBy>
 		</div>
 	</Layout>
+	<div
+		class="hidden lgx:block mt-small md:mt-x-large sticky top-40 left-full lg:pr-16 max-w-2xl flex-1"
+	>
+		<div class="">
+			<Card size="small" class="p-xx-small shadow-normal">
+				<h2 class="text-xl font-bold mb-6">Watch the recording</h2>
 
-	<Register
-		toType="shares-cde-adoption"
-		class="hidden lgx:block"
-		eventType="webinar"
-	/>
+				<div class="flex">
+					<YoutubeEmbed
+						coverImage="/images/webinars/shares-cde-adoption.webp"
+						title="How developers save half a day per week w/ cloud development environments - adoption w/ Shares.io"
+						embedId="-n3_O82R51U"
+					/>
+				</div>
+			</Card>
+		</div>
+	</div>
 </div>

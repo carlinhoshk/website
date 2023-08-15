@@ -52,13 +52,6 @@ export const heroes: Hero[] = [
 	},
 	{
 		avatar: {
-			src: '/images/heroes/thilo-maier.webp',
-		},
-		name: 'Thilo Maier',
-		socialMediaUsername: 'maiertech#1825',
-	},
-	{
-		avatar: {
 			src: '/images/heroes/julien-lengrand-lambert.webp',
 		},
 		name: 'Julien Lengrand-Lambert',

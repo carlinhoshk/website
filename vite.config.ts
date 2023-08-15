@@ -29,4 +29,9 @@ export default defineConfig({
 	define: {
 		__GITHUB_STARS__: await getStars(),
 	},
+
+	build: {
+		// to resolve https://github.com/vitejs/vite/issues/6985
+		target: 'esnext',
+	},
 });

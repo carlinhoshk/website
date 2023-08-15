@@ -12,6 +12,8 @@ An organization can be used to represent a group of people collaborating togethe
 -   [Manage Projects](/docs/configure/projects) (and [Prebuild](/docs/configure/projects/prebuilds) configurations)
 -   [Apply Organization Policies](/docs/configure/orgs/policies) (e.g. restrict workspace sharing)
 
+`youtube: 4orj31EUsuY`
+
 ## Create an organization
 
 To create a new organization:

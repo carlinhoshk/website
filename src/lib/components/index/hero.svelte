@@ -1,6 +1,20 @@
 <script lang="ts">
 	import LinkButton from '$lib/components/ui-library/link-button';
 	import ButtonsWrapper from '../buttons-wrapper.svelte';
+	import { onMount } from 'svelte';
+	import { trackEvent } from '$lib/components/segment.svelte';
+	import { getFeatureFlag } from '$lib/utils/feature-flag-provider';
+	let homepageCtaFlagValue = null;
+	onMount(async () => {
+		getFeatureFlag('homepageHeroCta', false, async (val) => {
+			homepageCtaFlagValue = val;
+			trackEvent('component_loaded', {
+				experiments_variant: homepageCtaFlagValue
+					? 'homepage_cta_start_for_free_loaded'
+					: 'homepage_cta_try_for_free_loaded',
+			});
+		});
+	});
 </script>
 
 <div class="hero mt-x-small" data-analytics={`{"position":"hero"}`}>
@@ -17,11 +31,23 @@
 		</p>
 		<div class="hero__action">
 			<ButtonsWrapper class="mt-x-small lg:mt-small mb-x-small">
-				<LinkButton
-					variant="primary"
-					href="https://gitpod.io/login/"
-					size="large">Start for free</LinkButton
-				>
+				{#if homepageCtaFlagValue}
+					<LinkButton
+						variant="primary"
+						href="https://gitpod.io/login/"
+						size="large"
+						data-analytics={`{"experiments_variant":"homepage_cta_start_for_free_clicked"}`}
+						>Start for free</LinkButton
+					>
+				{:else}
+					<LinkButton
+						variant="primary"
+						href="https://gitpod.io/login/"
+						size="large"
+						data-analytics={`{"experiments_variant":"homepage_cta_try_for_free_clicked"}`}
+						>Try for free</LinkButton
+					>
+				{/if}
 				<LinkButton variant="cta" href="contact/get-demo" size="large"
 					>Get a demo</LinkButton
 				>

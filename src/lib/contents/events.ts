@@ -6,7 +6,7 @@ export const webinars = [
 		alt: 'banner for gitpod and shares cde adoption webinar',
 		text: "CDEs are on-demand development environments that are pre-configured with all tools, libraries and dependencies needed to write and review code.\n\nIn this webinar series, join some of Gitpod’s customers who will share their stories on CDE adoption in their companies. First up we'll be talking to Shares.io where all their engineers are using Gitpod as a default way of development, benefitting from massive productivity gains with every future hire embarking on the same journey.",
 		href: '/webinars/shares-cde-adoption',
-		isInPast: false,
+		isInPast: true,
 	},
 	{
 		image: '/images/events/remote-dev-webinar.jpg',

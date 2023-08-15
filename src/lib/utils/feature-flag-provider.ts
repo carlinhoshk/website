@@ -7,7 +7,7 @@ const configCatClient = configcat.getClient(
 	configcat.PollingMode.LazyLoad,
 	{
 		cacheTimeToLiveSeconds: 3 * 60, // => 3 minutes
-		requestTimeoutMs: 2000,
+		requestTimeoutMs: 2500,
 		logger: configcat.createConsoleLogger(configcat.LogLevel.Error),
 	},
 );
@@ -48,3 +48,11 @@ export const getFeatureFlag = (
   false,
   async (value) => (getStartedExampleFlagStatusValue = value)
 ); */
+
+// Hot patch method, Only applies when we need to use feature flag on typescript based text files (& not svelte components). e.g. https://github.com/gitpod-io/website/blob/156d072136e6c7f3929dd260e53ab34fbc6f3214/src/lib/contents/pricing.ts#L55
+export const dedicatedPricingSalesCtaFeatureFlagStatus =
+	await configCatClient.getValueAsync(
+		'dedicatedPricingSalesCta',
+		false,
+		new configcat.User(userId),
+	);

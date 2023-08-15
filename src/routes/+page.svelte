@@ -88,4 +88,3 @@
 	{testimonials}
 />
 <GetStarted />
-<Newsletter />

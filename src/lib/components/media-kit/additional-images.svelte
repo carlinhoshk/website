@@ -17,7 +17,7 @@
 			btnText: 'PNG',
 		},
 		{
-			src: '/images/extension-activation/extension-screenshot.png',
+			src: '/images/extension-activation/extension-screenshot-dark.webp',
 			alt: 'Gitpod Extension',
 			text: 'screenshot of the Gitpod browser extension within GitHub',
 			btnText: 'PNG',

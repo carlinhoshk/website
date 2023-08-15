@@ -10,16 +10,29 @@ export const topics = [
 
 let id = 1;
 
-export const demoScreencast: Screencast = {
-	title: 'Gitpod Demo 🍊',
-	previewText: 'Demo',
-	description:
-		'See how Gitpod launches a ready-to-code project on JetBrains with a simple click.',
-	youtubeId: 'OagRlSptc2g',
-	tile: 'screencast-16.jpg',
-	duration: 303,
-	tags: ['Demo'],
-	href: '/screencasts/demo',
+export const demoScreencasts: Record<string, Screencast> = {
+	VSCode: {
+		title: 'Gitpod Demo 🍊',
+		previewText: 'Demo',
+		description:
+			'See how Gitpod launches a ready-to-code project on VSCode with a simple click.',
+		youtubeId: 'R6FQ39sitAQ',
+		tile: 'screencast-16.jpg',
+		duration: 115,
+		tags: ['Demo'],
+		href: '/screencasts/demo',
+	},
+	IntelliJ: {
+		title: 'Gitpod Demo 🍊',
+		previewText: 'Demo',
+		description:
+			'See how Gitpod launches a ready-to-code project on JetBrains with a simple click.',
+		youtubeId: 'OagRlSptc2g',
+		tile: 'screencast-16.jpg',
+		duration: 203,
+		tags: ['Demo'],
+		href: '/screencasts/demo',
+	},
 };
 
 export const screencasts: Screencast[] = [
@@ -288,5 +301,5 @@ export const screencasts: Screencast[] = [
 		],
 		tags: ['Open VS Code'],
 	},
-	demoScreencast,
+	...Object.values(demoScreencasts),
 ];
