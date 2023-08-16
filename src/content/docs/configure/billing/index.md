@@ -48,6 +48,8 @@ To adjust this limit, navigate to the "Update limit" option within the BALANCE s
 
 Organization owners can view usage details for their organization.
 
+You can also export the usage details in CSV format if needed.
+
 ![View usage](/images/docs/billing/view-org-usage-details.png)
 
 ## Old pricing plans
