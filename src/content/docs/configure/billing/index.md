@@ -6,45 +6,62 @@ description: Learn how Gitpod charges for usage and manages your organization's 
 
 # Billing
 
-Gitpod bills users based on the duration their workspaces are active and the credit consumption of the selected [workspace class](/docs/configure/workspaces/workspace-classes#workspace-classes). This metered billing also extends to [prebuilds](/docs/configure/projects/prebuilds).
+Gitpod usage is measured in credits. Credits are consumed per organization for the usage of all organization members. Your invoice will show the total amount of credits consumed in a billing period. A billing period is 1 month and starts on the day your subscription is activated. Credits are consumed for every hour that a workspace is running. The number of credits that are consumed also depends on the [Workspace Class](/docs/configure/workspaces/workspace-classes#workspace-classes). [Prebuilds](/docs/configure/projects/prebuilds) also consume credits.
 
-To view and modify billing settings for your organization, navigate to the organization menu from the top-left corner and select `Billing`.
+<!-- TODO: Do we bill partial hours? -->
+<!-- TODO: Should we explain classes here? -->
 
-> **Note:** Only organization owners can access the **Billing** page[[1](/docs/configure/orgs/members)].
+**For example:**
 
-## Credits
+-   **Standard**: up to 4 cores, up to 8GB RAM, 30GB storage, 10 credits per hour.
+-   **Large**: up to 8 cores, up to 16GB RAM, 50GB storage, 20 credits per hour.
 
-Gitpod usage is measured in **credits**.
+## Tiers
 
-Larger [workspace classes](/docs/configure/workspaces/workspace-classes#workspace-classes) use credits at a faster rate. E.g. Standard workspaces use 10 credits per hour, whereas Large workspaces use 20 credits per hour.
-
-Your invoice will show the total amount of credits consumed in a billing period.
-
-## Free tier
+### Free Tier
 
 All users receive a free usage allowance of up to 500 credits per month to try Gitpod in their first created organization.
 
-## Configure billing
+### Pay-as-you-go
 
-Organization owners can set up billing in the organization settings by clicking "Upgrade Plan" on the Billing page.
+Pay as you go Organizations also have access to the following features:
+
+-   Custom timeouts (longer than 1 hour)
+-   Workspace concurrency (more than 4 workspaces)
+
+## Billing
+
+### View Billing
+
+To view billing information for an organization:
+
+1. First, ensure that you are looking at the correct Organization. Your Organization is shown, and can be changed in the top-left corner of the Gitpod dashboard.
+2. To view billing data, you must be assigned the [organization owner](/docs/configure/orgs/members) role. Only existing owners of an organisation can assign the owner role to other users.
+3. To see your billing preferences, navigate to the organization menu (top left corner) in the Gitpod dashboard and select "Billing".
+
+### Update Billing
+
+Organization owners can subscribe to a new billing plan via the billing page by clicking on "Upgrade Plan".
 
 ![Configure Billing](/images/docs/billing/configure-org-billing.png)
+_Caption: An Organization that does not yet have billing set up_
 
-Once billing is configured, Gitpod will charge the organization billing account for usage by organization members.
+<!-- TODO: Can we make these smaller? -->
 
 ![Active billing](/images/docs/billing/active-org-billing.png)
+_Caption: An Organization that has billing set up_
 
-## Configure a Usage Limit
+## Usage
 
-To avoid unexpected overages, you can set a custom usage limit. Once this limit is reached, new workspaces will not start.
+### Configure a Usage Limit
 
-To adjust this limit, navigate to the "Update limit" option within the BALANCE section of your organization billing settings. This option becomes available after you've set up billing.
+To avoid unexpected costs, you can set a custom usage limit that is applied to the Organization. Once the usage limit is reached, new workspaces will no longer start, however currently running workspaces will not be automatically stopped.
 
-> ℹ️ **Note:** Setting this limit will not terminate already running workspaces.
+To adjust the usage limit for an Organization navigate to the "Update limit" option within the balance section of your organization billing preferences. The usage limit option is not available until the billing subscription is enabled for the Organization.
 
 ![Active billing](/images/docs/billing/update-usage-limit-2.png)
 
-## View usage details
+### View usage details
 
 Organization owners can view usage details for their organization.
 

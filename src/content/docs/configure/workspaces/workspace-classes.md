@@ -8,7 +8,7 @@ description: Learn about the available workspace classes in Gitpod and how to co
 
 Workspace classes allow you to select the resources available to your workspaces.
 
-On gitpod.io, the options are:
+On Gitpod Cloud, the options are:
 
 -   **Standard**: up to 4 cores, up to 8GB RAM, 30GB storage, 10 credits per hour.
 -   **Large**: up to 8 cores, up to 16GB RAM, 50GB storage, 20 credits per hour.
