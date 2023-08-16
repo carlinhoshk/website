@@ -6,17 +6,17 @@ description: Learn how Gitpod charges for usage and manages your organization's 
 
 # Billing
 
-Gitpod charges for usage based on how long workspaces run, and the resources consumed by different [workspace classes](/docs/configure/workspaces/workspace-classes). Metered usage also includes [prebuilds](/docs/configure/projects/prebuilds).
+Gitpod bills users based on the duration their workspaces are active and the credit consumption of the selected [workspace class](/docs/configure/workspaces/workspace-classes#workspace-classes). This metered billing also extends to [prebuilds](/docs/configure/projects/prebuilds).
 
-You can access and manage organization billing settings from the organization menu or the organization usage page.
+To view and modify billing settings for your organization, navigate to the organization menu from the top-left corner and select `Billing`.
 
-> **Note:** You need to be an owner of the organization to access the **Billing** page[[1](/docs/configure/orgs/members)].
+> **Note:** Only organization owners can access the **Billing** page[[1](/docs/configure/orgs/members)].
 
 ## Credits
 
 Gitpod usage is measured in **credits**.
 
-Larger [workspace classes](/docs/configure/workspaces/workspace-classes) use credits at a faster rate. E.g. Standard workspaces use 10 credits per hour, whereas Large workspaces use 20 credits per hour.
+Larger [workspace classes](/docs/configure/workspaces/workspace-classes#workspace-classes) use credits at a faster rate. E.g. Standard workspaces use 10 credits per hour, whereas Large workspaces use 20 credits per hour.
 
 Your invoice will show the total amount of credits consumed in a billing period.
 
@@ -26,7 +26,7 @@ All users receive a free usage allowance of up to 500 credits per month to try G
 
 ## Configure billing
 
-Organization owners can set up billing in the organization settings by clicking "Upgrade Plan".
+Organization owners can set up billing in the organization settings by clicking "Upgrade Plan" on the Billing page.
 
 ![Configure Billing](/images/docs/billing/configure-org-billing.png)
 
@@ -34,15 +34,15 @@ Once billing is configured, Gitpod will charge the organization billing account 
 
 ![Active billing](/images/docs/billing/active-org-billing.png)
 
-## Configure a usage limit
+## Configure a Usage Limit
 
-The usage limit prevents workspaces from starting once the limit has been reached.
+To avoid unexpected overages, you can set a custom usage limit. Once this limit is reached, new workspaces will not start.
 
-To change the usage limit, look for "Update limit" in the BALANCE section of your personal or organization billing settings, after you have configured billing.
+To adjust this limit, navigate to the "Update limit" option within the BALANCE section of your organization billing settings. This option becomes available after you've set up billing.
+
+> ℹ️ **Note:** Setting this limit will not terminate already running workspaces.
 
 ![Active billing](/images/docs/billing/update-usage-limit-2.png)
-
-Note that it will not stop running workspaces.
 
 ## View usage details
 
@@ -52,7 +52,7 @@ Organization owners can view usage details for their organization.
 
 ## Old pricing plans
 
-All old seat-based or personal plans have been faded out. If you had one of those, and need help of any kind related to those, please contact support at support@gitpod.io.
+All old seat-based or personal plans have been faded out. If you had one of those, and need help of any kind related to those, please contact at billing@gitpod.io.
 
 ## FAQs
 
@@ -69,3 +69,7 @@ There are a few built-in Gitpod features that can optimize your prebuild costs, 
 ### With prebuilds enabled, does every push to my repository cost me credits?
 
 It depends on how you configured prebuilds. Prebuilds run on headless Gitpod workspaces and the cost depends on how long they run when triggered.
+
+### I was charged twice, can you help?
+
+Certainly, please send us a message at billing@gitpod.io
