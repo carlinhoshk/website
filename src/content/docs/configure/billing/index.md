@@ -59,36 +59,53 @@ To avoid unexpected costs, you can set a custom usage limit that is applied to t
 
 To adjust the usage limit for an Organization navigate to the "Update limit" option within the balance section of your organization billing preferences. The usage limit option is not available until the billing subscription is enabled for the Organization.
 
-![Active billing](/images/docs/billing/update-usage-limit-2.png)
+![Update Usage Limit](/images/docs/billing/update-usage-limit-2.png)
+_Caption: Selecting an Organization usage limit_
 
-### View usage details
+### View usage details
 
-Organization owners can view usage details for their organization.
+You can view usage of an Organization on the usage page. The usage page can be found in the Organization dropdown in the top left of the Gitpod dashboard. Organization owners can view usage of all Organization members. However, members of an Organziation can only access their own usage information. Usage entries include the following data:
 
-You can also export the usage details in CSV format if needed.
+-   Workspace Class
+-   Credits Consumed
+-   Workspace start time
+
+<!-- TODO: Is this start time? -->
+<!-- TODO: Double check why usage is open on Gitpod Cloud -->
+
+Every time a workspace stops, a new usage entry is added.
+
+<!-- TODO: Is this true? -->
 
 ![View usage](/images/docs/billing/view-org-usage-details.png)
 
-## Old pricing plans
+### Export usage
 
-All old seat-based or personal plans have been faded out. If you had one of those, and need help of any kind related to those, please contact at billing@gitpod.io.
+You can export usage details in CSV format from the usage page.
+
+## Deprecated pricing plans
+
+Previous pricing plans, such as: "Unleashed" and "Professional" are no longer available.
+
+For help related to these previous pricing plans, please contact: billing@gitpod.io.
 
 ## FAQs
 
-### [How can I limit or optimize prebuild costs?](https://discord.com/channels/816244985187008514/1070648758716600371)
+### [How can I limit or optimize my Prebuild costs?](https://discord.com/channels/816244985187008514/1070648758716600371)
 
 <!-- DISCORD_BOT_FAQ - DO NOT REMOVE -->
 
-There are a few built-in Gitpod features that can optimize your prebuild costs, such as:
+There are built-in Gitpod features to optimize prebuild costs, for instance:
 
--   **Skip prebuilds** every X commits and use [last successful prebuild](https://www.gitpod.io/docs/configure/projects/last-successful-prebuild)
+-   **Skip prebuilds** - You can skip Prebuilds for every X commit and optionally configure Prebuilds to use the [last successful prebuild](https://www.gitpod.io/docs/configure/projects/last-successful-prebuild).
+-   **Stop prebuilds** - You can adjust Prebuild triggers e.g. for branches or pull requests when using Gitpod with GitHub. See the [.gitpod.yml](https://www.gitpod.io/docs/references/gitpod-yml/#github) reference page for information on how to configure Prebuild triggers.
 
--   **Stop prebuilds** for all branches, PRs and etc. when on GitHub. See [this page](https://www.gitpod.io/docs/references/gitpod-yml/#github). (might not be necessary)
+<!-- TODO: Should this be on the Prebuild page? -->
 
 ### With prebuilds enabled, does every push to my repository cost me credits?
 
-It depends on how you configured prebuilds. Prebuilds run on headless Gitpod workspaces and the cost depends on how long they run when triggered.
+It depends on how you configured prebuild triggers. Prebuilds run on headless Gitpod workspaces and the cost of Prebuilds depends on how long the Prebuild ran, and the workspace class.
 
 ### I was charged twice, can you help?
 
-Certainly, please send us a message at billing@gitpod.io
+If you have a query around your billing, please send an email to: billing@gitpod.io
