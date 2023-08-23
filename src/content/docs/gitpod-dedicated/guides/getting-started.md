@@ -3,7 +3,7 @@ section: guides
 title: Getting Started with Gitpod Dedicated - Gitpod Dedicated docs
 ---
 
-# Getting Started
+# Getting Started with Gitpod Dedicated
 
 > ℹ️ You will need to have familiarity with AWS, specifically CloudFormation, in order to be able to execute this guide.
 
@@ -17,36 +17,58 @@ Currently, Gitpod Dedicated is only available in the following AWS regions:
 -   `eu-west-1`
 -   `eu-central-1`
 
+## 0. Prerequisites
+
+Here's a list of what you'll need to get started with Gitpod Dedicated.
+
+-   **An empty AWS account.** There should be no other resources, EC2 instances, containers, functions or applications running in the account. If your company requires security policies or roles to be present in new accounts please review them with a Gitpod Engineer to ensure there are no items that will block Gitpod Dedicated from running.
+-   **Private network address ranges.** Provide a list of network CIDR ranges to your Gitpod engineer to ensure that traffic is routed correctly to internal resources. This list should include the network address space for any internal or on-premise networks that developers will need to access from their Gitpod workspaces.
+-   **List of resources developers require to build and test.** This should include any external databases, APIs, PaaS endpoints, cloud resources and anything else that your developers need to build and test their code. Review this list with your Gitpod engineer to ensure the right architecture is set up for your installation. Gitpod Dedicated has four supported modes - public, private, mixed public, and mixed private. We will help you choose the right mode for your environment.
+-   **The ability to run an AWS Cloudformation template.** The Gitpod Dedicated installer is provided as a set of Cloudformation templates. These should be run by a user with Administrator level access to the AWS account. We do not support running the Cloudformation template through terraform. You may run the Cloudformation templates either in the AWS Console (recommended) or via the AWS CLI (expert).
+-   **Optional - AWS Transit Gateway.** For private, mixed private, and mixed public installations you will create a transit gateway attachment that allows workspaces to connect to private resources on your network. Work with your Gitpod engineer to get this set up correctly.
+
 ## 1. Set up an AWS Account for Gitpod Dedicated
 
-> ℹ️ Gitpod Dedicated is expected to run in its own independent AWS account. It is not intended to run alongside other components in a shared or existing AWS account.
+> ⚠️ Gitpod Dedicated requires its own independent AWS account. It is not intended to run alongside other components in a shared or existing AWS account.
 
 Create a new AWS account following the steps in [the AWS documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html). Start by navigating to the AWS console and creating the account as part of the customer’s AWS organization.
 
-1. Ensure that the account has at least the following quotas for the region where Gitpod Dedicated will be deployed into. Note that quote increases can take anywhere between one hour and days.
+Ensure that the account meets the following quota requirements in the region where Gitpod Dedicated will be installed. AWS quota increases may take up to a day to be approved, so make sure you do this step first.
+
+> ℹ️ Tip: You can run our [AWS preflight check script](https://gist.github.com/scarolan/65895bd22a9acc1738229495ea354326) to automatically request the required quota increases. This script requires the AWS CLI to be installed and configured. You may also run it from AWS Cloudshell, where the AWS CLI is preinstalled.
+
+You can also request the quota updates in the AWS Console. Visit the correct quota increase page for your region. For example this link goes to us-west-2. Replace the region with your own, search for each Service type below, and request an increase to the new value. _On most new AWS accounts you will only need to increase the Elastic IPs and Lambda executions._
+
+https://us-west-2.console.aws.amazon.com/servicequotas/home/services
 
 |                  Service                  |                               Name                               | Value |                                                                                                                                                                                                                                                        Reasoning                                                                                                                                                                                                                                                         |
 | :---------------------------------------: | :--------------------------------------------------------------: | :---: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | Amazon Elastic Compute Cloud (Amazon EC2) |                       EC2-VPC Elastic IPs                        |  20   | Gitpod requires 3 IP addresses for each load balancer (Gitpod has 2 load balancers, one for meta and one for the workspace cluster). Additionally, 3 IPs are needed for each NAT gateway (Gitpod has 3 VPCs, so 3x). Therefore, at a minimum, 15 IPs are needed. The additional 5 act as a buffer in case a new load balancer needs to be provisioned and runs in parallel to the old one, ensuring a smooth transition. For more information, please see [Architecture](/docs/gitpod-dedicated/reference/architecture). |
-| Amazon Elastic Compute Cloud (Amazon EC2) | Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) Instances |  256  |                                                                                                                                                                                   The value depends on the number of developers use the instance. This is the bare minimum Gitpod recommends. More workspaces require a higher quota.                                                                                                                                                                                    |
-|                AWS Lambda                 |                      Concurrent Executions                       | 1024  |                                                                                                      To ensure Gitpod can install and operate properly, the default concurrent execution quota should be increased to 1024. The default quota is usually 1000, but it can sometimes be as low as 10 due to unknown AWS-related reasons. Increasing the quota to 1024 guarantees that Gitpod will function properly.                                                                                                      |
-| Amazon Virtual Private Cloud (Amazon VPC) |                         VPCs per Region                          |   4   |                                                                                                                                Technically Gitpod only uses 1 VPCs. If the account comes with a default VPC, this already results in 2 required. The rest of this quota is a buffer in case additional VPCs need to be created for private networking (e.g. landing zone) - this is TBD.                                                                                                                                 |
+| Amazon Elastic Compute Cloud (Amazon EC2) | Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) Instances |  256  |                                                                                                                                    This value depends on the number of concurrent developers using the instance. 256 the minimum recommended setting and is suitable for proof-of-value trials. Consult with your engineer on an appropriate setting for your expected usage levels.                                                                                                                                     |
+|                AWS Lambda                 |                      Concurrent Executions                       | 1024  |                                                                                                                                                            To ensure Gitpod can install and operate properly, the default concurrent execution quota should be increased to 1024. Increasing the quota to 1024 guarantees that Gitpod will function properly.                                                                                                                                                            |
+| Amazon Virtual Private Cloud (Amazon VPC) |                         VPCs per Region                          |   4   |                                                                                                                                               Gitpod Dedicated requires four VPCs. One is the default VPC that comes pre-installed in new accounts. The Gitpod Dedicated platform runs in a second VPC. The other two VPCs are reserved for upcoming feature enhancements.                                                                                                                                               |
+
+When your request has been approved verify that you have at least 20 Elastic IPs and 1024 concurrent Lambdas enabled:
+
+![](assets/20230823_124325_elastic_ips.png)
+
+![](assets/20230823_124350_lambdas.png)
 
 2. Ensure that you allow for cross-account and cross-region communication with `eu-central-1`. For example, this could be restricted by [SCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) such as a [Region deny SCP](https://docs.aws.amazon.com/controltower/latest/userguide/region-deny.html). To roll out updates to the application, an AWS Lambda function pulls several configurations from a known S3 bucket owned by Gitpod. This bucket is hosted in the Gitpod Dedicated control plane located in the `eu-central-1` region.
 
-## 2. Execute two CloudFormation templates in the new account to bootstrap the infrastructure and install Gitpod Dedicated
+## 2. Execute two CloudFormation templates
 
-> ℹ️ Feel free to notify your Gitpod account manager if you require a preview of the CloudFormation template in order to better understand what will be deployed in your account. If necessary, share it with other team’s in your company that need to review it. Please see [AWS IAM permission requirements](/docs/gitpod-dedicated/reference/AWS-IAM-permission-requirements) for information on the permissions needed.
+> ℹ️ Notify your Gitpod account manager if you want an overview of what is installed and configured by the Cloudformation templates. You may share these templates with your security and network teams if approval is required. Please see [AWS IAM permission requirements](/docs/gitpod-dedicated/reference/AWS-IAM-permission-requirements) for information on the permissions needed.
 
-The process for creating the necessary infrastructure in the customer’s account and installing Gitpod Dedicated onto it is as follows:
+Follow the process below to acquire and install your Cloudformation templates:
 
-1. **Provide information**: A Gitpod account manager will ask for information needed to generate the CloudFormation template that will be used to bootstrap the infrastructure for your Gitpod instance. See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for general guidance and requirements on which services Gitpod needs to be able to route to. <br/>The information required depends on the choice of networking mode:
+**Provide information**: A Gitpod account manager will ask for information needed to generate the CloudFormation template that will be used to bootstrap the infrastructure for your Gitpod instance. See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for general guidance and requirements on which services Gitpod needs to be able to route to. <br/>The information required depends on the choice of networking mode:
 
 <details class="ml-4">
 
 <summary class="text-body text-p-medium mt-micro">All Private Networking Mode</summary>
 
-1. `Subdomain` of your Gitpdod installation. The full domain will be `<subdomain>.gitpod.cloud` unless a custom domain is used (see below).
+1. `Subdomain` of your Gitpod installation. The full domain will be `<subdomain>.gitpod.cloud` unless a custom domain is used (see below).
 
 <details class="ml-8">
 
@@ -56,36 +78,34 @@ Depending on your compliance and regulatory requirements, you may want to avoid 
 
 </details>
 
-2. `AWS account ID` of the account created above, in which Gitpod will be installed into.
-3. `AWS region` in which Gitpod will be installed. See [a](/docs/gitpod-dedicated/guides/getting-started#:~:text=Currently%2C%20Gitpod%20Dedicated%20is%20only%20available%20in%20the%20following%20AWS%20regions%3A)bove for available regions.
-4. `Relay CIDR range`: This is the small part of the VPC of the Gitpod instance that needs to be routable from your network. This part is called the relay subnet and it contains the NATs and attaches to your Transit Gateway (see below). See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for more details and a networking diagram.
+2. `AWS account ID` of the empty account you created in the previous section.
+3. `AWS region` where Gitpod will be installed. See [above](/docs/gitpod-dedicated/guides/getting-started#:~:text=Currently%2C%20Gitpod%20Dedicated%20is%20only%20available%20in%20the%20following%20AWS%20regions%3A) for available regions.
+4. `Relay CIDR range`: The small part of the Gitpod Dedicated VPC that needs to be routable from your network. This is called the **relay subnet** and it attaches to your Transit Gateway (see below). See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for more details and a networking diagram.
 
 <details class="ml-8">
 
 <summary class="text-body text-p-medium mt-micro">Please consider the following points when choosing this range:</summary>
 
 -   The only restriction in place is that the `Relay CIDR range` must be `/25` and not in the range `100.64.0.0/10` (the parent range used by Gitpod).
--   The chosen `Relay CIDR range` must not overlap with any services you wish to route to or from Gitpod, e.g. your source code repository, SSO provider or package repositories.
--   [Prebuilds](/docs/configure/projects/prebuilds) will not be triggered automatically if your Source Control Management system (e.g. GitHub) cannot send web hooks to the Gitpod instance, i.e. is able to route to this CIDR range.
+-   The `Relay CIDR range` **must not overlap with any of your internal services that Gitpod needs to communicate with.**! For example, your source code repository, SSO provider or package repositories.
+-   The `Relay CIDR range` must be routable from your source code repository (SCM) server for [Prebuilds](/docs/configure/projects/prebuilds) to work. Prebuilds are powered by webhooks so Gitpod must be able to get notifications of changes to your code repos to trigger prebuilds.
 
 </details>
 
-5. `transitGatewayID` of the Transit Gateway you want your Gitpod instance’s VPC to connect (attach) to. All traffic that is not going to the Dedicated Control Plane will be routed through a newly created transit gateway attachment attached to the Transit Gateway with this ID. See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for more information.
+5. `transitGatewayID` of your Transit Gateway. Network traffic to your internal resources will be routed through a new transit gateway attachment. Gitpod Dedicated control plane traffic does not route through the transit gateway, it is reserved for your internal traffic. See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for more information.
 
 <details class="ml-8">
+<summary class="text-body text-p-medium">Please note:</summary>
 
-<summary class="text-body text-p-medium mt-micro">Please note: </summary>
-
-When using auto-propagation by default, delete the propagation from your Transit Gateway Routetable associated with the Gitpod Transit Gateway Attachment and replace it with a static route pointing the `Relay CIDR range` (`/25`) to the Gitpod Transit Gateway Attachment ID. This ensures only the required relay range is shared on your Transit Gateway network and no other routes are accidentally broadcast.
-
-</details>
-
-6. `expose public services` : This is an option at the customer’s discretion (takes a value of `true` or `false`). An API Gateway is added to expose endpoints for webhooks (required for prebuilds, e.g. Gitlab.com, to allow webhooks to be forwarded to internal Gitpod services) and IDP services (required to enable the use of public [OIDC IDPs within workspaces](/docs/configure/workspaces/oidc)) to the public internet. The added API gateway enables these features without:
-    - Exposing the entire instance to the public internet
-    - Extra effort to add public ingress within the customer’s network behind the transit gateway.
+<div class="ml-4">
+When using auto-propagation by default, delete the propagation from your Transit Gateway Routetable associated with the Gitpod Transit Gateway Attachment and replace it with a static route pointing the Relay CIDR range (/25) to the Gitpod Transit Gateway Attachment ID. This ensures only the required relay range is shared on your Transit Gateway network and no other routes are accidentally broadcast.
+</div>
 
 </details>
 
+6. `expose public services` : This optional feature may be enabled to expose webhooks and Identity Provider (IDP) services on public endpoints. The added API gateway does not expose your entire instance to the public Internet. This can be helpful for connecting to OIDC providers such as Okta, Azure AD. This option also makes it easy for developers to connect to your instance without having to route through a VPN or transit gateway.
+
+</details>
 <details class="ml-4">
 
 <summary class="text-body text-p-medium mt-micro">Mixed with Private Ingress Networking Mode</summary>
@@ -105,48 +125,46 @@ Depending on your compliance and regulatory requirements, you may want to avoid 
 </details>
 
 2. `AWS account ID` of the account created above, in which Gitpod will be installed into.
-3. `AWS region` in which Gitpod will be installed. See [a](/docs/gitpod-dedicated/guides/getting-started#:~:text=Currently%2C%20Gitpod%20Dedicated%20is%20only%20available%20in%20the%20following%20AWS%20regions%3A)bove for available regions.
+3. `AWS region` in which Gitpod will be installed. See [above](/docs/gitpod-dedicated/guides/getting-started#:~:text=Currently%2C%20Gitpod%20Dedicated%20is%20only%20available%20in%20the%20following%20AWS%20regions%3A) for available regions.
 4. `CIDR range of your network`, i.e. the IP address space used by your company network that you want workspaces to be able to route to. At the very least, provide the relevant ranges that you want Gitpod to be able to interact with. This helps Gitpod ensure there are no possible IP conflicts with CIDR ranges used internally in the Gitpod instance (`100.70.0.0/16`, part of CGNAT range). Note that this internal Gitpod range does not need to be routable from your network. For more information on Gitpod’s networking setup, please refer to [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for a networking diagram.
 
 <details class="ml-8">
 <summary class="text-body text-p-medium">FAQ</summary>
 
--   If the Gitpod internal range of `100.70.0.0/16` does not need to be routable from my network, why do we need to specify the `CIDR range of our network`?
-    -   User workspaces traffic must cross this range when reaching the rest of your network. If there are common internal services and systems that developers may need to access that overlap with this range, the experience may be inconsistent and difficult to troubleshoot. To avoid this, Gitpod can adapt the internally used CIDR range for workspaces to the customer’s CIDR range.
--   What if the `100.70.0.0/16` range overlaps with my network? - Please contact your Gitpod account manager. There is some flexibility to the CIDR range used internally by Gitpod.
+**Q.** If the Gitpod internal range of `100.70.0.0/16` does not need to be routable from my network, why do we need to specify the `CIDR range of our network`?  
+**A.** User workspaces traffic must cross this range when reaching the rest of your network. If there are common internal services and systems that developers may need to access that overlap with this range, the experience may be inconsistent and difficult to troubleshoot. To avoid this, Gitpod can adapt the internally used CIDR range for workspaces to the customer’s CIDR range.
+
+**Q.** What if the `100.70.0.0/16` range overlaps with my network?  
+**A.** Please contact your Gitpod account manager for assistance.
 
 </details>
 
-5. `Relay CIDR range`: This is the small part of the VPC of the Gitpod instance that needs to be routable from your network. This part is called the relay subnet and it contains the NATs and attaches to your Transit Gateway (see below). See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for more details and a networking diagram.
+5. `Relay CIDR range`: The small part of the Gitpod Dedicated VPC that needs to be routable from your network. This is called the **relay subnet** and it attaches to your Transit Gateway (see below). See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for more details and a networking diagram.
 
 <details class="ml-8">
-<summary class="text-body text-p-medium">Please consider the following points when choosing this range:</summary>
+
+<summary class="text-body text-p-medium mt-micro">Please consider the following points when choosing this range:</summary>
 
 -   The only restriction in place is that the `Relay CIDR range` must be `/25` and not in the range `100.64.0.0/10` (the parent range used by Gitpod).
--   The chosen `Relay CIDR range` must not overlap with any services you wish to route to or from Gitpod, e.g. your source code repository, SSO provider or package repositories.
--   [Prebuilds](/docs/configure/projects/prebuilds) will not be triggered automatically if your Source Control Management system (e.g. Github) cannot send web hooks to the Gitpod instance, i.e. is able to route to this CIDR range.
+-   The `Relay CIDR range` **must not overlap with any of your internal services that Gitpod needs to communicate with.**! For example, your source code repository, SSO provider or package repositories.
+-   The `Relay CIDR range` must be routable from your source code repository (SCM) server for [Prebuilds](/docs/configure/projects/prebuilds) to work. Prebuilds are powered by webhooks so Gitpod must be able to get notifications of changes to your code repos to trigger prebuilds.
 
 </details>
 
-6. `transitGatewayID` of the Transit Gateway you want your Gitpod instance’s VPC to connect (attach) to. All traffic that is not going to the Dedicated Control Plane will be routed through a newly created transit gateway attachment attached to the Transit Gateway with this ID. See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for more details and a networking diagram.
+6. `transitGatewayID` of your Transit Gateway. Network traffic to your internal resources will be routed through a new transit gateway attachment. Gitpod Dedicated control plane traffic does not route through the transit gateway, it is reserved for your internal traffic. See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for more information.
 
 <details class="ml-8">
 <summary class="text-body text-p-medium">Please note:</summary>
 
 <div class="ml-4">
-
 When using auto-propagation by default, delete the propagation from your Transit Gateway Routetable associated with the Gitpod Transit Gateway Attachment and replace it with a static route pointing the Relay CIDR range (/25) to the Gitpod Transit Gateway Attachment ID. This ensures only the required relay range is shared on your Transit Gateway network and no other routes are accidentally broadcast.
-
 </div>
 
 </details>
 
-7. `expose public services`: This is an option at the customer’s discretion (takes a value of `true` or `false`). An API Gateway is added to expose endpoints for webhooks (required for prebuilds, e.g. Gitlab.com, to allow webhooks to be forwarded to internal Gitpod services) and IDP services (required to enable the use of public [OIDC IDPs within workspaces](/docs/configure/workspaces/oidc)) to the public internet. The added API gateway enables these features without:
-    - Exposing the entire instance to the public internet
-    - Extra effort to add public ingress within the customer’s network behind the transit gateway.
+7. `expose public services` : This optional feature may be enabled to expose webhooks and Identity Provider (IDP) services on public endpoints. The added API gateway does not expose your entire instance to the public Internet. This can be helpful for connecting to OIDC providers such as Okta, Azure AD. This option also makes it easy for developers to connect to your instance without having to route through a VPN or transit gateway.
 
 </details>
-
 <details class="ml-4">
 
 <summary class="text-body text-p-medium mt-micro">Mixed with Public Ingress Networking Mode</summary>
@@ -203,7 +221,6 @@ When using auto-propagation by default, delete the propagation from your Transit
 </details>
 
 </details>
-
 <details class="ml-4">
 
 <summary class="text-body text-p-medium my-micro">All Public Networking Mode</summary>
@@ -226,6 +243,8 @@ Depending on your compliance and regulatory requirements, you may want to avoid 
 3. `AWS region` in which Gitpod will be installed. See [a](/docs/gitpod-dedicated/guides/getting-started#:~:text=Currently%2C%20Gitpod%20Dedicated%20is%20only%20available%20in%20the%20following%20AWS%20regions%3A)bove for available regions.
 
 </details>
+
+### Special Situations
 
 The information required further depends on whether the choice of using an allowlist and custom domain:
 
@@ -266,36 +285,36 @@ Please see [Using a Custom or Private CA](/docs/gitpod-dedicated/guides/using-cu
 
 </details> -->
 
-2. **Receive Two CloudFormation templates:** You will need to execute two CloudFormation templates to install the infrastructure and subsequently Gitpod Dedicated. The `infrastructure-creation-role-template.json` (downloadable below) is used to create an IAM role that is assumed during the execution of the subsequent `<customer>-gitpod-template.json` CloudFormation template (shared with you by your Gitpod Account manager). The `<customer>-gitpod-template.json` CloudFormation template installs the infrastructure for Gitpod Dedicated.
+## Receive your Cloudformation Templates
 
+You will need to execute two CloudFormation templates to install the infrastructure and subsequently Gitpod Dedicated. The `infrastructure-creation-role-template.json` is used to create an IAM role that is assumed during the execution of the subsequent `<customer>-gitpod-template.json` CloudFormation template (shared with you by your Gitpod Account manager). The `<customer>-gitpod-template.json` CloudFormation template installs the infrastructure for Gitpod Dedicated.
+
+Both of these templates will be provided by your Gitpod Account Manager.
+
+</details>
 <details class="ml-4">
 
 <summary class="text-body text-p-medium my-micro">FAQ</summary>
 
--   Why two templates?
-    -   The `infrastructure-creation-role-template.json` CloudFormation template is used to create a role that has a minimum of permissions, yet allows for a predictable outcome when executing `<customer>-gitpod-template.json`. Further, it provides more transparency to the customer.
--   Can the stack created by `infrastructure-creation-role-template.json` be deleted after executing the `<customer>-gitpod-template.json` ?
-    -   No, the stack created by `infrastructure-creation-role-template.json` should be maintained. The role created is also used when updates are provided to the `<customer>-gitpod-template.jsonn` template. For more details on infrastructure updates, please see [Deployment and Updates](/docs/gitpod-dedicated/background/deployment-updates).
+**Q.** Why two templates?  
+**A.** The `infrastructure-creation-role-template.json` CloudFormation template is used to create a role with the minimum permissions required to install and update Gitpod Dedicated. This role and its policies are used to install the second Cloudformation template.
+
+**Q.** Can the stack created by `infrastructure-creation-role-template.json` be deleted after executing the `<customer>-gitpod-template.json` ?  
+**A.** No, the stack created by `infrastructure-creation-role-template.json` should be maintained. The role created is also used when updates are provided to the `<customer>-gitpod-template.jsonn` template. For more details on infrastructure updates, please see [Deployment and Updates](/docs/gitpod-dedicated/background/deployment-updates).
 
 </details>
 
-3. **Execute CloudFormation templates**
+### Execute CloudFormation templates
 
-    > ⚠️ Do not modify the CloudFormation templates outside of adding AWS resource tags. Doing so will result in the installation failing.
+> ⚠️ Do not modify the CloudFormation templates outside of adding AWS resource tags. Doing so will likely result in a failed installation.
 
 <div class="ml-6">
 
-1.  First, download and execute the `infrastructure-creation-role-template.json` template in the new AWS account created above: <br/>
-
-> 💾 Download this template by clicking on it:
->
-> <div class="mt-2">
-> <a href='/images/docs/gitpod-dedicated/reference/AWS-IAM-permission-requirements/infrastructure-creation-role-template.json' download>infrastructure-creation-role-template.json</a>
-> </div>
+1. First, execute the `infrastructure-creation-role-template.json` template in the Gitpod Dedicated AWS account: <br/>
 
 <details class="ml-8">
 
-<summary>During the “configure stack options” step, ensure you select the “roll back all the stack resources” option under “Stack failure options”:</summary>
+<summary>During the "configure stack options" step, ensure you select the "roll back all the stack resources" option under "Stack failure options":</summary>
 
 ![Stack Options](/images/docs/gitpod-dedicated/guides/getting-started/stackoptions.webp)
 
@@ -309,7 +328,7 @@ In the rare case that the template has an error during execution, it is advised 
 
 </details>
 
-2.  Then, execute `<customer>-gitpod-template.json` that will be shared by your Gitpod account manager in the same AWS account. This will create the infrastructure that Gitpod Dedicated requires.
+2. Then, execute `<customer>-gitpod-template.json` that will be shared by your Gitpod account manager in the same AWS account. This will create the infrastructure that Gitpod Dedicated requires.
 
 > ℹ️ During the “configure stack options” step, select the role created by the first CloudFormation template (`GitpodSetupAndInitialEKSUserAdmin`) as the role used for permissions. Depending on timing, you may need to manually select the role using its ARN. Again, select the “roll back all the stack resources” option.
 >
@@ -322,7 +341,6 @@ In the rare case that the template has an error during execution, it is advised 
 > <div class="ml-4">
 >
 > 1. Before executing the CloudFormation template, you need to ensure the Transit Gateway that the Gitpod instance attaches to is able to accept attachment requests. For this, the Transit Gateway needs to be shared using AWS Resource Access Manager (RAM) to allow for other AWS accounts in your Organization to send attachment requests for approval. More info on Transit Gateway attachments can be found here.
->
 > 2. Execute the CloudFormation template
 >
 > <div class="bg-[#fbecdd] rounded-xl p-micro mt-micro">⚠️ During the execution of the CloudFormation template, a Transit Gateway attachment to the Transit Gateway defined above is initiated. If you do not have resource sharing policies for this or auto accept turned on, you will have to manually accept this attachment request.</div>
@@ -388,9 +406,7 @@ Gitpod Dedicated requires OpenID Connect (OIDC) for authentication, for example 
 **General instructions**
 
 -   You will need to create a configuration with your Identity Provider and provide the “redirect URI” you can copy from this screen.
-
 -   Once you’ve created your Identity Provider configuration, you should copy and paste the Issuer URL, Client ID and Client Secret values on this screen.
-
 -   Clicking “Verify SSO Configuration” will ensure that validity of the values by authenticating your account. If successful, your user will be created and configured with the “owner” role. Subsequent users that log in will be granted the default “member” role.
 
     ![Configure Single Sign-on](/images/docs/gitpod-dedicated/guides/getting-started/configure-sso-gitpod.webp)
@@ -464,13 +480,11 @@ _Creating a Gitpod SSO Integration_
     ![Create credentials - Google Cloud Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/google/create-credentials.webp)
 
 3. Configure your OAuth Client ID, by specifying the Authorized Redirect URIs: [Once you’ve created your Identity Provider configuration, you should copy...](/docs/gitpod-dedicated/guides/getting-started#:~:text=or%20Azure%20AD.-,General%20instructions,-You%20will%20need)
-
 4. Obtain the Client ID & Client Secret and input these into your Gitpod Setup page
 
     ![OAuth Client Created - Google Cloud Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/google/OAuth-client-created.webp)
 
 5. Set Provider's Issuer URL to `https://accounts.google.com`
-
 6. Proceed to verify the integration on the Gitpod setup page: [Clicking “Verify SSO Configuration”](/docs/gitpod-dedicated/guides/getting-started#:~:text=or%20Azure%20AD.-,General%20instructions,-You%20will%20need)
 
 </div>
@@ -501,7 +515,6 @@ _Creating a Gitpod SSO Integration_
     ![Register Application - Azure AD Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/register-application.webp)
 
 6. From the App Registration Overview, you should obtain the Application (client) ID and copy it into your Gitpod SSO setup page
-
 7. Create a client secret - navigate to Certificates & Secrets, click New client secret
 
     ![Create client secret - Azure AD Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/client-secrets.webp)
