@@ -111,9 +111,13 @@ If you are running a [Self-Hosted](https://www.gitpod.io/self-hosted) Gitpod ins
 
 See the [Self-Hosted Reference Architectures](/docs/configure/self-hosted/latest/reference-architecture) for more.
 
+<!-- TODO: The formatting of this header bumps the text above -->
+
 # Troubleshooting
 
 [VS Code Desktop and SSH explained](/blog/vscode-desktop-ssh-updates#diagnosing--fixing-common-ssh-connection-issues) blog has a bunch of good troubleshooting notes, you may check them out.
+
+<!-- TODO: Format this heading as FAQ -->
 
 ## unix_listener: path "/somewhere/xyz" too long for Unix domain socket
 

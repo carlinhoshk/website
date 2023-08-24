@@ -4,7 +4,12 @@ title: Bitbucket
 description: You can integrate any public or private repository on Bitbucket with Gitpod.
 ---
 
+<!-- TODO: Consider nesting pages -->
+<!-- TODO: BitBucket Cloud (?) -->
+
 # Bitbucket
+
+<!-- TODO: Remove duplicated content -->
 
 Gitpod works with any public or private repository on [Bitbucket](https://bitbucket.org/).
 
@@ -12,6 +17,10 @@ To start a workspace from a Bitbucket project, prefix the Bitbucket project URL 
 
 ## Enable Prebuilds
 
+<!-- TODO: Simply link to projects -->
+
 All prebuilds require a [Gitpod project](/docs/configure/projects#add-a-new-project) for the repository.
+
+<!-- TODO: Is this still correct? -->
 
 To enable [prebuilt workspaces](/docs/configure/projects/prebuilds) for your Bitbucket project, you need to grant the `webhook` permission in Gitpod's [Integration Settings](https://gitpod.io/integrations) page. This allows Gitpod to install a webhook which creates a new prebuild for every push event.

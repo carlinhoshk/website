@@ -68,6 +68,8 @@ This will simulate a fake minimal workspace inside your existing Gitpod workspac
 
 For convenience, you can create a file called `debug.sh` in your dotfiles repository and paste the snippet there. You could then run `bash debug.sh` to use it.
 
+<!-- TODO: The link here looks odd -->
+
 ### How to install symlinks from dotfiles when using a [custom installation script](#custom-installation-script)?
 
 When you commit a custom script such as `install.sh` in your dotfiles repository, Gitpod will no longer auto symlink your dotfiles under `$HOME` for you. It is by design so that you can have full control of how your dotfiles gets installed. An example of setting up a symlinking step is described below:
@@ -94,6 +96,8 @@ while read -r file; do
 
 done < <(find "${dotfiles_source}" -type f)
 ```
+
+<!-- TODO: The link here looks odd -->
 
 ### [It it possible to cache the dotfiles installation?](https://discord.com/channels/816244985187008514/1072003259075657849)
 

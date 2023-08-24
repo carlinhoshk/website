@@ -12,7 +12,10 @@ description: Gitpod works with public, private, or internal repositories on your
 
 Gitpod works with public, private, or internal repositories on your own instance of [Bitbucket Server](https://bitbucket.org/product/guides/getting-started/overview#bitbucket-software-hosting-options) v7.20 or later. Setting this up requires 2 steps.
 
+<!-- TODO: Is this a statement, or question? -->
+
 1. A one-time registration of the Bitbucket server instance with Gitpod.
+ <!-- TODO: Is it start a workspace? What do I do with this information? -->
 2. Each Gitpod user connects their account to Bitbucket server the first time they start a workspace.
 
 ## Registering a Bitbucket Server
@@ -26,6 +29,10 @@ Start by creating a **New Integration** and entering the **Provider Host Name** 
 Copy the **Redirect URL** from the form above.
 
 Open your Bitbucket Server Administration settings in another browser tab, and create a new incoming link for an external application.
+
+<!-- TODO: Hard to tell if the image relates to the above or below text -->
+<!-- TODO: Could do with a bit of whitespace -->
+<!-- TODO: Add some headers to the steps appear in the sidebar -->
 
 ![Bitbucket Server new OAuth2 application link](/images/integrations/bbs-new-incoming-link.png)
 
@@ -41,9 +48,14 @@ Copy the **Client ID** and **Secret** into the corresponding fields in the new G
 
 Refreshing the integration settings page should show a new Git provider connection to your Bitbucket Server in addition to the Git Integration registration below that.
 
+<!-- TODO: Screenshot outdated, and shows two BitBucket Server integrations -->
+
 ![Bitbucket Server integration and connection in Gitpod settings](/images/integrations/bbs-integration-and-connection.png)
 
 ## Connecting Gitpod accounts to Bitbucket Server
+
+<!-- TODO: Is this true? -->
+<!-- TODO: Who is "Other" in this context? -->
 
 Other Bitbucket Server users need to connect their own Gitpod account to their own Bitbucket Server account by starting a workspace.
 
@@ -53,13 +65,21 @@ To start a workspace, paste the URL of a Bitbucket Server repository into the Ne
 
 The first time you do this, you'll be prompted to authorize with your Bitbucket Server instance.
 
+<!-- TODO: Ukraine Logo? -->
+
 ![Prompt to authorize with Bitbucket Server](/images/integrations/bbs-auth-prompt.png)
+
+<!-- TODO: This seems unrelated to the screenshot? -->
 
 The Bitbucket Server OAuth window will prompt for confirmation to access projects and repositories.
 
 ![OAuth confirmation from Bitbucket Server](/images/integrations/bbs-oauth-popup.png)
 
+<!-- TODO: "The connection" -> What connection? -->
+
 Once confirmed, the connection will be saved, and the workspace should open. Subsequent workspaces with repositories from the same Bitbucket Server instance should open without reconnecting.
+
+<!-- TODO: Remove this? Link to project? -->
 
 ## Creating a project in Gitpod
 

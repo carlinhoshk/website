@@ -84,11 +84,11 @@ export const MENU: MenuEntry[] = [
 	]),
 
 	M('Authentication', 'configure/authentication', false, [
-		M('GitLab', 'configure/authentication/gitlab'),
-		M('GitHub', 'configure/authentication/github'),
 		M('Bitbucket', 'configure/authentication/bitbucket'),
-		M('GitHub Enterprise', 'configure/authentication/github-enterprise'),
 		M('Bitbucket Server', 'configure/authentication/bitbucket-server'),
+		M('GitHub', 'configure/authentication/github'),
+		M('GitHub Enterprise', 'configure/authentication/github-enterprise'),
+		M('GitLab', 'configure/authentication/gitlab'),
 	]),
 	M('Self-Hosted', 'configure/self-hosted/latest', false, [
 		M(

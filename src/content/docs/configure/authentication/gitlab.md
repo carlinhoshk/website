@@ -20,6 +20,8 @@ You can start a Gitpod workspace directly from the web pages of a GitLab reposit
 
 To launch new Gitpod workspaces for issues, branches, specific commits, etc. you can also prefix any GitLab URL with `gitpod.io/#` as described in the [Getting started](/docs/introduction/getting-started) page, or use the [browser extension](/docs/configure/user-settings/browser-extension) to add a convenient _Gitpod_ button to every GitLab page.
 
+<!-- TODO: Remove this section -->
+
 ## Enabling Prebuilds
 
 All prebuilds require a [Gitpod project](/docs/configure/projects#add-a-new-project) for the repository.
@@ -38,6 +40,9 @@ To use Gitpod on a GitLab repository, you have to connect your GitLab account wi
 
 Gitpod supports the following use cases:
 
+<!-- TODO: Nesting here looks odd, first link doesn't work -->
+<!-- TODO: Why is this midway through the page? -->
+
 -   [GitLab](#GitLab)
     -   [Starting Workspaces](#starting-workspaces)
     -   [Enabling Prebuilds](#enabling-prebuilds)
@@ -47,11 +52,17 @@ Gitpod supports the following use cases:
         -   [Disconnecting Your GitLab Account](#disconnecting-your-gitlab-account)
     -   [Registering A Self-Hosted GitLab Installation](#registering-a-self-hosted-gitlab-installation)
 
+<!-- TODO: This is useful content about multiple providers -->
+<!-- TODO: Move this to the top-level -->
+
 ### Connecting Your GitLab.com Account
 
 If you have initially logged into Gitpod using `GitLab`, your Gitpod account is already connected to your `GitLab.com` account and you can skip this section.
 
 If you have logged into Gitpod with a different provider, you can manually add your GitLab account as follows:
+
+<!-- TODO: Very UX related instructions -->
+<!-- TODO: Does this need explaining to me? -->
 
 1. Open [the integrations page](https://gitpod.io/integrations/). Scroll to the section about "Git Providers" and click on the three dot button that pops up when you hover over the _GitLab_ item. Select _Connect_ from the popup menu.
 
@@ -62,6 +73,8 @@ If you have logged into Gitpod with a different provider, you can manually add y
 3. Once logged in successfully, you will be asked to authorize Gitpod to access your personal information on GitLab and use their API. Click _Authorize_.
 
 ![GitLab: Authorize Gitpod](/images/docs/beta/integrations/authorize-gitpod.png)
+
+<!-- TODO: Why is the UX being explained? Can we fix the UI? -->
 
 4. You'll be directed back to Gitpod's settings page. A green bullet left to _GitLab_ signals you've successfully linked your GitLab account with Gitpod.
 

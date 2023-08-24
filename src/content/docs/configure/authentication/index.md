@@ -6,11 +6,26 @@ description: Gitpod allows you to work with any public or private repository on 
 
 # Authentication
 
-Gitpod comes with integrations for [GitLab](/docs/configure/authentication/gitlab), [GitHub](/docs/configure/authentication/github), and [Bitbucket](/docs/configure/authentication/bitbucket) projects. It also provides a [browser extension](/docs/configure/user-settings/browser-extension) or a [browser bookmarklet](/docs/configure/user-settings/browser-bookmarklet) for Chromium-based browsers (Chrome, Edge, Brave) and Firefox.
+<!-- TODO: Break into bullets -->
+<!-- TODO: Introduction that explains auth + SCM provider -->
+<!-- TODO: For SSO, link to Dedicated -->
+<!-- TODO: Mention about user + org-level authentication (Dedicated) -->
+<!-- TODO: Mention GitHub Enterprise + BitBucket Cloud/Server -->
+
+Gitpod comes with integrations for [GitLab](/docs/configure/authentication/gitlab), [GitHub](/docs/configure/authentication/github), and [Bitbucket](/docs/configure/authentication/bitbucket) projects.
+
+<!-- TODO: Why do we mention this? -->
+
+It also provides a [browser extension](/docs/configure/user-settings/browser-extension) or a [browser bookmarklet](/docs/configure/user-settings/browser-bookmarklet) for Chromium-based browsers (Chrome, Edge, Brave) and Firefox.
+
+<!-- TODO: The title is "Git integrations" and the title is "Authentication"? -->
+<!-- TODO: The settings page is also "Git Providers" -->
 
 `youtube: qfIQJflDnco`
 
 ## FAQs
+
+<!-- TODO: Link formatting and discord links look odd -->
 
 ### ["Email address already used in another account" when trying to login into Gitpod](https://discord.com/channels/816244985187008514/1015175207301947433)
 
