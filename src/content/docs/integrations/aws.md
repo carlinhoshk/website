@@ -120,7 +120,7 @@ To adjust the IAM role trust policy to restrict which workspaces can assume the 
 
 ### Step 3: Assume the AWS role to retrieve the AWS credentials
 
-> 💡 **Important**: The following assumes that your workspace has the AWS CLI installed so that it can call `aws sts assume-role-with-web-identity`.
+> 💡 **Important**: Using `gp idp login aws` requries that the [`aws` CLI](https://aws.amazon.com/cli/) is installed in the workspace
 
 You can either call the AWS CLI `assume-role` command manually, or use the helper command within the `gp` CLI, `gp idp aws login` which will automatically update your AWS CLI credentials file.
 The following code will login to AWS using OIDC and then fetch a secret dynamically from AWS Secrets Manager for use in your application.
@@ -131,13 +131,15 @@ The following code will login to AWS using OIDC and then fetch a secret dynamica
 tasks:
     - command: |
           gp idp login aws --role-arn <your-iam-role-arn>
-          aws secretsmanager get-secret-value --secret-id database_connection_string --region us-east-1 | jq .SecretString
+          aws sts get-caller-identity
 ```
 
   <figcaption>
     An example <code>.gitpod.yml</code> that assumes an AWS web identity role.
   </figcaption>
 </figure>
+
+Note that the session name contains the workspace ID. This way actions within AWS can be traced back to the workspace and user that performed these actions.
 
 Read more:
 
