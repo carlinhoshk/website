@@ -1,0 +1,34 @@
+name: Update role template in Dedicated docs
+
+permissions:
+  id-token: write # This is required for requesting the OIDC JWT
+  contents: write  # This is required for actions/checkout
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.head_ref || github.ref_name }}-update-role-json
+  cancel-in-progress: ${{ github.ref_name != 'main' }}
+
+on:
+  push:
+    branches:
+      - infrastructure-role-update
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: Update role template in dedicated docs
+          body: |
+            Update role template in dedicated docs
+          labels: automated pr, release-note-none
+          branch: docs-update-role-json
+          delete-branch: true
+          add-paths: |
+            static/images/docs/gitpod-dedicated/reference/aws-iam-permission-requirements/infrastructure-creation-role-template.json
