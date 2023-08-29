@@ -319,7 +319,7 @@ Both of these templates will be provided by your Gitpod Account Manager.
 1. First, execute the `infrastructure-creation-role-template.json` template in the Gitpod Dedicated AWS account. During the "configure stack options" step, ensure you select the "roll back all the stack resources" option under "Stack failure options". This will ensure that all resources created by the template are deleted if the template fails to execute.
 
 <div style="display: flex; justify-content: center;">
-  <img src="../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/stackoptions.webp" alt="Stack Options" style="width: 80%;">
+  <img src="/images/docs/gitpod-dedicated/guides/getting-started/stackoptions.webp" alt="Stack Options" style="width: 80%;">
 </div>
 
 </details>
@@ -329,7 +329,7 @@ Both of these templates will be provided by your Gitpod Account Manager.
 > ℹ️ During the “configure stack options” step, select the role created by the first CloudFormation template (`GitpodSetupAndInitialEKSUserAdmin`) as the role used for permissions. Depending on timing, you may need to manually select the role using its ARN. Again, select the “roll back all the stack resources” option.
 
 <div style="display: flex; justify-content: center;">
-  <img src="../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/iam-perms-configs.webp" alt="IAM Permissions" style="width: 80%;">
+  <img src="/images/docs/gitpod-dedicated/guides/getting-started/iam-perms-configs.webp" alt="IAM Permissions" style="width: 80%;">
 </div>
 
 <br>
@@ -373,11 +373,11 @@ You are three steps away from launching your first Gitpod workspace:
 
 We suggest your company name, but you know best. Don’t worry you can always change this later. For example, if the name of your company was “Amazing Co.”
 
-![Name your organization](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso-name-org.webp)
+![Name your organization](/images/docs/gitpod-dedicated/guides/getting-started/sso-name-org.webp)
 
 It will appear in Gitpod like this:
 
-![Preview in Gitpod Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso-gitpod-org-name.webp)
+![Preview in Gitpod Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso-gitpod-org-name.webp)
 
 </div>
 
@@ -397,7 +397,7 @@ Gitpod Dedicated requires OpenID Connect (OIDC) for authentication, for example 
 -   Once you’ve created your Identity Provider configuration, you should copy and paste the Issuer URL, Client ID and Client Secret values on this screen.
 -   Clicking “Verify SSO Configuration” will ensure that validity of the values by authenticating your account. If successful, your user will be created and configured with the “owner” role. Subsequent users that log in will be granted the default “member” role.
 
-    ![Configure Single Sign-on](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/configure-sso-gitpod.webp)
+    ![Configure Single Sign-on](/images/docs/gitpod-dedicated/guides/getting-started/configure-sso-gitpod.webp)
 
 **Identity Provider specific instructions**
 
@@ -417,14 +417,14 @@ _Creating a Gitpod SSO Integration_
 1. On the Okta Admin dashboard, navigate to Applications
 2. Select `Create App Integration`
 
-    ![Applications - Okta Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/okta/okta-dashboard.webp)
+    ![Applications - Okta Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/okta/okta-dashboard.webp)
 
 3. Select the following options and click `Next`
 
     - Sign-in method: `OIDC - Open ID Connect`
     - Application type: `Web Application`
 
-    ![Create App Integration - Okta Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/okta/create-app-integration.webp)
+    ![Create App Integration - Okta Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/okta/create-app-integration.webp)
 
 4. Specify General Settings
 
@@ -434,7 +434,7 @@ _Creating a Gitpod SSO Integration_
     - Trusted Origins: `none`
     - Assignments: _choose option appropriate to your organization_
 
-    ![Specify Okta settings - Okta Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/okta/specify-general-settings.webp)
+    ![Specify Okta settings - Okta Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/okta/specify-general-settings.webp)
 
 5. Obtain Client ID & Client Secret
 
@@ -442,7 +442,7 @@ _Creating a Gitpod SSO Integration_
     - Copy `Client Secret` and use it as input in Gitpod setup (see [details](/docs/gitpod-dedicated/guides/getting-started#:~:text=or%20Azure%20AD.-,General%20instructions,-You%20will%20need) above under "General instructions")
     - Set the `Issuer` to your Okta instance, eg: `https://amazingco.okta.com/`
 
-    ![Configure Client Secrets - Okta Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/okta/client-configs-okta.webp)
+    ![Configure Client Secrets - Okta Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/okta/client-configs-okta.webp)
 
 6. Continue with Gitpod SSO Configuration verification: [Clicking “Verify SSO Configuration”](/docs/gitpod-dedicated/guides/getting-started#:~:text=or%20Azure%20AD.-,General%20instructions,-You%20will%20need)
 
@@ -465,12 +465,12 @@ _Creating a Gitpod SSO Integration_
 1. Navigate to your Google Cloud Console, API Credentials
 2. Select Create Credentials, and choose OAuth client ID
 
-    ![Create credentials - Google Cloud Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/google/create-credentials.webp)
+    ![Create credentials - Google Cloud Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/google/create-credentials.webp)
 
 3. Configure your OAuth Client ID, by specifying the Authorized Redirect URIs: [Once you’ve created your Identity Provider configuration, you should copy...](/docs/gitpod-dedicated/guides/getting-started#:~:text=or%20Azure%20AD.-,General%20instructions,-You%20will%20need)
 4. Obtain the Client ID & Client Secret and input these into your Gitpod Setup page
 
-    ![OAuth Client Created - Google Cloud Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/google/OAuth-client-created.webp)
+    ![OAuth Client Created - Google Cloud Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/google/OAuth-client-created.webp)
 
 5. Set Provider's Issuer URL to `https://accounts.google.com`
 6. Proceed to verify the integration on the Gitpod setup page: [Clicking “Verify SSO Configuration”](/docs/gitpod-dedicated/guides/getting-started#:~:text=or%20Azure%20AD.-,General%20instructions,-You%20will%20need)
@@ -494,18 +494,18 @@ _Creating a Gitpod SSO Integration_
 1. Navigate to your Azure portal > App Registrations
 2. Select New Registration
 
-    ![New registration - Azure AD Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/new-registration.webp)
+    ![New registration - Azure AD Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/new-registration.webp)
 
 3. Name your application - e.g. Gitpod
 4. Select supported account types depending on your organizational needs. Most likely you want _Accounts in this organizational directory only_
 5. Copy the redirect URL from the Gitpod SSO setup page and set it as the Redirect URI, selecting Web as the application type
 
-    ![Register Application - Azure AD Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/register-application.webp)
+    ![Register Application - Azure AD Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/register-application.webp)
 
 6. From the App Registration Overview, you should obtain the Application (client) ID and copy it into your Gitpod SSO setup page
 7. Create a client secret - navigate to Certificates & Secrets, click New client secret
 
-    ![Create client secret - Azure AD Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/client-secrets.webp)
+    ![Create client secret - Azure AD Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/client-secrets.webp)
 
 8. Name the secret, and set expiry according to your needs.
 
@@ -517,15 +517,15 @@ _Creating a Gitpod SSO Integration_
     - Navigate to API Permissions
     - Select Microsoft Graph
     - Enable `OpenId.email`, `OpenId.openid` and `Openid.profile`
-      ![Request API Permissions - Azure AD Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/request-api-permissions.webp)
+      ![Request API Permissions - Azure AD Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/request-api-permissions.webp)
     - Once saved, your configured permissions should look as follows:
-      ![Configure API Permissions - Azure AD Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/configured-permissions.webp)
+      ![Configure API Permissions - Azure AD Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/configured-permissions.webp)
 
 11. Obtain the Provider URL
 
     - Navigate to your App Registration > Overview
     - Click endpoints
-      ![Endpoints - Azure AD Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/endpoints.webp)
+      ![Endpoints - Azure AD Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/sso/azure/endpoints.webp)
     - Find the entry for `OpenID Connect metadata document`
     - Use the URL before the `.well-known/openid-configuration` segment,
         - For example: `https://login.microsoftonline.com/512571ea-9fc5-494e-a300-625b33c8efa6/v2.0/`
@@ -552,7 +552,7 @@ Integrate it with your SCM as per the steps shown in the UI or below. You can no
 -   Look at these [these steps](/docs/configure/authentication/github-enterprise) for information on how to integrate [`GitHub.com`](http://github.com/) with your Gitpod instance. You will need to enter `github.com` as the `Provider Host Name` in the New Git Integration Modal if you want to use github.com, contrary to what is described.
 -   Look at [these steps](/docs/configure/authentication/bitbucket-server) for information on how to integrate [`Bitbucket Server`](https://www.atlassian.com/de/software/bitbucket/enterprise) with your Gitpod instance. Select `Bitbucket Server` as the `Provider Type` in the New Git Integration Modal. For bitbucket.org this requires configuring an “OAuth consumer” on a “workspace”. This is slightly different from the documented Bitbucket Server integration. See [gitpod PR #9894](https://github.com/gitpod-io/gitpod/pull/9894#pullrequestreview-969013833) for an example.
 
-![Git Integrations Preview in Gitpod Dashboard](../../../../../static/images/docs/gitpod-dedicated/guides/getting-started/git-integration.webp)
+![Git Integrations Preview in Gitpod Dashboard](/images/docs/gitpod-dedicated/guides/getting-started/git-integration.webp)
 
 > ℹ️ The first workspace start(s) will take longer than usual, sometimes exceeding 10 minutes depending on the workspace image used. This is because an image first needs to be built, a node needs to be spun up, and that image then downloaded to the node. However, subsequent workspace starts will be significantly faster.
 
