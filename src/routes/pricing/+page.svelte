@@ -2,6 +2,7 @@
 	import Explore from '$lib/components/explore.svelte';
 	import Faqs from '$lib/components/pricing/faqs.svelte';
 	import OpenGraph from '$lib/components/open-graph.svelte';
+	import GartnerReport from '$lib/components/cde/gartner-report.svelte';
 	import PlansAndPricing from '$lib/components/pricing/plans-and-pricing.svelte';
 	import PricingFeatures from '$lib/components/pricing/pricing-features.svelte';
 	import {
@@ -48,5 +49,6 @@
 	</div>
 	<Resources {cards} />
 </Section>
+<GartnerReport />
 <Faqs />
 <Explore />

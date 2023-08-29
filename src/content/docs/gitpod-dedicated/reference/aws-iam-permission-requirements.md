@@ -30,7 +30,7 @@ For more information on the phases during which these permissions are needed and
 The permissions needed for this are defined by a separate CloudFormation which is first applied in the AWS account that Gitpod is to be installed into. More information on this can be found in the [Getting Started guide](/docs/gitpod-dedicated/guides/getting-started). You can also find the CloudFormation template below:
 
 <div class="mt-2">
-   <a href='/images/docs/gitpod-dedicated/reference/AWS-IAM-permission-requirements/infrastructure-creation-role-template.json' download>infrastructure-creation-role-template.json</a>
+   <a href='/images/docs/gitpod-dedicated/reference/aws-iam-permission-requirements/infrastructure-creation-role-template.json' download>infrastructure-creation-role-template.json</a>
 </div>
 
 </div>

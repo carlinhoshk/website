@@ -11,4 +11,4 @@ package-lock.json
 _redirects
 *.hbs
 /static/images/docs/gitpod-dedicated/reference/infrastructure-update-changelog/*/*.json
-/static/images/docs/gitpod-dedicated/reference/AWS-IAM-permission-requirements/*.json
+/static/images/docs/gitpod-dedicated/reference/aws-iam-permission-requirements/*.json

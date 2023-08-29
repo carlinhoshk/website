@@ -2,6 +2,7 @@
 	import Stories from '$lib/components/customers/stories.svelte';
 	import Explore from '$lib/components/explore.svelte';
 	import Hero from '$lib/components/hero.svelte';
+	import GartnerReport from '$lib/components/cde/gartner-report.svelte';
 	import Testimonials from '$lib/components/index/testimonials.svelte';
 	import OpenGraph from '$lib/components/open-graph.svelte';
 	import FeatureBoxWhitepaper from '$lib/components/feature-box-whitepaper.svelte';
@@ -51,6 +52,7 @@
 
 <AnimatedLogos />
 <FeatureBoxWhitepaper />
+<GartnerReport />
 <Stories
 	title="Meet some of our customers."
 	text="Gitpod enables companies of any size to deliver product faster."

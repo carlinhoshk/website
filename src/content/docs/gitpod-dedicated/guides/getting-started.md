@@ -288,15 +288,15 @@ Please see [Using Custom Domains](/docs/gitpod-dedicated/guides/using-custom-dom
 
 </details>
 
-<!-- <details class="ml-4">
+<details class="ml-4">
 
 <summary class="text-body text-p-medium my-micro">When using certificates signed by a custom or private Certificate Authority</summary>
 
-Please see [Using a Custom or Private CA](/docs/gitpod-dedicated/guides/using-custom-or-private-CA) for more information about using custom domains. In addition to the above, the following information is required:
+Please see [Using a Custom or Private CA](/docs/gitpod-dedicated/guides/using-custom-or-private-ca) for more information about using custom domains. In addition to the above, the following information is required:
 
 -   `ARN of the Custom CA certificate` that is stored in secrets manager
 
-</details> -->
+</details>
 
 ## Receive your Cloudformation Templates
 

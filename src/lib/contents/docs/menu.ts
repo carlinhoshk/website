@@ -284,10 +284,10 @@ export const MENU: MenuEntry[] = [
 			'Using Custom Domains',
 			'gitpod-dedicated/guides/using-custom-domains',
 		),
-		// M(
-		// 	'Using a Custom or Private CA',
-		// 	'gitpod-dedicated/guides/using-custom-or-private-CA',
-		// ),
+		M(
+			'Using a Custom or Private CA',
+			'gitpod-dedicated/guides/using-custom-or-private-ca',
+		),
 		M(
 			'Using Private VPC Resolvers',
 			'gitpod-dedicated/guides/using-private-vpc-resolvers',
@@ -329,7 +329,7 @@ export const MENU: MenuEntry[] = [
 	M('Reference', 'gitpod-dedicated/reference', false, [
 		M(
 			'AWS IAM permissions',
-			'gitpod-dedicated/reference/AWS-IAM-permission-requirements',
+			'gitpod-dedicated/reference/aws-iam-permission-requirements',
 		),
 		M('Architecture', 'gitpod-dedicated/reference/architecture'),
 		M(

@@ -5,7 +5,7 @@ title: Getting Access to the Instance for Debugging - Gitpod Dedicated docs
 
 # Getting Access to the Instance for Debugging
 
-> ℹ️ As a manner of last resort, when an instance is in a state where Gitpod is unable to resolve an issue, a Gitpod employee may reach out and ask the customer to access their AWS account to help debug the instance. Find out more about the permissions used in the role assumed via [AWS IAM permission requirements](/docs/gitpod-dedicated/reference/AWS-IAM-permission-requirements). Gitpod itself cannot access the AWS account of the instance nor assume the role used below - this needs to be done by a user in the account of the customer.
+> ℹ️ As a manner of last resort, when an instance is in a state where Gitpod is unable to resolve an issue, a Gitpod employee may reach out and ask the customer to access their AWS account to help debug the instance. Find out more about the permissions used in the role assumed via [AWS IAM permission requirements](/docs/gitpod-dedicated/reference/aws-iam-permission-requirements). Gitpod itself cannot access the AWS account of the instance nor assume the role used below - this needs to be done by a user in the account of the customer.
 
 In order to help debug, a Gitpod employee will ask to perform the following steps. Upon completion, the user will have access to the Kubernetes cluster(s) used to run Gitpod:
 

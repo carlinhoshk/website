@@ -22,7 +22,7 @@ In both deployments models, a control plane keeps the installation up-to-date. T
 -   [Updating the Gitpod Dedicated Infrastructure](/docs/gitpod-dedicated/guides/updating-gitpod-dedicated-infrastructure)
 -   [Getting Access to the Instance for Debugging](/docs/gitpod-dedicated/guides/getting-access-to-the-instance-for-debugging)
 -   [Using Custom Domains](/docs/gitpod-dedicated/guides/using-custom-domains)
--   [Using a Custom or Private CA](/docs/gitpod-dedicated/guides/using-custom-or-private-CA)
+-   [Using a Custom or Private CA](/docs/gitpod-dedicated/guides/using-custom-or-private-ca)
 -   [Using Private VPC Resolvers](/docs/gitpod-dedicated/guides/using-private-vpc-resolvers)
 <!-- -   [Using Private ECR Repositories for Workspace Images](/docs/gitpod-dedicated/guides/use-private-ecr-repos-for-workspace-images) -->
 -   [Accessing data exported from your instance](/docs/gitpod-dedicated/guides/accessing-data-exported-from-your-instance)
@@ -44,7 +44,7 @@ In both deployments models, a control plane keeps the installation up-to-date. T
 
 <summary class="font-bold text-h6 text-important">Reference</summary>
 
--   [AWS IAM permission requirements](/docs/gitpod-dedicated/reference/AWS-IAM-permission-requirements)
+-   [AWS IAM permission requirements](/docs/gitpod-dedicated/reference/aws-iam-permission-requirements)
 -   [Architecture](/docs/gitpod-dedicated/reference/architecture)
 -   [Networking and Data Flow](/docs/gitpod-dedicated/reference/networking-data-flows)
 -   [Infrastructure Cost](/docs/gitpod-dedicated/reference/infrastructure-cost)
@@ -94,4 +94,4 @@ To begin, follow the [Getting Started](/docs/gitpod-dedicated/guides/getting-sta
 
 ## More Information
 
-For more information on [Deployment and Updates](/docs/gitpod-dedicated/background/deployment-updates) and [AWS IAM permission requirements](/docs/gitpod-dedicated/reference/AWS-IAM-permission-requirements) please see the Background and Reference sections.
+For more information on [Deployment and Updates](/docs/gitpod-dedicated/background/deployment-updates) and [AWS IAM permission requirements](/docs/gitpod-dedicated/reference/aws-iam-permission-requirements) please see the Background and Reference sections.

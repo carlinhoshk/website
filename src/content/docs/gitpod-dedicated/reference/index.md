@@ -7,7 +7,7 @@ title: Gitpod Dedicated References
 
 ## Table of Contents
 
--   [AWS IAM permission requirements](/docs/gitpod-dedicated/reference/AWS-IAM-permission-requirements)
+-   [AWS IAM permission requirements](/docs/gitpod-dedicated/reference/aws-iam-permission-requirements)
 -   [Architecture](/docs/gitpod-dedicated/reference/architecture)
 -   [Networking and Data Flow](/docs/gitpod-dedicated/reference/networking-data-flows)
 -   [Infrastructure Cost](/docs/gitpod-dedicated/reference/infrastructure-cost)

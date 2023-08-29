@@ -10,7 +10,7 @@ export const load = async ({ url, params }) => {
 	if (url.pathname == '/docs/gitpod-dedicated/reference') {
 		throw redirect(
 			301,
-			'/docs/gitpod-dedicated/reference/AWS-IAM-permission-requirements',
+			'/docs/gitpod-dedicated/reference/aws-iam-permission-requirements',
 		);
 	}
 

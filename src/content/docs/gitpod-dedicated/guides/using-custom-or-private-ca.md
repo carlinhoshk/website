@@ -18,7 +18,7 @@ The process to use custom domains requires:
     <summary class="text-body text-p-medium mt-micro">How to upload the CA certificate to AWS Secret Manager in the same AWS account that the Gitpod instance runs in.</summary>
 
     1. In the AWS account that the Gitpod instance runs in, navigate to the Secret Manager within the AWS Console. Click on Store a new secret. Select the Secret Type as Other and input your certificate in plain text as illustrated below
-       ![Upload CA Certificate to same AWS Account](/images/docs/gitpod-dedicated/guides/using-custom-or-private-CA/upload-CA-certificate.webp)
+       ![Upload CA Certificate to same AWS Account](/images/docs/gitpod-dedicated/guides/using-custom-or-private-ca/upload-CA-certificate.webp)
     2. You can either choose to use the default KMS Encryption Key or create a new one
     3. Follow the instructions on screen and store the secret
     4. Note down the ARN of the secret
@@ -30,9 +30,9 @@ The process to use custom domains requires:
     <summary class="text-body text-p-medium mt-micro">How to upload the CA certificate to AWS Secret Manager to another AWS account and make it accessible to the Gitpod instance’s AWS account</summary>
 
     1. In the preferred AWS account, navigate to the Secret Manager within the AWS Console. Click on Store a new secret. Select the Secret Type as Other and input your certificate in plain text as illustrated below
-       ![Upload CA Certificate to other AWS Account](/images/docs/gitpod-dedicated/guides/using-custom-or-private-CA/upload-CA-certificate-other-aws-account.webp)
+       ![Upload CA Certificate to other AWS Account](/images/docs/gitpod-dedicated/guides/using-custom-or-private-ca/upload-CA-certificate-other-aws-account.webp)
     2. Create or choose a different KMS Encryption key than the default `aws/secretmanager` key. This is very important because secrets signed with the default key cannot be shared with other accounts. When creating the key, allow access to the Gitpod instance’s AWS account to the key by providing the account ID as can be seen in the image:
-       ![Choose different KMS encryption key](/images/docs/gitpod-dedicated/guides/using-custom-or-private-CA/KMS-key.webp)
+       ![Choose different KMS encryption key](/images/docs/gitpod-dedicated/guides/using-custom-or-private-ca/KMS-key.webp)
         - If you are using a pre-existing encryption key, you should add a policy like this:
             ```json
             {

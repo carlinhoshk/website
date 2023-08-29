@@ -398,12 +398,15 @@
                                 "lambda:GetFunction",
                                 "lambda:InvokeFunction",
                                 "lambda:PutFunctionConcurrency",
+                                "lambda:PutFunctionEventInvokeConfig",
+                                "lambda:DeleteFunctionEventInvokeConfig",
                                 "lambda:RemovePermission",
                                 "lambda:ListTags",
                                 "lambda:TagResource",
                                 "lambda:UntagResource",
                                 "lambda:UpdateFunctionConfiguration",
-                                "lambda:UpdateFunctionCode"
+                                "lambda:UpdateFunctionCode",
+                                "lambda:GetPolicy"
                             ],
                             "Resource": "*"
                         }
@@ -434,7 +437,8 @@
                                 "logs:PutDataProtectionPolicy",
                                 "logs:PutLogEvents",
                                 "logs:PutResourcePolicy",
-                                "logs:TagLogGroup"
+                                "logs:TagLogGroup",
+                                "logs:ListTagsLogGroup"
                             ],
                             "Resource": "*"
                         }
