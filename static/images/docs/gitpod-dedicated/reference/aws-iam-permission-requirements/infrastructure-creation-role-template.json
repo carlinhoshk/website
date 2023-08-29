@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "Initial Cloudformation template to produce the required role and policies to install Gitpod Dedicated",
+    "Description": "Initial Cloudformation template to produce the required role and policies to install Gitpod Dedicated new",
     "Resources": {
         "ec2policy": {
             "Type": "AWS::IAM::ManagedPolicy",
