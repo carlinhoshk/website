@@ -35,9 +35,7 @@ Create a new AWS account following the steps in [the AWS documentation](https://
 
 Ensure that the account meets the following quota requirements in the region where Gitpod Dedicated will be installed. AWS quota increases may take up to a day to be approved, so make sure you do this step first.
 
-> ℹ️ Tip: You can run our [AWS preflight check script](https://gist.github.com/scarolan/65895bd22a9acc1738229495ea354326) to automatically request the required quota increases. This script requires the AWS CLI to be installed and configured. You may also run it from AWS Cloudshell, where the AWS CLI is preinstalled.
-
-You can also request the quota updates in the AWS Console. Visit the correct quota increase page for your region. For example this link goes to us-west-2. Replace the region with your own, search for each Service type below, and request an increase to the new value. _On most new AWS accounts you will only need to increase the Elastic IPs and Lambda executions._
+Visit the correct quota increase page for your region. For example this link goes to us-west-2. Replace the region with your own, search for each Service type below, and request an increase to the new value. _On most new AWS accounts you will only need to increase the Elastic IPs and Lambda executions._
 
 https://us-west-2.console.aws.amazon.com/servicequotas/home/services
 
