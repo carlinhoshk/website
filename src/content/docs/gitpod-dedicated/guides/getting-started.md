@@ -563,29 +563,45 @@ Integrate it with your SCM as per the steps shown in the UI or below. You can no
 <details class="ml-8">
 <summary class="text-body text-p-medium">Click to view FAQ</summary>
 
-**Q.** Can we install our own custom resources inside the same AWS account where Gitpod Dedicated is installed?
+**Q.** Can we install our own custom resources inside the same AWS account where Gitpod Dedicated is installed?<br>
 **A.** No. Gitpod Dedicated is installed in a dedicated AWS account. This is to ensure that Gitpod Dedicated can be installed without any conflicts with existing resources in your AWS account. If you have special requirements for the account please speak with your Gitpod account manager.
+
+<br/>
 
 **Q.** If we use the allPublic networking mode do we still need to provide a `CIDR range of our network`?  
 **A.** No. The `CIDR range of our network` is only required when using the mixed or private networking modes.
 
+<br/>
+
 **Q.** If the Gitpod internal range of `100.70.0.0/16` does not need to be routable from my network, why do we need to specify the `CIDR range of our network`?  
 **A.** User workspaces traffic must cross this range when reaching the rest of your network. If there are common internal services and systems that developers may need to access that overlap with this range, the experience may be inconsistent and difficult to troubleshoot. To avoid this, Gitpod can adapt the internally used CIDR range for workspaces to the customer’s CIDR range.
+
+<br/>
 
 **Q.** What if the `100.70.0.0/16` range overlaps with my network?  
 **A.** Please contact your Gitpod account manager for assistance. There is some flexibility to the CIDR range used internally by Gitpod.
 
+<br/>
+
 **Q.** Why two templates?  
 **A.** The `infrastructure-creation-role-template.json` CloudFormation template is used to create a role with the minimum permissions required to install and update Gitpod Dedicated. This role and its policies are used to install the second Cloudformation template.
+
+<br/>
 
 **Q.** Can the stack created by `infrastructure-creation-role-template.json` be deleted after executing the `<company>-gitpod-template.json`?  
 **A.** No, the stack created by `infrastructure-creation-role-template.json` should be maintained. The role created is also used when updates are provided to the `<company>-gitpod-template.jsonn` template. For more details on infrastructure updates, please see [Deployment and Updates](/docs/gitpod-dedicated/background/deployment-updates).
 
+<br/>
+
 **Q.** What happens if my Cloudformation stack fails to install?  
 **A.** If the stack fails to install, you should delete the stack and try again. There are a few resources that need to be cleaned up manually before you attempt another installation. See [Deleting your Gitpod installation](/docs/gitpod-dedicated/guides/deleting-your-gitpod-installation) for details.
 
+<br/>
+
 **Q.** What if we want to use a custom domain name?  
 **A.** Please see [Using Custom Domains](/docs/gitpod-dedicated/guides/using-custom-domains) for more information about using a custom domain.
+
+<br/>
 
 **Q.** Can we grant public access to webhooks and IDP services without exposing the entire Gitpod application to the Internet?  
 **A.** Yes. Gitpod Dedicated can be configured to expose webhooks and IDP services on public endpoints. This can be helpful for connecting to OIDC providers such as Okta, Azure AD. This option also makes it easy for developers to connect to your instance without having to route through a VPN or transit gateway. See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for more information.
