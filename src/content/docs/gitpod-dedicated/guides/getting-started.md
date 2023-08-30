@@ -52,12 +52,16 @@ When your request has been approved verify that you have at least 20 Elastic IPs
 
 <details>
   <summary>Click to view screenshot: Elastic IPs</summary>
-  <img src="assets/20230823_124325_elastic_ips.png" alt="Elastic IPs Screenshot">
+  <div style="display: flex; justify-content: center;">
+  <img src="/images/docs/gitpod-dedicated/guides/getting-started/20230823_124325_elastic_ips.png" alt="IAM Permissions" style="width: 80%;">
+</div>
 </details>
 
 <details>
   <summary>Click to view screenshot: Lambdas</summary>
-  <img src="assets/20230823_124350_lambdas.png" alt="Lambdas Screenshot">
+  <div style="display: flex; justify-content: center;">
+  <img src="/images/docs/gitpod-dedicated/guides/getting-started/20230823_124350_lambdas.png" alt="IAM Permissions" style="width: 80%;">
+</div>
 </details>
 
 <br>
@@ -70,7 +74,9 @@ Ensure that you allow for cross-account and cross-region communication with `eu-
 
 Follow the process below to acquire and install your Cloudformation templates:
 
-**Provide information**: A Gitpod account manager will ask for information needed to generate the CloudFormation template that will be used to bootstrap the infrastructure for your Gitpod instance. See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for general guidance and requirements on which services Gitpod needs to be able to route to. <br/>The information required depends on the choice of networking mode:
+### 2.1 Provide information
+
+A Gitpod account manager will ask for information needed to generate the CloudFormation template that will be used to bootstrap the infrastructure for your Gitpod instance. See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for general guidance and requirements on which services Gitpod needs to be able to route to. <br/>The information required depends on the choice of networking mode:
 
 <details class="ml-4">
 <summary class="text-body text-p-medium mt-micro">All Private Networking Mode</summary>
@@ -257,7 +263,7 @@ When using auto-propagation by default, delete the propagation from your Transit
 
 </details>
 
-### Special Situations
+**Special Situations**
 
 The information required further depends on whether the choice of using an allowlist and custom domain:
 
@@ -298,7 +304,7 @@ Please see [Using a Custom or Private CA](/docs/gitpod-dedicated/guides/using-cu
 
 </details>
 
-## Receive your Cloudformation Templates
+### 2.2 Receive your Cloudformation Templates
 
 You will need to execute two CloudFormation templates to install the infrastructure and subsequently Gitpod Dedicated.
 
@@ -308,9 +314,7 @@ You will need to execute two CloudFormation templates to install the infrastruct
 
 Both of these templates will be provided by your Gitpod Account Manager.
 
-</details>
-
-### Execute CloudFormation templates
+### 2.3 Execute CloudFormation templates
 
 > ⚠️ Do not modify the CloudFormation templates outside of adding AWS resource tags. Doing so will likely result in a failed installation.
 
@@ -321,8 +325,6 @@ Both of these templates will be provided by your Gitpod Account Manager.
 <div style="display: flex; justify-content: center;">
   <img src="/images/docs/gitpod-dedicated/guides/getting-started/stackoptions.webp" alt="Stack Options" style="width: 80%;">
 </div>
-
-</details>
 
 2. Then, execute `<company>-gitpod-template.json` that will be shared by your Gitpod account manager in the same AWS account. This will create the infrastructure that Gitpod Dedicated requires.
 
@@ -350,8 +352,6 @@ Both of these templates will be provided by your Gitpod Account Manager.
 </div>
 
 3. If you run into errors during the Cloudformation deployment you should remove all existing resources before trying again. There are a few resources that need to be cleaned up manually before you attempt another installation. See [Deleting your Gitpod installation](/docs/gitpod-dedicated/guides/deleting-your-gitpod-installation) for details.
-
-</details>
 
 4. Instance will install Gitpod: After the infrastructure has been created, the instance will register itself with the Gitpod Dedicated Control plane. It will then ask for the newest version of Gitpod, and install it onto the created infrastructure.
 
