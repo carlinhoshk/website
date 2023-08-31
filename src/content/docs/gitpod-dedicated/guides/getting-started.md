@@ -306,7 +306,7 @@ Please see [Using a Custom or Private CA](/docs/gitpod-dedicated/guides/using-cu
 
 ### 2.2 Receive your Cloudformation Templates
 
-You will need to execute two CloudFormation templates to install the infrastructure and subsequently Gitpod Dedicated.
+You will need to execute two CloudFormation templates to install the infrastructure and subsequently Gitpod Dedicated:
 
 1. Role Template: The `infrastructure-creation-role-template.json` creates a new IAM role with ten policies attached. These policies grant the minimum permissions necessary to install and run Gitpod Dedicated in your account.
 
