@@ -74,7 +74,9 @@ Follow the process below to acquire and install your Cloudformation templates:
 
 ### 2.1 Provide information
 
-A Gitpod account manager will ask for information needed to generate the CloudFormation template that will be used to bootstrap the infrastructure for your Gitpod instance. See [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for general guidance and requirements on which services Gitpod needs to be able to route to. <br/>The information required depends on the choice of networking mode:
+Your Gitpod account manager will ask for information needed to generate the CloudFormation templates used to install Gitpod. The information required depends on the choice of networking mode. To help choose the right networking mode, please see [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for general guidance and requirements on which services Gitpod needs to be able to route to.
+
+Please provide the information required by the chosen networking mode: 
 
 <details class="ml-4">
 <summary class="text-body text-p-medium mt-micro">All Private Networking Mode</summary>
