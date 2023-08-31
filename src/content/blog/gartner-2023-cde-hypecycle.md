@@ -75,7 +75,11 @@ Cloud Development Environments (CDEs) are designed to enhance the developer expe
 
 -   **Equitable**: CDEs remove barriers to collaboration and experimentation with code, projects, and repositories. With no setup effort or risk of breaking ephemeral environments, mistakes are less costly. This enables all team members, from data scientists to designers, to see work in progress and preview changes live.
 
-For a detailed analysis of CDEs and their ROI, download our regularly updated whitepaper. If it helps evaluate CDEs for your organization, reach out. We are here to empower you for those discussions. We believe it’s valuable.
+## The guide
+
+If you want to learn more I encourage you to explore the evolving world of CDEs, their business implications and return on investment (ROI) in our regularly updated guide. It outlines why top engineering organizations and platform teams are rapidly adopting CDEs, and how they can enhance your development process for efficiency, security, and collaboration.
+
+If it helps your evaluation of CDEs for your organization, reach out. We are here to empower you for those discussions.
 
 <Wrapper class="mt-x-small md:mt-small px-xx-small py-x-small sm:p-x-small xl:px-small xl:py-x-small !mx-auto">
 <Download class="mx-auto lg:m-0"

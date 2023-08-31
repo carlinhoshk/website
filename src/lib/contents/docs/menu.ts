@@ -293,8 +293,8 @@ export const MENU: MenuEntry[] = [
 			'gitpod-dedicated/guides/using-private-vpc-resolvers',
 		),
 		// M(
-		// 	'Private ECR for Workspace Images',
-		// 	'gitpod-dedicated/guides/use-private-ecr-repos-for-workspace-images',
+		//  'Private ECR for Workspace Images',
+		//  'gitpod-dedicated/guides/use-private-ecr-repos-for-workspace-images',
 		// ),
 		M(
 			'Accessing exported instance data',
@@ -337,8 +337,8 @@ export const MENU: MenuEntry[] = [
 			'gitpod-dedicated/reference/networking-data-flows',
 		),
 		// M(
-		// 	'Infrastructure cost',
-		// 	'gitpod-dedicated/reference/infrastructure-cost',
+		//  'Infrastructure cost',
+		//  'gitpod-dedicated/reference/infrastructure-cost',
 		// ),
 		M(
 			'Infrastructure Update Changelog',
