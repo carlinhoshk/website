@@ -19,7 +19,7 @@ Gitpod Dedicated is currently available in the following AWS regions:
 
 ## 0. Prerequisites
 
-Here's a list of what you'll need to get started with Gitpod Dedicated.
+Here's a list of what you'll need to get started with Gitpod Dedicated:
 
 -   **An empty AWS account.** There should be no other resources, EC2 instances, containers, functions or applications running in the account. If your company requires security policies or roles to be present in new accounts please review them with a Gitpod Engineer to ensure there are no items that will block Gitpod Dedicated from running.
 -   **Private network address ranges.** Provide a list of network CIDR ranges to your Gitpod engineer to ensure that traffic is routed correctly to internal resources. This list should include the network address space for any internal or on-premise networks that developers will need to access from their Gitpod workspaces.
