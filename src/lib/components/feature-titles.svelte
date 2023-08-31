@@ -6,6 +6,7 @@
 	export let swap: boolean = false;
 	export let customTitle: boolean = false;
 	export let showKumquat: boolean = false;
+	export let cardContainsLinks: boolean = false;
 	export let featureTitlePadding: string =
 		'px-macro py-xx-small sm:p-x-small';
 </script>
@@ -25,6 +26,7 @@
 			}}
 			{featureTitlePadding}
 			{customTitle}
+			{cardContainsLinks}
 		/>
 	{/each}
 </div>

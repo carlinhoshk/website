@@ -159,7 +159,7 @@
 
 <style lang="postcss">
 	h2.h3 {
-		@apply mt-huge lg:mt-44 mb-xx-small;
+		@apply mt-huge lg:mt-xx-large mb-xx-small;
 	}
 
 	p {

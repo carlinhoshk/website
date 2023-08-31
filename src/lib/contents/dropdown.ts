@@ -122,7 +122,7 @@ export const mobileGetStartedLinks: {
 		description: "Access Gitpod's documentation",
 	},
 	{
-		text: 'Screencasts',
+		text: 'Videos',
 		href: '/screencasts',
 		description: 'Watch videos to learn how to get started.',
 	},

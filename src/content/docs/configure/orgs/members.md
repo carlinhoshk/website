@@ -16,9 +16,9 @@ Members are users who are permitted to access the configurations of an Organizat
 | Edit Organization Settings  | Yes   | No     |
 | Manage Organization Billing | Yes   | No     |
 | View Organization Usage     | Yes   | No     |
+| Invite Organization Members | Yes   | No     |
 | Edit Project Settings       | Yes   | Yes    |
 | Edit Project Variables      | Yes   | Yes    |
-| Invite Organization Members | Yes   | Yes    |
 | Add Projects                | Yes   | Yes    |
 | Remove Projects             | Yes   | Yes    |
 | View Branches               | Yes   | Yes    |

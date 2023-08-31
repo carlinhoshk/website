@@ -75,7 +75,8 @@ A I'm new to this repository, I wanted to explore how it actually works. How do 
 Once it returned the files suggested, I wanted to know more about specific functions in the code. Cody helped return some high-level descriptions of the code!
 
 <figure>
-<img class="shadow-medium w-full rounded-lg mt-x-small" alt="Sourcegraph Cody Result for Explain Selected code" src="/images/blog/boosting-developer-productivity-unleashing-the-power-of-sourcegraph-cody-in-gitpod/explain-code.webp">
+<a href="/images/blog/boosting-developer-productivity-unleashing-the-power-of-sourcegraph-cody-in-gitpod/explain-code.webp" target="_blank">
+<img class="shadow-medium w-full rounded-lg mt-x-small cursor-zoom-in" alt="Sourcegraph Cody Result for Explain Selected code" src="/images/blog/boosting-developer-productivity-unleashing-the-power-of-sourcegraph-cody-in-gitpod/explain-code.webp"/></a>
     <figcaption>Selected chunk of code with Cody's Recipe of "Explain selected code (high level)"</figcaption>
 </figure>
 
@@ -84,7 +85,8 @@ Once it returned the files suggested, I wanted to know more about specific funct
 There are hardly any docs in this particular code file, as engineers I'm sure we can be related sometimes. I asked Cody to generate some docs for this code.
 
 <figure>
-<img class="shadow-medium w-full rounded-lg mt-x-small" alt="Sourcegraph Cody Result for Generate Docs" src="/images/blog/boosting-developer-productivity-unleashing-the-power-of-sourcegraph-cody-in-gitpod/generate-docs.webp">
+<a href="/images/blog/boosting-developer-productivity-unleashing-the-power-of-sourcegraph-cody-in-gitpod/generate-docs.webp" target="_blank">
+<img class="shadow-medium w-full rounded-lg mt-x-small cursor-zoom-in" alt="Sourcegraph Cody Result for Generate Docs" src="/images/blog/boosting-developer-productivity-unleashing-the-power-of-sourcegraph-cody-in-gitpod/generate-docs.webp"/></a>
     <figcaption>Selected chunk of code with Cody's Recipe of "Generate Docs"</figcaption>
 </figure>
 

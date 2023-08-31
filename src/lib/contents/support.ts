@@ -30,7 +30,7 @@ export const cards: Card[] = [
 		title: 'Docs',
 		text: 'Explore the documentation to learn more about Gitpod.',
 		link: {
-			href: '/docs/',
+			href: '/docs',
 			text: 'View documentation',
 		},
 	},

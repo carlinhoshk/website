@@ -2,9 +2,10 @@
 	import Explore from '$lib/components/explore.svelte';
 	import SectionCommon from '$lib/components/section-common.svelte';
 	import ScreencastsGrid from '$lib/components/screencasts/screencasts-grid.svelte';
-	import { onMount } from 'svelte';
 	import Body from '$lib/components/screencasts/body.svelte';
+	import Header from '$lib/components/header.svelte';
 	import type { PageData } from './$types';
+	import { onMount } from 'svelte';
 
 	export let data: PageData;
 
@@ -26,6 +27,14 @@
 		};
 	});
 </script>
+
+<Header
+	title={data.screencast.title}
+	text={data.screencast.description}
+	textClassNames="mb-small text-large max-w-4xl mx-auto"
+	fullWidth
+	tight
+/>
 
 <Body screencast={data.screencast} />
 

@@ -10,6 +10,8 @@ Secure Shell Protocol (SSH) is the basis for connecting to your Gitpod workspace
 
 See [command-line](/docs/references/ides-and-editors/command-line) editors & IDEs documentation for more.
 
+`youtube: I4PNCuUeU-I`
+
 ## Manage your SSH Keys
 
 ### Installing a supported SSH client

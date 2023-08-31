@@ -33,13 +33,16 @@
 	</article>
 	<article>
 		<h2 class="h4 md:!mb-xx-small">
-			The company was established in 2020 and today over 500,000 devs have
+			The company was established in 2020 and today over 1M devs have
 			Gitpodified their workflows.
 		</h2>
 		<p>
 			We are grateful to be backed by some of the best venture firms and
-			advisors of the world. In 2021, we announced a $13m funding round
-			led by Steve Herrod, Managing Director of General Catalyst.
+			advisors of the world. In November 2022, we announced <a
+				data-sveltekit-preload-data="hover"
+				href="/blog/future-of-software-cdes"
+				class="!underline hover:!no-underline">our $25m Series A</a
+			>.
 		</p>
 		<br />
 		<p>
@@ -49,30 +52,30 @@
 		<br />
 
 		<p>
-			👐 We live by our <a
+			We live by our <a
 				data-sveltekit-preload-data="hover"
-				href="https://www.gitpod.io/blog/gitpod-core-values"
-				>core values</a
+				href="/blog/gitpod-core-values"
+				class="!underline hover:!no-underline">core values</a
 			>. They represent who we are and are a benchmark for how we serve
 			and work with each other.
 		</p>
 		<br />
 
 		<p>
-			⚡️ We aim for a frictionless experience. When interacting with our
+			We aim for a frictionless experience. When interacting with our
 			product, our company and our brand: no hurdles, no BS, no
 			unnecessary extra steps.
 		</p>
 		<br />
 
 		<p>
-			🌍 We are fully remote and globally distributed. You can work from
+			We are fully remote and globally distributed. You can work from
 			anywhere and work a schedule that fits you best.
 		</p>
 		<br />
 
 		<p>
-			🧡 We celebrate diversity and strive for an equal, inclusive,
+			We celebrate diversity and strive for an equal, inclusive,
 			empathetic and welcoming environment. We are currently not as
 			diverse as we would like to be, but are actively working to build a
 			more diverse and inclusive team.

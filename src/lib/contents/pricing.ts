@@ -1,15 +1,14 @@
 import type { Pricing, FeatureList } from '$lib/types/pricing';
 import { isEurope } from '$lib/utils/helpers';
 import type { Card } from '$lib/types/card';
-// @ts-ignore
 import type {
 	FeatureTable,
 	FeatureTableColumn,
 	FeatureTableToc,
 } from '../components/ui-library/feature-table/feature-table';
 import type { FAQ } from '../types/faq';
-// @ts-ignore
 import githubMarkSvelte from '$lib/components/svgs/github-mark.svelte';
+import { dedicatedPricingSalesCtaFeatureFlagStatus } from '$lib/utils/feature-flag-provider';
 
 export const pricingPlans: Pricing[] = [
 	{
@@ -53,9 +52,18 @@ export const dedicatedPricingPlans: Pricing[] = [
 			'access to private networking',
 			'SSO, custom SLAs and dedicated support',
 		],
-		btnText: 'Talk to sales',
+		btnText: `${
+			dedicatedPricingSalesCtaFeatureFlagStatus
+				? 'Talk to sales'
+				: 'Contact sales'
+		}`,
 		btnHref: '/contact/sales',
 		trackingName: 'dedicated',
+		experimentName: `${
+			dedicatedPricingSalesCtaFeatureFlagStatus
+				? 'dedicated_pricing_cta_talk_to_sales_clicked'
+				: 'dedicated_pricing_cta_contact_sales_clicked'
+		}`,
 		spiced: true,
 	},
 ];

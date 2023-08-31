@@ -10,7 +10,7 @@ By default, Gitpod uses a standard Docker Image called [`Workspace-Full`](https:
 
 If this image does not include the tools you need for your project, you can provide a public Docker image or your own [Dockerfile](#configure-a-custom-dockerfile). This provides you with the flexibility to install the tools & libraries required for your project.
 
-> **Note:** Gitpod supports Debian/Ubuntu based Docker images. Alpine images do not include [libgcc and libstdc++](https://code.visualstudio.com/docs/remote/linux#_tips-by-linux-distribution) which breaks Visual Studio Code. See also [Issue #3356](https://github.com/gitpod-io/gitpod/issues/3356).
+> **Note:** Gitpod supports Debian/Ubuntu based Docker images out-of-the-box. Some base images like Alpine do not include [libgcc and libstdc++](https://code.visualstudio.com/docs/remote/linux#_tips-by-linux-distribution) by default, which breaks Visual Studio Code. See a [reference Alpine base image](#alpine) and [issue #3356](https://github.com/gitpod-io/gitpod/issues/3356).
 
 ## Configuring a Workspace Image
 
@@ -35,6 +35,8 @@ For Gitpod images, we recommend using timestamped tag for maximum reproducibilit
 ### Use a private Docker image
 
 > This is currently in [Alpha](/docs/help/public-roadmap/release-cycle).
+
+`youtube: mH3wihkVVaE`
 
 You may also use private Docker images.
 
@@ -115,7 +117,9 @@ See also [Gero's blog post](/blog/docker-in-gitpod) running through an example.
 
 While it is recommended to extend one of the <a href="https://hub.docker.com/u/gitpod/" target="_blank">Gitpod-provided base images</a> for custom Dockerfiles to ensure the image has the required dependencies for a workspace, it is possible to configure a Dockerfile with a public (Debian/Ubuntu-based) image as its base.
 
-There are some requirements though for a public base image to work properly as a workspace. See the below Dockerfile as a reference. For instance, you'll need to set up the `gitpod` user with the right UID, and install `git` to enable your configured dotfiles for the workspace.
+There are some requirements for a public base image to work properly as a workspace. For example, you'll need to set up the `gitpod` user with the right UID, and install `git` to ensure your workspace can start. See the below Dockerfiles as a reference.
+
+#### Ubuntu
 
 ```dockerfile
 FROM ubuntu:latest
@@ -136,6 +140,29 @@ RUN apt-get update && apt-get install -yq \
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
 
 USER gitpod
+```
+
+#### Alpine
+
+```dockerfile
+FROM alpine:3.18.2
+
+RUN apk add --no-cache \
+        # Needed for Gitpod compatibility:
+        git\
+        # git-lfs \ # uncomment if needed
+        bash \
+        sudo  \
+        docker \
+        iptables\
+        # Needed for VSCode compatibility:
+        libgcc \
+        gcompat \
+        libstdc++\
+
+    # Add gitpod user
+    && echo '%gitpod ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/gitpod \
+    && addgroup -g 33333 gitpod && adduser -u 33333 -G gitpod -h /home/gitpod -s /bin/bash -D gitpod
 ```
 
 **Additional tools & languages:** see https://github.com/gitpod-io/workspace-images/tree/main/chunks for references to configure your workspace image with common tools and languages. For instance, [this Dockerfile](https://github.com/gitpod-io/workspace-images/blob/main/chunks/tool-docker/Dockerfile) shows how to install `docker` and `docker-compose`.

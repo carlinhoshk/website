@@ -3,8 +3,8 @@ import type { BannerData } from '$lib/types/banner';
 export const prerender = true;
 export const trailingSlash = 'never';
 
-const bannerStartDate = new Date('July 05 2023 06:00:00 EST');
-const bannerEndDate = new Date('October 14 2023 06:00:00 EST');
+const bannerStartDate = new Date('August 29 2023 06:00:00 EST');
+const bannerEndDate = new Date('November 14 2023 06:00:00 EST');
 
 export async function load() {
 	const currentDate = new Date();

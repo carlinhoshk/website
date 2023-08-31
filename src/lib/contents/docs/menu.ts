@@ -101,7 +101,6 @@ export const MENU: MenuEntry[] = [
 					'configure/self-hosted/latest/local-preview',
 					false,
 					[],
-					'alpha',
 				),
 				M(
 					'Installing Gitpod',
@@ -112,7 +111,6 @@ export const MENU: MenuEntry[] = [
 					'configure/self-hosted/latest/reference-architecture',
 					false,
 					[],
-					'alpha',
 				),
 				M(
 					'Advanced Installation',
@@ -267,6 +265,87 @@ export const MENU: MenuEntry[] = [
 	M('Security FAQ', 'references/security/faq'),
 	// M("Custom Docker image", "references/gitpod-dockerfile"),
 	// M("Architecture", "references/architecture"),
+	M('Gitpod Dedicated', 'gitpod-dedicated', true),
+	M('Guides', 'gitpod-dedicated/guides', false, [
+		M('Getting started', 'gitpod-dedicated/guides/getting-started'),
+		M(
+			'(Not) modify your AWS account',
+			'gitpod-dedicated/guides/not-modify-your-aws-account',
+		),
+		M(
+			'Update Dedicated Infrastructure',
+			'gitpod-dedicated/guides/updating-gitpod-dedicated-infrastructure',
+		),
+		M(
+			'Access Instance for Debugging',
+			'gitpod-dedicated/guides/getting-access-to-the-instance-for-debugging',
+		),
+		M(
+			'Using Custom Domains',
+			'gitpod-dedicated/guides/using-custom-domains',
+		),
+		M(
+			'Using a Custom or Private CA',
+			'gitpod-dedicated/guides/using-custom-or-private-ca',
+		),
+		M(
+			'Using Private VPC Resolvers',
+			'gitpod-dedicated/guides/using-private-vpc-resolvers',
+		),
+		// M(
+		// 	'Private ECR for Workspace Images',
+		// 	'gitpod-dedicated/guides/use-private-ecr-repos-for-workspace-images',
+		// ),
+		M(
+			'Accessing exported instance data',
+			'gitpod-dedicated/guides/accessing-data-exported-from-your-instance',
+		),
+		M(
+			'Reserving AWS Instances',
+			'gitpod-dedicated/guides/reserving-aws-instances-to-save-cost',
+		),
+		M(
+			'Delete your Gitpod installation',
+			'gitpod-dedicated/guides/deleting-your-gitpod-installation',
+		),
+		// M('Content', 'help/contribute/content'),
+		// M('Documentation', 'help/contribute/documentation'),
+		// M('Features & Patches', 'help/contribute/features-and-patches'),
+	]),
+	M('Background', 'gitpod-dedicated/background', false, [
+		M(
+			'Data & Observability',
+			'gitpod-dedicated/background/data-observability',
+		),
+		M(
+			'Deployment & Updates',
+			'gitpod-dedicated/background/deployment-updates',
+		),
+		// M('Architecture', 'gitpod-dedicated/reference/architecture'),
+		// M('Networking and Data Flows', 'gitpod-dedicated/reference/networking-data-flows'),
+		// M('Infrastructure cost', 'gitpod-dedicated/reference/infrastructure-cost'),
+		// M('Infrastructure Update Changelog', 'gitpod-dedicated/reference/infrastructure-update-changelog'),
+	]),
+	M('Reference', 'gitpod-dedicated/reference', false, [
+		M(
+			'AWS IAM permissions',
+			'gitpod-dedicated/reference/aws-iam-permission-requirements',
+		),
+		M('Architecture', 'gitpod-dedicated/reference/architecture'),
+		M(
+			'Networking and Data Flows',
+			'gitpod-dedicated/reference/networking-data-flows',
+		),
+		// M(
+		// 	'Infrastructure cost',
+		// 	'gitpod-dedicated/reference/infrastructure-cost',
+		// ),
+		M(
+			'Infrastructure Update Changelog',
+			'gitpod-dedicated/reference/infrastructure-update-changelog',
+		),
+	]),
+
 	M('Help', 'help', true),
 	M('Contribute', 'help/contribute', false, [
 		M('Content', 'help/contribute/content'),

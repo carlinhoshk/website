@@ -7,6 +7,7 @@
 	import IntegrateDontDictate from '$lib/components/index/integrate-dont-dictate.svelte';
 	import OpenGraph from '$lib/components/open-graph.svelte';
 	import Hero from '$lib/components/cde/hero.svelte';
+	import GartnerReport from '$lib/components/cde/gartner-report.svelte';
 </script>
 
 <OpenGraph
@@ -18,6 +19,7 @@
 />
 <Hero />
 <Titles />
+<GartnerReport />
 <IntegrateDontDictate class="py-small" />
 <div id="choose-project-observer-target-top" />
 <ChooseProject />

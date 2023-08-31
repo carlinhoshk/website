@@ -36,6 +36,8 @@ VS Code in the browser with Gitpod has Settings Sync enabled by default, syncing
 
 ### Enabling Settings Sync in VS Code Desktop
 
+> **Notice:** As of version 1.81, Settings Sync in VS Code is experiencing issues, due to [an unanticipated change in the upstream VS Code API](https://github.com/microsoft/vscode/pull/187006). Whilst the issue is resolved, we recommend using an earlier version of VS Code, such as [1.80.2](https://code.visualstudio.com/updates/v1_80). For updates or feedback, see this issue: [#18573](https://github.com/gitpod-io/gitpod/issues/18573).
+
 1. Install and enable the [Gitpod extension](https://marketplace.visualstudio.com/items?itemName=gitpod.gitpod-desktop).
 
 **Note:** If you open VS Code Desktop directly from Gitpod, the Gitpod extension is automatically installed for you.

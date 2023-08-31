@@ -95,6 +95,9 @@
 					<FooterLink href="/discover/education">Education</FooterLink
 					>
 				</li>
+				<li>
+					<FooterLink href="/discover/startups">Startups</FooterLink>
+				</li>
 			</Section>
 			<Section title="Solutions">
 				<li>

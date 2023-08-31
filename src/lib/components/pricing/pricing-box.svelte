@@ -22,6 +22,7 @@
 		prependedPrice,
 		showCurrency,
 		plans,
+		experimentName,
 	} = pricing;
 </script>
 
@@ -91,7 +92,9 @@
 				href={btnHref}
 				data-analytics={`{"context":"` +
 					trackingName +
-					`","position":"hero"}`}>{btnText}</LinkButton
+					`","position":"hero", "experiments_variant":"` +
+					experimentName +
+					`"}`}>{btnText}</LinkButton
 			>
 		</div>
 	{/if}

@@ -1,10 +1,13 @@
 <script lang="ts">
+	import { dedicatedPricingSalesCtaFeatureFlagStatus } from '$lib/utils/feature-flag-provider';
+	import { trackEvent } from '$lib/components/segment.svelte';
 	import PricingBoxes from './pricing-boxes.svelte';
 	import type { Pricing } from '$lib/types/pricing';
 	import Header from '../header.svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
-	import EnterprirseCalloutCard from './enterprirse-callout-card.svelte';
+	import EnterprirseCalloutCard from './enterprise-callout-card.svelte';
+	import DedicatedCalloutCard from './dedicated-callout-card.svelte';
 	import { onMount } from 'svelte';
 	import Toggle from '$lib/components/toggle.svelte';
 	let checked: boolean = false;
@@ -22,10 +25,15 @@
 	export let dedicatedPricingPlans: Pricing[] = [];
 
 	// if page URL is /pricing?plan=dedicated, show dedicated pricing plans and make checked true
-	onMount(() => {
+	onMount(async () => {
 		if ($page.url.searchParams.get('plan') === 'dedicated') {
 			checked = true;
 		}
+		await trackEvent('component_loaded', {
+			experiments_variant: dedicatedPricingSalesCtaFeatureFlagStatus
+				? 'dedicated_pricing_cta_talk_to_sales_loaded'
+				: 'dedicated_pricing_cta_contact_sales_loaded',
+		});
 	});
 </script>
 
@@ -57,4 +65,5 @@
 			<PricingBoxes plan={dedicatedPricingPlans} />
 		{/if}
 	</div>
+	<DedicatedCalloutCard />
 {/if}
