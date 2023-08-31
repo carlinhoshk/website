@@ -283,7 +283,7 @@ The allowlist will apply to all inbound traffic to the Gitpod Dedicated Instance
 
 <details class="ml-4">
 
-<summary class="text-body text-p-medium my-micro">When using a Custom Domain</summary>
+<summary class="text-body text-p-medium mt-micro">When using a Custom Domain</summary>
 
 Please see [Using Custom Domains](/docs/gitpod-dedicated/guides/using-custom-domains) for more information about using a custom domains. In addition to the above, the following information is required:
 
