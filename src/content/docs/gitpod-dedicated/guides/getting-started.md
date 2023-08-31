@@ -344,7 +344,7 @@ Both of these templates will be provided by your Gitpod Account Manager.
 
 1. Before executing the CloudFormation template, you need to ensure the Transit Gateway that the Gitpod instance attaches to is able to accept attachment requests. For this, the Transit Gateway needs to be shared using AWS Resource Access Manager (RAM) to allow for other AWS accounts in your Organization to send attachment requests for approval. More info on Transit Gateway attachments can be found here.
 2. During the execution of the CloudFormation template, a Transit Gateway attachment to the Transit Gateway defined above is initiated. If you do not have resource sharing policies for this or auto accept turned on, you will have to manually accept this attachment request.
-3. Flow to manually approve the attachment request: Navigate to the AWS account the Transit Gateway attachment is in and navigate to the Transit Gateway Attachments page. Within 5 minutes of starting the CloudFormation execution, you should see a pending attachment in which you have limited time to approve else stack creation fails. Find out more in the AWS documentation.
+3. The flow to manually approve the attachment request is as follows: Navigate to the AWS account the Transit Gateway attachment is in and navigate to the Transit Gateway Attachments page. Within 5 minutes of starting the CloudFormation execution, you should see a pending attachment in which you have limited time to approve else stack creation fails. Find out more in the AWS documentation.
 
 </div>
 
