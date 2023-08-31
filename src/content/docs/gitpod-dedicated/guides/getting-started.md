@@ -76,7 +76,7 @@ Follow the process below to acquire and install your Cloudformation templates:
 
 Your Gitpod account manager will ask for information needed to generate the CloudFormation templates used to install Gitpod. The information required depends on the choice of networking mode. To help choose the right networking mode, please see [Networking and Data flows](/docs/gitpod-dedicated/reference/networking-data-flows) for general guidance and requirements on which services Gitpod needs to be able to route to.
 
-Please provide the information required by the chosen networking mode: 
+Please provide the information required by the chosen networking mode:
 
 <details class="ml-4">
 <summary class="text-body text-p-medium mt-micro">All Private Networking Mode</summary>
@@ -308,11 +308,11 @@ Please see [Using a Custom or Private CA](/docs/gitpod-dedicated/guides/using-cu
 
 You will need to execute two CloudFormation templates to install the infrastructure and subsequently Gitpod Dedicated:
 
-1. Role Template: The `infrastructure-creation-role-template.json` creates a new IAM role with ten policies attached. These policies grant the minimum permissions necessary to install and run Gitpod Dedicated in your account.
+1. `gitpod-role` Template: This template creates a new IAM role with ten policies attached. These policies grant the minimum permissions necessary to install and run Gitpod Dedicated in your account.
 
-2. Gitpod Dedicated Template: The `<company>-gitpod-template.json` CloudFormation template installs the infrastructure for Gitpod Dedicated. The role created by the first template is used when installing this second one.
+2. `gitpod-instance` Template: This template installs the infrastructure for Gitpod Dedicated. The role created by the first template is used when installing this second template.
 
-Both of these templates will be provided by your Gitpod Account Manager.
+Both of these templates will be provided by your Gitpod Account Manager via direct links to the CloudFormation creation wizard. If you whish to see the templates as files for review before execution, please contact your Gitpod Account Manager.
 
 ### 2.3 Execute CloudFormation templates
 
@@ -320,13 +320,13 @@ Both of these templates will be provided by your Gitpod Account Manager.
 
 <div class="ml-6">
 
-1. First, execute the `infrastructure-creation-role-template.json` template that will be shared by your Gitpod account manager in the Gitpod Dedicated AWS account. During the "configure stack options" step, ensure you select the "roll back all the stack resources" option under "Stack failure options". This will ensure that all resources created by the template are deleted if the template fails to execute.
+1. First, execute the `gitpod-role` template by navigating to the link shared by your Gitpod Account Manager. During the "configure stack options" step, ensure you select the "roll back all the stack resources" option under "Stack failure options". This will ensure that all resources created by the template are deleted if the template fails to execute.
 
 <div style="display: flex; justify-content: center;">
   <img src="/images/docs/gitpod-dedicated/guides/getting-started/stackoptions.webp" alt="Stack Options" style="width: 80%;">
 </div>
 
-2. Then, execute `<company>-gitpod-template.json` that will be shared by your Gitpod account manager in the same AWS account. This will create the infrastructure that Gitpod Dedicated requires.
+2. Then, execute `gitpod-instance` template also by navigating to the link shared by your Gitpod Account Manager in the same AWS account. This will create the infrastructure that Gitpod Dedicated requires.
 
 > ℹ️ During the “configure stack options” step, select the role created by the first CloudFormation template (`GitpodSetupAndInitialEKSUserAdmin`) as the role used for permissions. Depending on timing, you may need to manually select the role using its ARN. Again, select the “roll back all the stack resources” option.
 
