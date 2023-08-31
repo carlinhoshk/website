@@ -320,7 +320,7 @@ Both of these templates will be provided by your Gitpod Account Manager.
 
 <div class="ml-6">
 
-1. First, execute the `infrastructure-creation-role-template.json` template in the Gitpod Dedicated AWS account. During the "configure stack options" step, ensure you select the "roll back all the stack resources" option under "Stack failure options". This will ensure that all resources created by the template are deleted if the template fails to execute.
+1. First, execute the `infrastructure-creation-role-template.json` template that will be shared by your Gitpod account manager in the Gitpod Dedicated AWS account. During the "configure stack options" step, ensure you select the "roll back all the stack resources" option under "Stack failure options". This will ensure that all resources created by the template are deleted if the template fails to execute.
 
 <div style="display: flex; justify-content: center;">
   <img src="/images/docs/gitpod-dedicated/guides/getting-started/stackoptions.webp" alt="Stack Options" style="width: 80%;">
