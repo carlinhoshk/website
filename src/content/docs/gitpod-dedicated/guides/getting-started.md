@@ -118,7 +118,7 @@ Please provide the information required by the chosen networking mode:
 <summary class="text-body text-p-medium">📝 Note on auto propagation:</summary>
 
 <div class="ml-4">
-When using auto-propagation by default, delete the propagation from your Transit Gateway Routetable associated with the Gitpod Transit Gateway Attachment and replace it with a static route pointing the Relay CIDR range (/25) to the Gitpod Transit Gateway Attachment ID. This ensures only the required relay range is shared on your Transit Gateway network and no other routes are accidentally broadcast.
+When using auto-propagation by default, delete the propagation from your Transit Gateway Routetable associated with the Gitpod Transit Gateway Attachment and replace it with a static route pointing the Relay CIDR range (/25) to the Gitpod Transit Gateway Attachment ID. This ensures only the required relay range is shared on your Transit Gateway network and no other routes are accidentally broadcasted.
 </div>
 
 </details>
