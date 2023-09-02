@@ -113,26 +113,49 @@ Once committed and pushed, Gitpod will automatically build this Dockerfile when 
 
 See also [Gero's blog post](/blog/docker-in-gitpod) running through an example.
 
-#### What's available from Gitpod during the docker build process
+### What's available from Gitpod during the docker container build process
 
 **Available:**
 
--   Git repository at CWD. For example, you can copy your repository inside the container and execute a script present in the repository:
-
-```dockerfile
-FROM gitpod/workspace-full
-
-# At first copy the repository files to ${TARGET_DIR}
-ARG TARGET_DIR="/tmp/work"
-COPY --chown gitpod:gitpod . "${TARGET_DIR}"
-
-# Let's suppose there is a bash script in our repository, we can try to execute it
-RUN cd "${TARGET_DIR}" && bash ./scripts/compile.sh
-```
+-   Git repository at CWD.
+    > For example, you can copy your repository inside the container and execute a script present in the repository:
+    >
+    > ```dockerfile
+    > FROM gitpod/workspace-full
+    >
+    > # At first copy the repository files to ${TARGET_DIR}
+    > ARG TARGET_DIR="/tmp/work"
+    > COPY --chown gitpod:gitpod . "${TARGET_DIR}"
+    >
+    > # Let's suppose there is a bash script in our repository, we can try to execute it
+    > RUN cd "${TARGET_DIR}" && bash ./scripts/compile.sh
+    > ```
 
 **Not available:**
 
--   [Gitpod environment variables](/docs/configure/projects/environment-variables)
+-   [Gitpod environment variables](/docs/configure/projects/environment-variables), not available due to security reasons.
+
+    > If you want to access Gitpod environment variables or build an image with sensitive information, you may build it inside your Gitpod workspace. Here's what you could do:
+    >
+    > -   Prepare a custom dockerfile (`.gitpod.Dockerfile`), example contents:
+    >
+    > ```dockerfile
+    > FROM gitpod/workspace-full
+    >
+    > # Lets suppose DOWNLOAD_URL is saved as a Gitpod environment variable
+    > RUN curl -L "${DOWNLOAD_URL}" -o "${HOME}/payload.tar"
+    > ```
+    >
+    > -   Build a container with such a command: `docker build --build-arg DOWNLOAD_URL -f .gitpod.Dockerfile .`
+    > -   Push the image to your dockerhub account and change it's visibility to private.
+    > -   Use the image from your `.gitpod.yml`:
+    >
+    > ```yml
+    > image: your_username/image_name
+    > ```
+    >
+    > -   Setup [private docker image support](#use-a-private-docker-image) on Gitpod to use it.
+
 -   [Gitpod CLI](/docs/references/gitpod-cli)
 -   [`/ide` layer](/docs/references/ides-and-editors)
 -   [Persistent `/workspace` directory mount](/docs/configure/workspaces/workspace-lifecycle#workspace-statuses)
