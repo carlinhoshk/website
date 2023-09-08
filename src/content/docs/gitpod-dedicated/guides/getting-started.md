@@ -546,9 +546,9 @@ _Creating a Gitpod SSO Integration_
 
 <div class="ml-6 mt-macro">
 
-_Follow the [Cognito User Pool setup process](https://eu-central-1.console.aws.amazon.com/cognito/v2/home)_
+> ℹ️ AWS Congito is a sensible identity provider (IdP) to use when the goal is to quickly set up Gitpod in a test or POV environment. In this scenario, most settings should be left at their defaults.
 
-> ℹ️ AWS Congito is a sensible identity provider to use when the goal is to quickly set up Gitpod in a test or POV environment. In this scenario, most settings should be left at their defaults.
+_Follow the [Cognito User Pool setup process](https://eu-central-1.console.aws.amazon.com/cognito/v2/home)_
 
 ![Congiton User Pool Process](/images/docs/gitpod-dedicated/guides/getting-started/sso/cognito/cognito-one.png)
 
@@ -561,8 +561,7 @@ _Follow the [Cognito User Pool setup process](https://eu-central-1.console.aws.a
 
 3. Configure Security requirements:
    ![Congito Security Requirements](/images/docs/gitpod-dedicated/guides/getting-started/sso/cognito/cognito-security-requirements.png)
-    - For development purposes, consider modifying the MFA enforcment policy. This should be require for Production use cases
-    - Configure the MFA and user account recovery sections according to organizational guidelines
+    - For development purposes, consider modifying the MFA enforcment policy to not require MFA. For all production use cases, configure the MFA and user account recovery sections according to organizational guidelines
 4. Configure sign-up experience:
    ![Congito Security Requirements](/images/docs/gitpod-dedicated/guides/getting-started/sso/cognito/cognito-signup-experience.png)
     - Disable Self Registration if you want to limit access (e.g. when the instance is publicly accessible)
