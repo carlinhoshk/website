@@ -540,6 +540,53 @@ _Creating a Gitpod SSO Integration_
 
 </details>
 
+<details class="mt-macro">
+
+<summary class="text-body font-semibold text-p-medium">AWS Cognito</summary>
+
+<div class="ml-6 mt-macro">
+
+_Follow the [Cognito User Pool setup process](https://eu-central-1.console.aws.amazon.com/cognito/v2/home)_
+
+![Congiton User Pool Process](/images/docs/gitpod-dedicated/guides/getting-started/sso/cognito/cognito-one.png)
+
+1. Most settings should be left at their defaults
+2. Configure sign-in experience:
+   ![Congito Sing In Requirements](/images/docs/gitpod-dedicated/guides/getting-started/sso/cognito/cognito-signin.png)
+
+-   Select `Cognito User Pool` as provider type
+-   Select email as the Cognito user pool signin option
+
+3. Configure Security requirements:
+    1. For development purposes, consider modifying the MFA enforcment policy. This should be require for Production use cases
+    2. Configure the MFA and user account recovery sections according to your organizational guidelines
+4. [SignUp Experience](cognito-name-required.png):
+    1. Disable Self Registration for a publicly accessible GitPod Cluster
+    2. REQUIRED ATTRIBUTES: name (screenshot)
+5. Configure Message Delivery:
+    1. For Dev Setups, use Cognito as the email provider; for Prod, use the companies SES setup
+6. Integrate your app:
+    1. follow company best practice for most settings
+    2. [Generate a client secret](cognito-app-client-secret.png)
+    3. Call back url as provided by the [dedicated instance](cognito-app-callback.png)
+    4. Identity provider: Cognito
+    5. [OAuth 2.0 grant types: Auth Code Grant](cognito-app-scopes.png)
+    6. [OIDC Scopes: OpenID, Email, Profile](cognito-app-scopes.png)
+    7. Create! The review page should show you something like [review](review.mov)
+
+_Copy values to Gitpod setup page_
+
+1. Navigate to: `https://cognito-idp.**{REGION}**.amazonaws.com/{**USER POOL ID**}/.well-known/openid-configuration`
+2. [This will give you a web page with raw JSON data.](cognito-well-known-issuer.png)
+3. Copy the [issuer URL](cognito-well-known-issuer.png) and paste it in the [GitPod Dedicated configuration](gitpod-sso-config.png)
+4. Copy the [Client ID](cognito-app-client.png) from the Cognito User Pool’s App Integration menu to [GitPod](gitpod-sso-config.png)
+5. Copy the [Client Secret](cognito-app-client.png) from Cognito to [GitPod](gitpod-sso-config.png)
+6. Proceed to Verify the SSO configuration on the Github SSO setup page [by clicking “Verify SSO Configuration”](/docs/gitpod-dedicated/guides/getting-started#:~:text=or%20Azure%20AD.-,General%20instructions,-You%20will%20need)
+
+</div>
+
+</details>
+
 </div>
 
 </details>
