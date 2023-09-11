@@ -29,9 +29,12 @@ For Gitpod to function, the following services need to be reachable from the ins
 -   **Login via SSO** (outbound connectivity only): This feature allows users to log into the instance when using SSO via OIDC (default). Only outbound connectivity is needed as the callback URL is resolved on the users machine rather than within the Gitpod Instance. If the provider for SSO is only available on the public internet, this means the instance requires an outward route to the internet.
 -   **Git provider** (outbound connectivity always required, inbound connectivity for prebuilds): This feature enables users to see the contents of their Git repos and for enabling [prebuilds](https://www.gitpod.io/docs/configure/projects/prebuilds). For prebuilds, inbound connectivity is required as they use webhooks to be triggered. If the git provider is only available on the public internet (e.g. Gitlab.com), this means the instance requires an inbound and outbound connection to the public internet.
 -   **Identity Provider (IDP) connectivity** (inbound and outbound connectivity): IDP connectivity (both inbound and outbound) is required to enable [OIDC from within workspaces](https://www.gitpod.io/docs/configure/workspaces/oidc). This allows workspaces to connect and authenticate with third party services such as AWS. If the IDP is only available on the public internet, this means the instance requires an inbound and outbound connection to the public internet.
--   **[Open VSX](https://open-vsx.org/)** (outbound connectivity only)**:** In order for VS code extensions to work, the following endpoints need to be reachable from the Gitpod Account and, if using VS Code Desktop, from the users workstation:
-    -   [https://open-vsx.gitpod.io](https://open-vsx.gitpod.io/): This is the registry that contains references to the VS code extensions.
-    -   [https://openvsxorg.blob.core.windows.net](https://openvsxorg.blob.core.windows.net/): The actual content of the extensions is downloaded from blob storage.
+-   **VS Code** (in the browser)
+    -   **[Open VSX](https://open-vsx.org/)** (outbound connectivity only)**:** In order for VS code extensions to work, the following endpoints need to be reachable from the Gitpod Account:
+        -   [https://open-vsx.gitpod.io](https://open-vsx.gitpod.io/): This is the registry that contains references to the VS code extensions.
+        -   [https://openvsxorg.blob.core.windows.net](https://openvsxorg.blob.core.windows.net/): The actual content of the extensions is downloaded from blob storage.
+    -   **JSON**: In order for the JSON extension to properly work and provide IntelliSense and validation, the following endpoint needs to be reachable from the Gitpod Account:
+        -   [JSON Schema Store](https://www.schemastore.org/): provide schemas for most of the common JSON-based configuration files.
 
 ### Networking Modes and Diagrams
 
