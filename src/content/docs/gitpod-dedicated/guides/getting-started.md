@@ -550,9 +550,8 @@ _Creating a Gitpod SSO Integration_
 
 _Follow the [Cognito User Pool setup process](https://eu-central-1.console.aws.amazon.com/cognito/v2/home), then copy the necessary values into the Gitpod SSO Configuration UI_
 
-![Congiton User Pool Process](/images/docs/gitpod-dedicated/guides/getting-started/sso/cognito/cognito-one.png)
-
-1. Navigate to the Cognito page in the AWS console. Select create user pool
+1. Navigate to the Cognito page in the AWS console. Select create user pool:
+   ![Congiton User Pool Process](/images/docs/gitpod-dedicated/guides/getting-started/sso/cognito/cognito-one.png)
 2. Configure sign-in experience:
    ![Congito Sing In Requirements](/images/docs/gitpod-dedicated/guides/getting-started/sso/cognito/cognito-signin.png)
 
