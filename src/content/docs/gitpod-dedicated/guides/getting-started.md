@@ -546,7 +546,7 @@ _Creating a Gitpod SSO Integration_
 
 <div class="ml-6 mt-macro">
 
-> ℹ️ Choose this option if you already use AWS Cognito. AWS Cognito is also a good option in a testing or PoV scenario where you don't have an IDP you can easily integrate with. In this scenario, most settings should be left at their defaults.
+> ℹ️ Choose this option if you already use AWS Cognito. AWS Cognito is also a good option in a testing or Proof of Value (PoV) scenario where you don't have an IDP you can easily integrate with. In this scenario, most settings should be left at their defaults.
 
 _Follow the [Cognito User Pool setup process](https://eu-central-1.console.aws.amazon.com/cognito/v2/home), then copy the necessary values into the Gitpod SSO Configuration UI_
 
