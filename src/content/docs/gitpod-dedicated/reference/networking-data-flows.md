@@ -34,7 +34,7 @@ For Gitpod to function, the following services need to be reachable from the ins
         -   [https://open-vsx.gitpod.io](https://open-vsx.gitpod.io/): This is the registry that contains references to the VS code extensions.
         -   [https://openvsxorg.blob.core.windows.net](https://openvsxorg.blob.core.windows.net/): The actual content of the extensions is downloaded from blob storage.
     -   **JSON**: In order for the JSON extension to properly work and provide IntelliSense and validation, the following endpoint needs to be reachable from the Gitpod Account:
-        -   [JSON Schema Store](https://www.schemastore.org/): provide schemas for most of the common JSON-based configuration files.
+        -   [JSON Schema Store](https://www.schemastore.org/) provide schemas for most of the common JSON-based configuration files.
 
 ### Networking Modes and Diagrams
 
