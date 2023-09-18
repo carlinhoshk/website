@@ -146,7 +146,7 @@ See also [Gero's blog post](/blog/docker-in-gitpod) running through an example.
     > RUN curl -L "${DOWNLOAD_URL}" -o "${HOME}/payload.tar"
     > ```
     >
-    > -   Build a container with such a command: `docker build --build-arg DOWNLOAD_URL -f .gitpod.Dockerfile .`
+    > -   Build an image using the Docker daemon running in your workspace like so: `docker build --build-arg DOWNLOAD_URL -f .gitpod.Dockerfile .`
     > -   Push the image to your dockerhub account and change it's visibility to private.
     > -   Use the image from your `.gitpod.yml`:
     >
