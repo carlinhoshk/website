@@ -142,7 +142,7 @@ See also [Gero's blog post](/blog/docker-in-gitpod) running through an example.
     > ```dockerfile
     > FROM gitpod/workspace-full
     >
-    > # Lets suppose DOWNLOAD_URL is saved as a Gitpod environment variable
+    > # Lets suppose DOWNLOAD_URL is saved as a Gitpod environment variable that is visible (not hidden to the workspace)
     > RUN curl -L "${DOWNLOAD_URL}" -o "${HOME}/payload.tar"
     > ```
     >
