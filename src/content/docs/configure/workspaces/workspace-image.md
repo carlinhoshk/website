@@ -151,7 +151,7 @@ See also [Gero's blog post](/blog/docker-in-gitpod) running through an example.
     > -   Use the image from your `.gitpod.yml`:
     >
     > ```yml
-    > image: your_username/image_name
+    > image: registry.hub.docker.com/your_username/image
     > ```
     >
     > -   Setup [private docker image support](#use-a-private-docker-image) on Gitpod to use it.
