@@ -113,7 +113,7 @@ Once committed and pushed, Gitpod will automatically build this Dockerfile when 
 
 See also [Gero's blog post](/blog/docker-in-gitpod) running through an example.
 
-### What's available from Gitpod during the docker container build process
+### What is available at build time
 
 **Available:**
 
