@@ -56,21 +56,32 @@ $ gp idp token --audience example.org
 eyJhbGciOiJSUzI1NiIsImtpZCI6ImlkLTE2ODQ3NTc4MDY...
 ```
 
-The output, when decoded (utilizing a JWT decoder such as [jwt.io](https://jwt.io/)), translates to a JSON object similar to the one below.
+To decode the output, use the `--decode` flag. Once decoded, the result will resemble the JSON object below.
+
+```bash
+gp idp token --audience example.org --decode
+```
 
 ```json
 {
-	"aud": ["example.org"],
-	"auth_time": 1684777794,
-	"azp": "example.org",
-	"c_hash": "gc_vPbUNoCT0UmXDCdp1sw",
-	"email": "kumquat@gitpod.io",
-	"email_verified": true,
-	"exp": 1684781394,
-	"iat": 1684777794,
-	"iss": "https://api.gitpod.io/idp",
-	"name": "Kumquat The Third",
-	"sub": "https://github.com/gitpod-io/website/pull/1"
+	"Header": {
+		"alg": "RS256",
+		"kid": "id-9445aaab5c965efa28cc62113fe0017de377c2a5589b8d8a45984032547190f3"
+	},
+	"Payload": {
+		"aud": ["example.org"],
+		"auth_time": 1695222733,
+		"azp": "example.org",
+		"c_hash": "gc_vPbUNoCT0UmXDCdp1sw",
+		"email": "kumquat@gitpod.io",
+		"email_verified": true,
+		"exp": 1695226333,
+		"iat": 1695222733,
+		"iss": "https://api.gitpod.io/idp",
+		"name": "Kumquat The Third",
+		"org_id": "dbe55a3c-5c06-438f-b164-a9fb732bcd84",
+		"sub": "https://github.com/gitpod-io/website/pull/1"
+	}
 }
 ```
 
